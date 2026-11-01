@@ -1,0 +1,8 @@
+*.log
+*.bak
+*.fixed
+*.fixed.html
+node_modules/
+.vscode/
+.DS_Store
+Thumbs.db

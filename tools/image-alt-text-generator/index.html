@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Alt-Text &amp; Caption Generator (SEO &amp; Accessibility) — ToolNest</title>
+  <meta name="description" content="Generate descriptive WCAG alt-text, SEO image descriptions, ready-to-paste HTML img tags, and social captions using browser-based AI. 100% private and client-side.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/image-alt-text-generator/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="AI Image Alt-Text &amp; Caption Generator (SEO &amp; Accessibility) — ToolNest">
+  <meta property="og:description" content="Generate descriptive WCAG alt-text, SEO image descriptions, and captions in your browser with client-side vision AI.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/image-alt-text-generator/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Image Alt-Text &amp; Caption Generator (SEO &amp; Accessibility) — ToolNest">
+  <meta name="twitter:description" content="Generate descriptive WCAG alt-text, SEO image descriptions, and captions in your browser with client-side vision AI.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "AI Image Alt-Text & Caption Generator", "item": "https://[DOMAIN]/tools/image-alt-text-generator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest AI Image Alt-Text & Caption Generator",
+        "url": "https://[DOMAIN]/tools/image-alt-text-generator/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Browser-based AI vision tool that generates WCAG screen-reader alt-text, SEO image descriptions, HTML img snippets, and social captions locally."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the AI Image Alt-Text Generator work without an API key or server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It uses a Vision-to-Text AI model (ViT-GPT2 via Transformers.js and WebAssembly) running inside a Web Worker in your browser. On first use, the model downloads once and caches in your browser, then analyzes all photos 100% locally on your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes good WCAG and SEO image alt-text?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Good alt-text concisely describes the subject and context of the image in under 125 characters, avoids redundant phrases like 'image of' or 'picture of', and naturally incorporates relevant context or product keywords without keyword stuffing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I include my target SEO keyword or product name in the generated alt-text?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Enter your target keyword or brand/product name in the optional Target SEO Keyword field. The generator automatically weaves your keyword into the WCAG alt-text, SEO alt-text, HTML img tag, and detailed caption."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool also extract dominant colors and image dimensions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Alongside the AI vision caption, the tool inspects pixel colors on a local canvas to identify the dominant color palette, orientation, and exact width/height attributes for CLS-safe HTML img tags."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my product photos or unpublished blog graphics uploaded anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Your images stay strictly inside your browser's local memory and are never uploaded to any external server."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link active" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap">
+            <label for="tn-header-search" class="visually-hidden">Search all tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, Taka)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <!-- Main 2-Column Layout -->
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Primary Tool Column -->
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">AI Image Alt-Text &amp; Caption Generator</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">AI Image Alt-Text &amp; Caption Generator (SEO &amp; Accessibility)</h1>
+          <p class="text-muted mb-3">
+            Analyze any photo with <strong>browser-based Vision AI</strong> to generate screen-reader friendly <strong>WCAG alt-text</strong>, keyword-enriched <strong>SEO descriptions</strong>, ready-to-paste <strong>HTML <code>&lt;img&gt;</code> code</strong>, and social captions. Runs <strong>100% locally in your browser</strong>—your images never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="AI Image Alt-Text and Caption Generator Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side Vision AI &bull; Photos Are Analyzed Locally in Your Browser
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Upload Image</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Add Optional SEO Context</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Generate &amp; Copy Alt-Text</div>
+            </div>
+
+            <!-- 1. Drag & Drop Upload Zone -->
+            <div id="tn-alt-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Upload or drag and drop an image">
+              <i class="bi bi-eye-fill tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drag &amp; Drop a Photo Here, or Click to Browse</h2>
+              <p class="small text-muted mb-3">Supports JPEG, PNG, and WebP up to 20 MB (16 MP max).</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                <label for="tn-alt-file" class="btn tn-btn--primary mb-0">
+                  <i class="bi bi-upload" aria-hidden="true"></i> Choose Image
+                </label>
+                <button type="button" id="tn-alt-sample" class="btn tn-btn--outline">
+                  <i class="bi bi-magic" aria-hidden="true"></i> Load Sample Image
+                </button>
+              </div>
+              <input id="tn-alt-file" class="d-none" type="file" accept="image/jpeg,image/png,image/webp">
+            </div>
+
+            <!-- 2. Optional SEO Keyword & Context Controls -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <div class="row g-3">
+                <div class="col-md-7">
+                  <label for="tn-alt-keyword" class="form-label fw-bold small mb-1">
+                    Optional Target SEO Keyword / Brand / Product Name
+                  </label>
+                  <input type="text" id="tn-alt-keyword" class="form-control" placeholder="e.g. Handcrafted leather laptop bag, Dhaka cafe...">
+                </div>
+                <div class="col-md-5">
+                  <label for="tn-alt-context" class="form-label fw-bold small mb-1">
+                    Content Style / Purpose
+                  </label>
+                  <select id="tn-alt-context" class="form-select">
+                    <option value="seo" selected>SEO &amp; Blog Article (Balanced)</option>
+                    <option value="ecommerce">E-Commerce Product Listing</option>
+                    <option value="wcag">WCAG Screen Reader (Strict)</option>
+                    <option value="editorial">Editorial &amp; Social Media</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button id="tn-alt-run" class="btn tn-btn--primary px-4" type="button" disabled>
+                <i class="bi bi-stars" aria-hidden="true"></i> Generate AI Alt-Text &amp; Captions
+              </button>
+              <button id="tn-alt-clear" class="btn tn-btn--outline text-danger ms-auto" type="button" disabled>
+                <i class="bi bi-trash3" aria-hidden="true"></i> Clear
+              </button>
+            </div>
+
+            <p id="tn-alt-status" class="small text-muted mb-3" role="status" aria-live="polite">
+              Choose a photo to get started.
+            </p>
+
+            <!-- AI Model Progress Bar -->
+            <div id="tn-alt-progress-wrap" class="mb-3 d-none" aria-live="polite">
+              <div class="d-flex justify-content-between small text-muted mb-1">
+                <span id="tn-alt-progress-label">Loading AI vision model...</span>
+              </div>
+              <div class="progress" style="height: 0.65rem;">
+                <div id="tn-alt-progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <!-- Image Preview & Detected Visual Metadata -->
+            <div id="tn-alt-preview-section" class="p-3 rounded-3 border bg-light mb-3 d-none">
+              <div class="row g-3 align-items-center">
+                <div class="col-sm-5 text-center">
+                  <img id="tn-alt-preview-img" class="img-fluid rounded border bg-white" alt="Selected photo preview" style="max-height: 200px; object-fit: contain;">
+                </div>
+                <div class="col-sm-7">
+                  <h3 class="h6 fw-bold mb-2">Detected Image Attributes</h3>
+                  <div class="d-flex flex-wrap gap-2 mb-2">
+                    <span id="tn-alt-meta-dims" class="badge bg-primary">0 &times; 0 px</span>
+                    <span id="tn-alt-meta-orient" class="badge bg-secondary-subtle text-dark border">Landscape</span>
+                  </div>
+                  <div class="small text-muted mb-1">Dominant Color Palette:</div>
+                  <div id="tn-alt-palette" class="d-flex flex-wrap gap-1"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Generated Alt-Text & Caption Results -->
+            <div id="tn-alt-results" class="d-none">
+              <div class="p-3 rounded-3 border bg-primary-subtle border-primary-subtle mb-3">
+                <div class="small fw-bold text-primary mb-1">
+                  <i class="bi bi-cpu me-1" aria-hidden="true"></i> Raw AI Vision Detection:
+                </div>
+                <div id="tn-alt-raw-caption" class="fw-semibold text-dark"></div>
+              </div>
+
+              <!-- 1. Concise WCAG Alt-Text -->
+              <div class="p-3 rounded-3 border bg-white mb-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                  <div>
+                    <label for="tn-alt-wcag-output" class="fw-bold small mb-0">
+                      1. Concise WCAG Screen-Reader Alt-Text
+                    </label>
+                    <span id="tn-alt-wcag-count" class="badge bg-success-subtle text-success border border-success-subtle ms-1">0 / 125 chars</span>
+                  </div>
+                  <button type="button" id="tn-alt-copy-wcag" class="btn btn-sm tn-btn--outline">
+                    <i class="bi bi-clipboard" aria-hidden="true"></i> Copy Alt-Text
+                  </button>
+                </div>
+                <textarea id="tn-alt-wcag-output" class="form-control form-control-sm" rows="2"></textarea>
+              </div>
+
+              <!-- 2. SEO-Enriched Alt-Text -->
+              <div class="p-3 rounded-3 border bg-white mb-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                  <label for="tn-alt-seo-output" class="fw-bold small mb-0">
+                    2. SEO-Optimized Alt-Text (With Keyword &amp; Color Context)
+                  </label>
+                  <button type="button" id="tn-alt-copy-seo" class="btn btn-sm tn-btn--outline">
+                    <i class="bi bi-clipboard" aria-hidden="true"></i> Copy SEO Alt
+                  </button>
+                </div>
+                <textarea id="tn-alt-seo-output" class="form-control form-control-sm" rows="2"></textarea>
+              </div>
+
+              <!-- 3. Ready-to-Paste HTML <img> Snippet -->
+              <div class="p-3 rounded-3 border bg-white mb-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                  <label for="tn-alt-html-output" class="fw-bold small mb-0">
+                    3. Ready-to-Paste HTML <code>&lt;img&gt;</code> Tag (CLS-Safe with Dimensions)
+                  </label>
+                  <button type="button" id="tn-alt-copy-html" class="btn btn-sm tn-btn--outline">
+                    <i class="bi bi-code-slash" aria-hidden="true"></i> Copy HTML Tag
+                  </button>
+                </div>
+                <textarea id="tn-alt-html-output" class="form-control form-control-sm font-monospace" rows="2" readonly></textarea>
+              </div>
+
+              <!-- 4. Detailed Caption & Extracted Keyword Tags -->
+              <div class="p-3 rounded-3 border bg-white">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                  <label for="tn-alt-caption-output" class="fw-bold small mb-0">
+                    4. Detailed Caption (<code>&lt;figcaption&gt;</code> / Social Media Post)
+                  </label>
+                  <button type="button" id="tn-alt-copy-caption" class="btn btn-sm tn-btn--outline">
+                    <i class="bi bi-clipboard" aria-hidden="true"></i> Copy Caption
+                  </button>
+                </div>
+                <textarea id="tn-alt-caption-output" class="form-control form-control-sm mb-2" rows="3"></textarea>
+                <div class="small text-muted mb-1">Auto-Extracted Keyword Tags:</div>
+                <div id="tn-alt-tags-wrap" class="d-flex flex-wrap gap-1"></div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Generate AI Image Alt-Text &amp; Captions</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Select Your Photo:</strong> Drag and drop a JPEG, PNG, or WebP image into the upload area (or click <em>Load Sample Image</em> to test).
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Add Optional SEO Keyword &amp; Style:</strong> Enter your product name, brand, or target keyword and select whether the image is for a blog post, e-commerce product, or strict WCAG screen reader compliance.
+              </li>
+              <li>
+                <strong>Step 3 — Generate &amp; Copy:</strong> Click <strong>Generate AI Alt-Text &amp; Captions</strong>. Copy the concise WCAG alt-text, SEO alt-text, complete HTML <code>&lt;img&gt;</code> snippet, or social caption with one click.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Boost Image SEO &amp; Web Accessibility Privately</h2>
+            <p class="text-muted">
+              Missing or poorly written <code>alt</code> attributes hurt both your Google Images rankings and your website's accessibility for visually impaired visitors using screen readers like NVDA, JAWS, or VoiceOver. ToolNest's <strong>AI Image Alt-Text &amp; Caption Generator</strong> combines an in-browser Vision-Language transformer model with pixel-level color palette analysis to craft accurate, human-friendly descriptions in seconds.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-universal-access-circle text-primary me-1" aria-hidden="true"></i> WCAG 2.1 Compliant Formatting</h3>
+                  <p class="small text-muted mb-0">Automatically strips redundant phrases like "image of" and keeps screen-reader descriptions under the recommended 125-character threshold.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-search text-primary me-1" aria-hidden="true"></i> Natural Keyword Integration</h3>
+                  <p class="small text-muted mb-0">Blends your target SEO keyword or product title with the actual visual contents and color palette of the photo.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="altFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="altFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#altFaqCol1" aria-expanded="true" aria-controls="altFaqCol1">
+                    1. How does this tool generate image captions without uploading my photo?
+                  </button>
+                </h3>
+                <div id="altFaqCol1" class="accordion-collapse collapse show" aria-labelledby="altFaq1" data-bs-parent="#altFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    It runs a quantized Vision-to-Text neural network (<code>Xenova/vit-gpt2-image-captioning</code>) directly inside your browser using WebAssembly. Once the model downloads on first use, it caches in your browser and processes images locally.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="altFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#altFaqCol2" aria-expanded="false" aria-controls="altFaqCol2">
+                    2. Why is 125 characters recommended for WCAG alt-text?
+                  </button>
+                </h3>
+                <div id="altFaqCol2" class="accordion-collapse collapse" aria-labelledby="altFaq2" data-bs-parent="#altFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Many screen readers pause or split announcements after roughly 125 characters. Keeping your primary <code>alt</code> attribute concise and placing longer descriptions in <code>&lt;figcaption&gt;</code> provides the best accessibility experience.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="altFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#altFaqCol3" aria-expanded="false" aria-controls="altFaqCol3">
+                    3. Can I change my target keyword after the AI analyzes the photo?
+                  </button>
+                </h3>
+                <div id="altFaqCol3" class="accordion-collapse collapse" aria-labelledby="altFaq3" data-bs-parent="#altFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Editing the <strong>Target SEO Keyword</strong> box or switching the <strong>Content Style</strong> dropdown immediately updates all four output boxes without re-running the AI model.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="altFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#altFaqCol4" aria-expanded="false" aria-controls="altFaqCol4">
+                    4. Why does the HTML snippet include width and height attributes?
+                  </button>
+                </h3>
+                <div id="altFaqCol4" class="accordion-collapse collapse" aria-labelledby="altFaqCol4" data-bs-parent="#altFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Including explicit <code>width</code> and <code>height</code> attributes lets browsers reserve the exact aspect ratio before the image loads, preventing Cumulative Layout Shift (CLS) and improving Core Web Vitals.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="altFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#altFaqCol5" aria-expanded="false" aria-controls="altFaqCol5">
+                    5. Does this require an OpenAI or Google Cloud API key?
+                  </button>
+                </h3>
+                <div id="altFaqCol5" class="accordion-collapse collapse" aria-labelledby="altFaq5" data-bs-parent="#altFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No API key, account, or subscription is required. It is 100% free and runs on your own device hardware.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/meta-tag-generator/index.html" class="stretched-link text-reset">Meta Tag Generator</a></h3>
+                  <p class="small text-muted mb-0">Generate SEO, Open Graph, and Twitter card meta tags.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/background-remover/index.html" class="stretched-link text-reset">AI Background Remover</a></h3>
+                  <p class="small text-muted mb-0">Remove image backgrounds locally using browser AI.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a></h3>
+                  <p class="small text-muted mb-0">Reduce JPG, PNG, and WebP file sizes for faster page speed.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/background-remover/index.html" class="fw-medium">AI Background Remover</a></li>
+                <li class="mb-2"><a href="../../tools/image-upscaler/index.html" class="fw-medium">AI Image Upscaler (2x)</a></li>
+                <li class="mb-2"><a href="../../tools/meta-tag-generator/index.html" class="fw-medium">SEO Meta Tag Generator</a></li>
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Batch Image Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/color-picker/index.html" class="fw-medium">Color Picker &amp; Eyedropper</a></li>
+                <li class="mb-0"><a href="../../tools/image-resizer/index.html" class="fw-medium">Image Resizer &amp; Presets</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-alt-text-generator/index.html" class="tn-footer__link">AI Image Alt-Text Generator</a></li>
+            <li><a href="../../tools/create-pdf/index.html" class="tn-footer__link">Create PDF &amp; Organize Pages</a></li>
+            <li><a href="../../tools/protect-pdf/index.html" class="tn-footer__link">Protect PDF</a></li>
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/image-alt-text-generator.js" defer></script>
+</body>
+</html>

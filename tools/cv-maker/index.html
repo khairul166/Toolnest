@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Maker &amp; Resume Builder — ToolNest</title>
+  <meta name="description" content="Create a professional CV with live preview and print or save as PDF. Free 100% browser-based resume builder by ToolNest.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/cv-maker/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="CV Maker &amp; Resume Builder — ToolNest">
+  <meta property="og:description" content="Create a professional CV with live preview and print or save as PDF.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/cv-maker/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CV Maker &amp; Resume Builder — ToolNest">
+  <meta name="twitter:description" content="Create a professional CV with live preview and print or save as PDF.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>:root{--cv-accent:#ff4d2e;--cv-ink:#121217;--cv-muted:#6e6e7a;--cv-line:rgba(18,18,23,.09)}.tn-cv-preview{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 24px 64px rgba(18,18,23,.07);padding:0!important}.tn-cv-hero{background:var(--cv-ink);color:#fff;padding:42px 48px;display:flex;justify-content:space-between;gap:28px;position:relative;overflow:hidden}.tn-cv-hero:after{content:'';position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,46,.38),transparent 70%)}.tn-cv-hero-main,.tn-cv-contact{position:relative;z-index:1}.tn-cv-kicker{color:var(--cv-accent);font-size:.72rem;font-weight:700;letter-spacing:.16em;margin-bottom:14px}.tn-cv-hero h2{font-family:var(--tn-font-display);font-size:clamp(2rem,5vw,3.25rem);line-height:1.05;margin:0 0 8px;color:#fff!important}.tn-cv-tagline{color:rgba(255,255,255,.68);font-size:1.05rem}.tn-cv-contact{display:flex;flex-direction:column;justify-content:center;max-width:320px;color:rgba(255,255,255,.82);font-size:.82rem;line-height:1.8}.tn-cv-body{display:grid;grid-template-columns:minmax(0,1fr) 270px}.tn-cv-main{padding:38px 46px}.tn-cv-side{background:#fafafc;border-left:1px solid var(--cv-line);padding:38px 30px}.tn-cv-section-title{color:var(--cv-accent);font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin:0 0 18px;display:flex;align-items:center;gap:10px}.tn-cv-section-title:after{content:'';height:2px;flex:1;background:linear-gradient(90deg,#fff0ec,transparent)}.tn-cv-profile{color:#2e2e38;line-height:1.75;font-size:.93rem;margin-bottom:34px}.tn-cv-main article{position:relative;padding-left:22px;margin-bottom:24px}.tn-cv-main article:before{content:'';position:absolute;left:0;top:5px;width:10px;height:10px;background:var(--cv-accent);border-radius:3px;transform:rotate(45deg);box-shadow:0 0 0 4px #fff0ec}.tn-cv-main article strong{font-size:1rem}.tn-cv-main article small{color:var(--cv-accent)}.tn-cv-main article .text-primary{color:var(--cv-muted)!important}.tn-cv-chips .badge{background:#fff!important;border:1px solid var(--cv-line)!important;color:#2e2e38!important;border-radius:50px;padding:.55rem .75rem;margin:0 .3rem .4rem 0;font-weight:500}.tn-cv-list{padding-left:1.1rem;color:#2e2e38;font-size:.86rem;line-height:1.8}.tn-cv-template-picker{background:#fafafc}.tn-cv-template-card{width:100%;border:2px solid transparent;background:#fff;border-radius:12px;padding:10px;text-align:left;color:#121217;font-weight:600;display:flex;align-items:center;gap:12px}.tn-cv-template-card.is-selected{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}.tn-cv-template-card:hover{border-color:#94a3b8}.tn-cv-thumb{width:86px;height:58px;border-radius:7px;display:block;position:relative;overflow:hidden;flex:0 0 auto}.tn-cv-thumb i,.tn-cv-thumb b,.tn-cv-thumb em{position:absolute;display:block}.tn-cv-thumb-creative{background:#121217}.tn-cv-thumb-creative i{left:8px;top:10px;width:48px;height:7px;background:#ff4d2e}.tn-cv-thumb-creative b{left:8px;top:27px;width:58px;height:4px;background:#fff}.tn-cv-thumb-creative em{right:8px;top:12px;width:10px;height:34px;background:#ff4d2e;border-radius:5px}.tn-cv-thumb-classic{background:#eaf2ff;border-top:7px solid #2563eb}.tn-cv-thumb-classic i{left:8px;top:17px;width:58px;height:7px;background:#12304a}.tn-cv-thumb-classic b{left:8px;top:31px;width:48px;height:4px;background:#2563eb}.tn-cv-thumb-classic em{right:9px;top:14px;width:25px;height:34px;background:#fff;border-left:3px solid #2563eb}.tn-cv-thumb-bluegray{background:#eef1f5;border-left:14px solid #637387}.tn-cv-thumb-bluegray i{left:24px;top:12px;width:50px;height:7px;background:#1e293b}.tn-cv-thumb-bluegray b{left:24px;top:28px;width:42px;height:4px;background:#64748b}.tn-cv-thumb-bluegray em{right:9px;top:12px;width:24px;height:36px;background:#fff;border:2px solid #94a3b8}.tn-cv-template-classic{--cv-accent:#2563eb;--cv-ink:#12304a;border-radius:8px}.tn-cv-template-classic .tn-cv-hero{background:#eaf2ff;color:#12304a;border-bottom:4px solid #2563eb}.tn-cv-template-classic .tn-cv-hero:after{display:none}.tn-cv-template-classic .tn-cv-tagline,.tn-cv-template-classic .tn-cv-contact{color:#36556e}.tn-cv-template-classic .tn-cv-side{background:#f5f9ff}.tn-cv-template-classic .tn-cv-kicker{color:#2563eb}.tn-cv-template-bluegray{--cv-accent:#64748b;--cv-ink:#1e293b;border-radius:8px}.tn-cv-template-bluegray .tn-cv-hero{background:#eef1f5;color:#1e293b;border-bottom:4px solid #64748b}.tn-cv-template-bluegray .tn-cv-hero:after{display:none}.tn-cv-template-bluegray .tn-cv-tagline,.tn-cv-template-bluegray .tn-cv-contact{color:#475569}.tn-cv-template-bluegray .tn-cv-side{background:#f8fafc}.tn-cv-template-bluegray .tn-cv-kicker{color:#64748b}.tn-cv-template-bluegray .tn-cv-hero h2{color:#1e293b!important}@media(max-width:700px){.tn-cv-hero{padding:32px 24px;display:block}.tn-cv-contact{margin-top:22px}.tn-cv-body{grid-template-columns:1fr}.tn-cv-side{border-left:0;border-top:1px solid var(--cv-line);padding:30px 24px}.tn-cv-main{padding:30px 24px}}@media print{.tn-cv-preview{box-shadow:none;border-radius:0}.tn-cv-template-classic .tn-cv-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}.tn-cv-side{background:#fafafc;-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "CV Maker & Resume Builder", "item": "https://[DOMAIN]/tools/cv-maker/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest CV Maker & Resume Builder",
+        "url": "https://[DOMAIN]/tools/cv-maker/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Create a clean professional CV with live preview and print or save as PDF directly in your browser."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I download my CV as a PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Click the 'Print / Save PDF' button and select 'Save as PDF' in your browser's print dialog. Only the formatted CV preview is printed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my personal details and resume saved on any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Your contact details, work history, and education stay 100% in your browser. Nothing is uploaded to ToolNest."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I switch between different CV templates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can switch between Creative Dark Hero, Classic Blue Professional, and Blue & Gray Simple templates at any time without losing your entered information."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I add multiple work experiences, projects, and certifications?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use the 'Add Experience', 'Add Education', 'Add Certification', and 'Add Project' buttons to add as many entries as you need."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I keep background colors when saving as PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In your browser's Print dialog, expand 'More settings' and make sure 'Background graphics' is checked before saving as PDF."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header tn-no-print" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container tn-no-print">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb tn-no-print">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">CV Maker</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title tn-no-print">CV Maker &amp; Resume Builder</h1>
+          <p class="text-muted mb-3 tn-no-print">Create a clean professional CV with a live preview. Your data stays in your browser.</p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace tn-no-print" aria-label="CV Maker Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Resume Details Never Leave Your Browser
+            </span>
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Add details</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Add experience</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Print or save PDF</div>
+            </div>
+            <form id="tn-cv-form">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6"><label class="form-label" for="tn-cv-name">Full Name</label><input id="tn-cv-name" class="form-control" placeholder="Your full name"></div>
+                <div class="col-md-6"><label class="form-label" for="tn-cv-role">Professional Title</label><input id="tn-cv-role" class="form-control" placeholder="Software Engineer"></div>
+                <div class="col-md-4"><label class="form-label" for="tn-cv-email">Email</label><input id="tn-cv-email" class="form-control" placeholder="you@example.com"></div>
+                <div class="col-md-4"><label class="form-label" for="tn-cv-phone">Phone</label><input id="tn-cv-phone" class="form-control" placeholder="+880 1711 000000"></div>
+                <div class="col-md-4"><label class="form-label" for="tn-cv-location">Location</label><input id="tn-cv-location" class="form-control" placeholder="Dhaka, Bangladesh"></div>
+                <div class="col-md-6"><label class="form-label" for="tn-cv-website">LinkedIn / Portfolio</label><input id="tn-cv-website" class="form-control" placeholder="linkedin.com/in/yourname"></div>
+                <div class="col-md-6"><label class="form-label" for="tn-cv-languages">Languages <span class="text-muted">(comma separated)</span></label><input id="tn-cv-languages" class="form-control" placeholder="English — Fluent, Bangla — Native"></div>
+                <div class="col-12"><label class="form-label" for="tn-cv-summary">Professional Summary</label><textarea id="tn-cv-summary" class="form-control" rows="3"></textarea></div>
+                <div class="col-12"><label class="form-label" for="tn-cv-skills">Skills <span class="text-muted">(comma separated)</span></label><input id="tn-cv-skills" class="form-control" placeholder="JavaScript, Communication"></div>
+              </div>
+              <div class="border rounded-3 p-3 mb-3">
+                <div class="d-flex justify-content-between">
+                  <h2 class="h6 fw-bold">Work Experience</h2><button type="button" id="tn-cv-add-experience" class="btn tn-btn--outline btn-sm">Add Experience</button>
+                </div>
+                <div id="tn-cv-experience"></div>
+              </div>
+              <div class="border rounded-3 p-3">
+                <div class="d-flex justify-content-between"><h2 class="h6 fw-bold">Education</h2><button type="button" id="tn-cv-add-education" class="btn tn-btn--outline btn-sm">Add Education</button></div><div id="tn-cv-education"></div>
+              </div>
+              <div class="border rounded-3 p-3 mt-3"><div class="d-flex justify-content-between"><h2 class="h6 fw-bold">Certifications</h2><button type="button" id="tn-cv-add-certification" class="btn tn-btn--outline btn-sm">Add Certification</button></div><div id="tn-cv-certifications"></div></div>
+              <div class="border rounded-3 p-3 mt-3"><div class="d-flex justify-content-between"><h2 class="h6 fw-bold">Projects</h2><button type="button" id="tn-cv-add-project" class="btn tn-btn--outline btn-sm">Add Project</button></div><div id="tn-cv-projects"></div></div>
+              <div class="tn-cv-template-picker border rounded-3 p-3 mt-3"><div class="fw-bold mb-2">Choose CV Template</div><div class="row g-3"><div class="col-sm-4"><button type="button" class="tn-cv-template-card is-selected" data-cv-template="creative"><span class="tn-cv-thumb tn-cv-thumb-creative"><i></i><b></b><em></em></span><span>Creative Dark Hero</span></button></div><div class="col-sm-4"><button type="button" class="tn-cv-template-card" data-cv-template="classic"><span class="tn-cv-thumb tn-cv-thumb-classic"><i></i><b></b><em></em></span><span>Classic Blue Professional</span></button></div><div class="col-sm-4"><button type="button" class="tn-cv-template-card" data-cv-template="bluegray"><span class="tn-cv-thumb tn-cv-thumb-bluegray"><i></i><b></b><em></em></span><span>Blue &amp; Gray Simple</span></button></div></div><select id="tn-cv-template" class="visually-hidden" aria-label="Selected CV template"><option value="creative" selected>Creative Dark Hero</option><option value="classic">Classic Blue Professional</option><option value="bluegray">Blue &amp; Gray Simple</option></select></div>
+              <div class="d-flex gap-2 mt-3"><button type="button" id="tn-cv-print" class="btn tn-btn--primary">Print / Save PDF</button><button type="button" id="tn-cv-reset" class="btn tn-btn--outline text-danger">Reset</button></div>
+            </form>
+          </section>
+
+          <div class="mt-4 mb-4">
+            <aside class="tn-cv-preview tn-printable-area" id="tn-cv-preview">
+              <div class="tn-cv-hero"><div class="tn-cv-hero-main"><div class="tn-cv-kicker">✦ PROFESSIONAL RESUME</div><h2 id="tn-cv-name-out">Your Name</h2><div id="tn-cv-role-out" class="tn-cv-tagline">Professional Title</div></div><div id="tn-cv-contact-out" class="tn-cv-contact"></div></div>
+              <div class="tn-cv-body"><div class="tn-cv-main"><h3 class="tn-cv-section-title">Profile</h3><p id="tn-cv-summary-out" class="tn-cv-profile"></p><h3 class="tn-cv-section-title">Experience</h3><div id="tn-cv-experience-out"></div><h3 class="tn-cv-section-title">Education</h3><div id="tn-cv-education-out"></div><h3 class="tn-cv-section-title">Projects</h3><div id="tn-cv-projects-out"></div></div><div class="tn-cv-side"><h3 class="tn-cv-section-title">Skills</h3><div id="tn-cv-skills-out" class="tn-cv-chips"></div><h3 class="tn-cv-section-title">Languages</h3><ul id="tn-cv-languages-out" class="tn-cv-list"></ul><h3 class="tn-cv-section-title">Certifications</h3><ul id="tn-cv-certifications-out" class="tn-cv-list"></ul></div></div>
+            </aside>
+          </div>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent tn-no-print" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4 tn-no-print" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Build &amp; Download Your CV</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Enter Your Personal &amp; Contact Info:</strong> Fill in your name, professional title, email, phone number, location, skills, and a concise career summary.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Add Experience, Education &amp; Projects:</strong> Click the <em>Add Experience</em>, <em>Add Education</em>, <em>Add Certification</em>, and <em>Add Project</em> buttons to list your background.
+              </li>
+              <li>
+                <strong>Step 3 — Choose a Template &amp; Save as PDF:</strong> Pick one of the three resume styles and click <strong>Print / Save PDF</strong> to export a clean A4 resume using your browser's print dialog.
+              </li>
+            </ol>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4 tn-no-print" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="cvFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cvFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cvFaqCol1" aria-expanded="true" aria-controls="cvFaqCol1">
+                    1. How do I download my CV as a PDF?
+                  </button>
+                </h3>
+                <div id="cvFaqCol1" class="accordion-collapse collapse show" aria-labelledby="cvFaq1" data-bs-parent="#cvFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Click the <strong>Print / Save PDF</strong> button and choose <strong>Save as PDF</strong> in your browser's print dialog. Only the formatted resume preview is included in the printout.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cvFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cvFaqCol2" aria-expanded="false" aria-controls="cvFaqCol2">
+                    2. Are my personal details and resume saved on any server?
+                  </button>
+                </h3>
+                <div id="cvFaqCol2" class="accordion-collapse collapse" aria-labelledby="cvFaq2" data-bs-parent="#cvFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. Everything runs 100% locally in your browser. Your phone number, email, and work history are never uploaded or stored on any server.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cvFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cvFaqCol3" aria-expanded="false" aria-controls="cvFaqCol3">
+                    3. Can I switch between different CV templates?
+                  </button>
+                </h3>
+                <div id="cvFaqCol3" class="accordion-collapse collapse" aria-labelledby="cvFaq3" data-bs-parent="#cvFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. You can switch between <em>Creative Dark Hero</em>, <em>Classic Blue Professional</em>, and <em>Blue &amp; Gray Simple</em> at any time without losing your entered information.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cvFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cvFaqCol4" aria-expanded="false" aria-controls="cvFaqCol4">
+                    4. Can I add multiple work experiences, projects, and certifications?
+                  </button>
+                </h3>
+                <div id="cvFaqCol4" class="accordion-collapse collapse" aria-labelledby="cvFaq4" data-bs-parent="#cvFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Click the <strong>Add Experience</strong>, <strong>Add Education</strong>, <strong>Add Certification</strong>, and <strong>Add Project</strong> buttons to add or remove as many items as you need.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cvFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cvFaqCol5" aria-expanded="false" aria-controls="cvFaqCol5">
+                    5. How do I keep background colors when saving as PDF?
+                  </button>
+                </h3>
+                <div id="cvFaqCol5" class="accordion-collapse collapse" aria-labelledby="cvFaq5" data-bs-parent="#cvFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    In your browser's print dialog, open <strong>More settings</strong> and enable <strong>Background graphics</strong> so the header banner and sidebar colors appear in the exported PDF.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section class="tn-no-print" aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/passport-photo-maker/index.html" class="stretched-link text-reset">Passport Photo Maker</a></h3>
+                  <p class="small text-muted mb-0">Prepare official passport and job application photos in seconds.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/signature-maker/index.html" class="stretched-link text-reset">Signature Maker</a></h3>
+                  <p class="small text-muted mb-0">Draw and download a transparent digital signature PNG.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/age-calculator/index.html" class="stretched-link text-reset">Age Calculator</a></h3>
+                  <p class="small text-muted mb-0">Calculate exact age in years, months, and days for job circulars.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4 tn-no-print">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport Photo Maker</a></li>
+                <li class="mb-2"><a href="../../tools/signature-maker/index.html" class="fw-medium">Digital Signature Maker</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Age Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Compress Photo Under 100KB</a></li>
+                <li class="mb-0"><a href="../../tools/bangla-typing-test/index.html" class="fw-medium">Bangla Typing Speed Test</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container tn-no-print">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer tn-no-print" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/cv-maker.js" defer></script>
+</body>
+</html>

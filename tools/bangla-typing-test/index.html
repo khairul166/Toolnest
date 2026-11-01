@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangla Typing Test (WPM Speed &amp; Accuracy) — ToolNest</title>
+  <meta name="description" content="Practice Bangla typing speed with 1, 2, or 5 minute timed tests. Features 12 original Bangla passages, Easy/Medium/Hard conjunct levels, and live WPM.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/bangla-typing-test/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Bangla Typing Test (WPM Speed &amp; Accuracy) — ToolNest">
+  <meta property="og:description" content="Practice Bangla typing speed with 1, 2, or 5 minute timed tests. Features 12 original Bangla passages, Easy/Medium/Hard conjunct levels, and live WPM.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/bangla-typing-test/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bangla Typing Test (WPM Speed &amp; Accuracy) — ToolNest">
+  <meta name="twitter:description" content="Practice Bangla typing speed with 1, 2, or 5 minute timed tests. Features 12 original Bangla passages, Easy/Medium/Hard conjunct levels, and live WPM.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Bangla Typing Test", "item": "https://[DOMAIN]/tools/bangla-typing-test/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Bangla Typing Test",
+        "url": "https://[DOMAIN]/tools/bangla-typing-test/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Measure Bangla Unicode typing speed (WPM) and character accuracy across 1, 2, or 5 minute timed tests with 12 original passages and conjunct-aware comparison."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which Bangla keyboard layouts work with this Bangla Typing Test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any Bangla Unicode keyboard works seamlessly, including Avro Phonetic, Bijoy Bayanno (in Unicode mode), Probhat, Munir Optima Unicode, and mobile Gboard/Ridmik Bangla keyboards."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are Words Per Minute (WPM) and Accuracy % calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WPM is calculated by dividing the number of accurately typed Bangla words by the elapsed time in minutes. Accuracy % is calculated by comparing NFC-normalized Unicode characters: (Correct Characters / Total Typed Characters) x 100."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the test handle Bangla conjuncts (যুক্তবর্ণ) and vowel signs properly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Both the passage and your input are normalized using Unicode NFC and nukta unification (so ড+় and ড় match identically), and mid-conjunct hasant (্) keystrokes do not trigger false error counts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What Bangla typing speed is required for Bangladesh government jobs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most Bangladesh government Computer Operator and Office Assistant Typist recruitment exams require a minimum Bangla typing speed of 20 WPM to 25 WPM with high accuracy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is copy-paste disabled in the typing box?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paste is disabled to ensure fair, authentic typing speed measurement."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Bangla Typing Test</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Bangla Typing Test (বাংলা টাইপিং স্পিড টেস্ট)</h1>
+          <p class="text-muted mb-3">
+            Test and improve your <strong>Bangla Unicode typing speed (WPM) and accuracy</strong> with 1, 2, or 5 minute timed exams. Practice across <strong>12 original Bangla passages</strong> in Easy, Medium, and Hard (conjunct/যুক্তবর্ণ) levels with live character highlighting. Runs <strong>100% in your browser</strong>—your keystrokes never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Bangla Typing Test Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; NFC Conjunct-Safe Bangla Typing Evaluation
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Pick Duration &amp; Difficulty</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Switch Keyboard to Bangla &amp; Type</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> View WPM &amp; Accuracy Score</div>
+            </div>
+
+            <!-- Keyboard Switch Reminder Alert -->
+            <div class="alert alert-info d-flex align-items-center gap-2 py-2 px-3 mb-3 small" role="note">
+              <i class="bi bi-keyboard-fill text-primary fs-5" aria-hidden="true"></i>
+              <div>
+                <strong>Keyboard Note:</strong> Please switch your keyboard to <strong>Bangla Unicode</strong> (e.g., <em>Avro Phonetic F12</em>, <em>Bijoy Unicode Ctrl+Alt+V</em>, <em>Probhat</em>, or mobile <em>Ridmik/Gboard Bangla</em>) before typing. Timer starts on your first keystroke.
+              </div>
+            </div>
+
+            <!-- Test Settings Bar -->
+            <div class="row g-3 align-items-end mb-3">
+              <div class="col-sm-6 col-md-4">
+                <label for="tn-btt-difficulty" class="form-label fw-bold small">Difficulty Level</label>
+                <select id="tn-btt-difficulty" class="form-select">
+                  <option value="easy" selected>Easy (সহজ — সাধারণ শব্দ)</option>
+                  <option value="medium">Medium (মাঝারি — দৈনন্দিন গদ্য)</option>
+                  <option value="hard">Hard (কঠিন — যুক্তবর্ণ অনুশীলন)</option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <label for="tn-btt-duration" class="form-label fw-bold small">Test Duration</label>
+                <select id="tn-btt-duration" class="form-select">
+                  <option value="1" selected>1 Minute Test (১ মিনিট)</option>
+                  <option value="2">2 Minutes Test (২ মিনিট)</option>
+                  <option value="5">5 Minutes Test (৫ মিনিট)</option>
+                </select>
+              </div>
+              <div class="col-md-4 d-flex gap-2">
+                <button type="button" id="tn-btt-new-btn" class="btn tn-btn--primary flex-grow-1">
+                  <i class="bi bi-shuffle" aria-hidden="true"></i> New Passage
+                </button>
+                <button type="button" id="tn-btt-reset-btn" class="btn tn-btn--outline text-danger" title="Restart timer">
+                  <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Live Stats Row -->
+            <div class="row g-2 mb-3">
+              <div class="col-6 col-sm-3">
+                <div class="tn-stat-card py-2">
+                  <div id="tn-btt-stat-time" class="tn-stat-card__value">01:00</div>
+                  <div class="tn-stat-card__label">Time Left</div>
+                </div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="tn-stat-card py-2">
+                  <div id="tn-btt-stat-wpm" class="tn-stat-card__value">0</div>
+                  <div class="tn-stat-card__label">Speed (WPM)</div>
+                </div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="tn-stat-card py-2">
+                  <div id="tn-btt-stat-acc" class="tn-stat-card__value text-success">100%</div>
+                  <div class="tn-stat-card__label">Accuracy %</div>
+                </div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="tn-stat-card py-2">
+                  <div id="tn-btt-stat-err" class="tn-stat-card__value text-danger">0</div>
+                  <div class="tn-stat-card__label">Errors</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bangla Passage Display -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-bold text-primary tn-bangla-text">অনুচ্ছেদ: <span id="tn-btt-passage-title">ভোরের হাওয়া ও নদীর পাড়</span></span>
+                <span class="small text-muted">Green = Correct &bull; Red = Error</span>
+              </div>
+              <div id="tn-btt-passage-box" class="tn-btt-passage" aria-live="off"></div>
+            </div>
+
+            <!-- User Typing Textarea (Paste Disabled) -->
+            <div class="mb-3">
+              <label for="tn-btt-input" class="form-label fw-bold small tn-bangla-text">
+                এখানে বাংলায় টাইপ শুরু করুন (Start Typing Here — Paste Disabled):
+              </label>
+              <textarea
+                id="tn-btt-input"
+                class="form-control tn-bangla-text"
+                rows="4"
+                style="font-size: 1.3rem; line-height: 1.9;"
+                placeholder="টাইম কাউন্টডাউন শুরু করতে উপরের বাংলা অনুচ্ছেদটি দেখে এখানে টাইপ করুন..."
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+              ></textarea>
+            </div>
+
+            <!-- Final Test Result Card -->
+            <div id="tn-btt-final-card" class="tn-result-box border-success bg-success-subtle d-none mt-3">
+              <h2 class="h5 fw-bold text-success mb-3">
+                <i class="bi bi-trophy-fill me-1" aria-hidden="true"></i> Bangla Typing Test Complete!
+              </h2>
+              <div class="row g-3 mb-3">
+                <div class="col-6 col-md-3">
+                  <div class="p-2 rounded bg-white border text-center">
+                    <div class="small text-muted">Final Speed</div>
+                    <div id="tn-btt-final-wpm" class="fw-bold text-primary">0 WPM</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="p-2 rounded bg-white border text-center">
+                    <div class="small text-muted">Accuracy</div>
+                    <div id="tn-btt-final-acc" class="fw-bold text-success">100%</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="p-2 rounded bg-white border text-center">
+                    <div class="small text-muted">Total Errors</div>
+                    <div id="tn-btt-final-err" class="fw-bold text-danger">0</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="p-2 rounded bg-white border text-center">
+                    <div class="small text-muted">Correct Chars</div>
+                    <div id="tn-btt-final-chars" class="fw-bold">0 / 0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" id="tn-btt-try-again-btn" class="btn tn-btn--primary btn-sm">
+                  <i class="bi bi-arrow-repeat" aria-hidden="true"></i> Try Again
+                </button>
+                <button type="button" id="tn-btt-copy-score-btn" class="btn tn-btn--outline btn-sm">
+                  <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Score Summary
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Take the Bangla Typing Speed Test</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Pick Difficulty &amp; Time Limit:</strong> Select <em>Easy</em>, <em>Medium</em>, or <em>Hard (Conjuncts)</em> and choose a <em>1, 2, or 5 minute</em> test duration. Click <strong>New Passage</strong> anytime for a fresh paragraph.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Switch Keyboard to Bangla &amp; Start Typing:</strong> Enable your Bangla Unicode keyboard (Avro, Bijoy Unicode, or Probhat) and begin typing in the box. The countdown starts automatically on your first keystroke.
+              </li>
+              <li>
+                <strong>Step 3 — Review Your WPM &amp; Accuracy:</strong> Watch live character highlights as you type, and review your final WPM, accuracy percentage, and error breakdown when time expires.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Detailed Explanation of WPM, Accuracy & Bangla Unicode Handling (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">How Bangla WPM &amp; Conjunct-Safe Accuracy Are Calculated</h2>
+            <p class="text-muted">
+              Many generic online typing tests are built only for ASCII English characters and fail when testing Bengali because a single Bangla syllable or conjunct (<em>Juktoborno / যুক্তবর্ণ</em>) is composed of multiple Unicode code points (base consonant + <em>hasant</em> <code>্</code> + second consonant + vowel sign). ToolNest's Bangla Typing Test is engineered specifically for Bengali Unicode scripts.
+            </p>
+
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-Speedometer text-primary me-1" aria-hidden="true"></i> How WPM Is Calculated</h3>
+                  <p class="small text-muted mb-0">
+                    <strong>Words Per Minute (WPM)</strong> compares your typed words against the passage words after Unicode NFC normalization:<br>
+                    <code>WPM = Correct Bangla Words &divide; Elapsed Minutes</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-bullseye text-primary me-1" aria-hidden="true"></i> How Accuracy % Is Calculated</h3>
+                  <p class="small text-muted mb-0">
+                    <strong>Accuracy %</strong> compares normalized Unicode characters:<br>
+                    <code>Accuracy = (Correct Characters &divide; Total Typed Characters) &times; 100</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-translate text-primary me-1" aria-hidden="true"></i> Unicode NFC &amp; Nukta Unification</h3>
+                  <p class="small text-muted mb-0">
+                    Some keyboards output decomposed <code>ড + ়</code> while others output precomposed <code>ড়</code>. Our engine normalizes both strings to <strong>NFC</strong> and unifies nukta pairs so you never get false errors.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-journal-text text-primary me-1" aria-hidden="true"></i> 12 Original Practice Passages</h3>
+                  <p class="small text-muted mb-0">
+                    Practice across 12 original Bangla paragraphs spanning nature, technology, e-commerce, and complex conjuncts (<code>ক্ষ</code>, <code>জ্ঞ</code>, <code>ঞ্চ</code>, <code>স্ত</code>, <code>দ্ধ</code>) for BCC/PSC recruitment preparation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="bttFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bttFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bttFaqCol1" aria-expanded="true" aria-controls="bttFaqCol1">
+                    1. Which Bangla keyboard layouts work with this Bangla Typing Test?
+                  </button>
+                </h3>
+                <div id="bttFaqCol1" class="accordion-collapse collapse show" aria-labelledby="bttFaq1" data-bs-parent="#bttFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    You can use any keyboard that outputs Unicode Bangla, including <strong>Avro Phonetic</strong>, <strong>Bijoy Bayanno (Unicode Mode)</strong>, <strong>Probhat</strong>, <strong>National Layout</strong>, or mobile keyboards like <strong>Ridmik</strong> and <strong>Gboard</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bttFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bttFaqCol2" aria-expanded="false" aria-controls="bttFaqCol2">
+                    2. How are Words Per Minute (WPM) and Accuracy % calculated?
+                  </button>
+                </h3>
+                <div id="bttFaqCol2" class="accordion-collapse collapse" aria-labelledby="bttFaq2" data-bs-parent="#bttFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    <strong>WPM</strong> is calculated by dividing your accurately typed words by the elapsed time in minutes. <strong>Accuracy %</strong> divides the number of matching normalized characters by the total characters you have typed.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bttFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bttFaqCol3" aria-expanded="false" aria-controls="bttFaqCol3">
+                    3. Does the test handle Bangla conjuncts (যুক্তবর্ণ) and vowel signs properly?
+                  </button>
+                </h3>
+                <div id="bttFaqCol3" class="accordion-collapse collapse" aria-labelledby="bttFaq3" data-bs-parent="#bttFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Both strings are normalized to Unicode NFC before comparison, invisible zero-width joiners are unified, and intermediate <em>hasant</em> (<code>্</code>) keystrokes while forming a conjunct are not counted as mistakes.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bttFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bttFaqCol4" aria-expanded="false" aria-controls="bttFaqCol4">
+                    4. What Bangla typing speed is required for Bangladesh government jobs?
+                  </button>
+                </h3>
+                <div id="bttFaqCol4" class="accordion-collapse collapse" aria-labelledby="bttFaq4" data-bs-parent="#bttFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Most Bangladesh ministry and department recruitment tests require <strong>20 WPM</strong> for Office Assistant Cum Computer Typists and <strong>25 WPM</strong> for Computer Operators in Bangla.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bttFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bttFaqCol5" aria-expanded="false" aria-controls="bttFaqCol5">
+                    5. Can I convert Bijoy ANSI text to Unicode for practice?
+                  </button>
+                </h3>
+                <div id="bttFaqCol5" class="accordion-collapse collapse" aria-labelledby="bttFaq5" data-bs-parent="#bttFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes—if you have documents written in legacy SutonnyMJ font, use our <a href="../../tools/bijoy-to-unicode/index.html">Bijoy to Unicode Converter</a> anytime.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/bijoy-to-unicode/index.html" class="stretched-link text-reset">Bijoy to Unicode</a></h3>
+                  <p class="small text-muted mb-0">Convert Bangla text between Bijoy ANSI and Unicode.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/text-tools/index.html" class="stretched-link text-reset">Text Tools &amp; Counter</a></h3>
+                  <p class="small text-muted mb-0">Count words, characters, and clean duplicate lines.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/age-calculator/index.html" class="stretched-link text-reset">Job Age Calculator</a></h3>
+                  <p class="small text-muted mb-0">Verify exact age for Bangladesh government job circulars.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT Taka)</a></li>
+                <li class="mb-2"><a href="../../tools/text-tools/index.html" class="fw-medium">Text Tools &amp; Word Counter</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Age Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport &amp; Visa Photo Maker</a></li>
+                <li class="mb-0"><a href="../../tools/cv-maker/index.html" class="fw-medium">ATS-Friendly CV Maker</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/bangla-typing-test.js" defer></script>
+</body>
+</html>

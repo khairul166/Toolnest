@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Image Resizer (Batch Resize &amp; ZIP Export) — ToolNest</title>
+  <meta name="description" content="Batch resize multiple JPG, PNG, and WebP images by dimensions, percentage, or longest side with 9-point crop anchor, renaming, and ZIP export.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/bulk-image-resizer/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Bulk Image Resizer (Batch Resize &amp; ZIP Export) — ToolNest">
+  <meta property="og:description" content="Batch resize multiple JPG, PNG, and WebP images by dimensions, percentage, or longest side with 9-point crop anchor, renaming, and ZIP export.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/bulk-image-resizer/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bulk Image Resizer (Batch Resize &amp; ZIP Export) — ToolNest">
+  <meta name="twitter:description" content="Batch resize multiple JPG, PNG, and WebP images by dimensions, percentage, or longest side with 9-point crop anchor, renaming, and ZIP export.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Bulk Image Resizer", "item": "https://[DOMAIN]/tools/bulk-image-resizer/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Bulk Image Resizer",
+        "url": "https://[DOMAIN]/tools/bulk-image-resizer/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Batch resize dozens of images simultaneously by exact pixels, percentage, or longest side with 9-point crop anchor, format conversion, custom file naming, and ZIP download."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many images can I resize at once with the Bulk Image Resizer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can drag and drop dozens of JPG, PNG, WebP, or GIF images at once. Because everything runs locally in your browser without server upload queues, batches process in seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What resize modes are available in the Bulk Image Resizer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can batch resize by Exact Dimensions (Width x Height), Scale by Percentage (e.g. 50%), Longest Side (e.g. max 1200px), Width Only (auto aspect height), or Height Only (auto aspect width)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the 9-Point Crop Anchor work when resizing multiple photos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When using 'Crop to Fill', you can pick Center, Top, Bottom, Left, Right, or any corner so portrait or product photos keep their subject aligned instead of cutting off heads."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I rename all resized images automatically and download them as a single ZIP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Add a custom prefix or suffix using dynamic placeholders like {width}, {height}, and {index}, then click 'Download All as .ZIP' to get a single archive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my batch photos uploaded to any external server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All image resizing, format conversion, and ZIP packaging run 100% locally in your browser."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Bulk Image Resizer</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Bulk Image Resizer (Batch Resize, Rename &amp; ZIP)</h1>
+          <p class="text-muted mb-3">
+            Resize dozens of <strong>JPG, PNG, WebP, and GIF</strong> images simultaneously—by exact dimensions, percentage, longest side, or fixed width/height. Features <strong>9-point crop anchor positioning</strong>, batch rotation/flip, custom filename patterns, and one-click <strong>.ZIP download</strong>. Runs <strong>100% in your browser</strong>—your files never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Bulk Image Resizer Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Batch Photos Never Leave Your Device
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Select Multiple Images</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Configure Resize &amp; Naming</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Export Batch or .ZIP</div>
+            </div>
+
+            <!-- 1. Drag & Drop Multi-File Zone -->
+            <div id="tn-bulk-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Upload or drag and drop multiple images to batch resize">
+              <i class="bi bi-images tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drag &amp; Drop Multiple Images Here</h2>
+              <p class="small text-muted mb-3">Supports batch JPG, PNG, WebP, GIF, and BMP files. Zero server uploads.</p>
+              <label for="tn-bulk-file-input" class="btn tn-btn--primary mb-0">
+                <i class="bi bi-folder-plus" aria-hidden="true"></i> Browse &amp; Select Images
+              </label>
+              <input type="file" id="tn-bulk-file-input" class="d-none" accept="image/*" multiple>
+            </div>
+
+            <!-- Queued Source Files Strip -->
+            <div id="tn-bulk-queue-panel" class="p-3 rounded border bg-light mb-4 d-none">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span id="tn-bulk-queue-count" class="badge bg-primary">0 Images Queued</span>
+                <span class="small text-muted">Click &times; on any file chip to remove it from the batch</span>
+              </div>
+              <div id="tn-bulk-queue-list" class="d-flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- 2. RedKetchup-Style Resize Configuration Card -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <h3 class="h6 fw-bold text-primary mb-3">
+                <i class="bi bi-sliders2 me-1" aria-hidden="true"></i> Step 2A: Batch Resize Dimensions &amp; Fit Mode
+              </h3>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label for="tn-bulk-mode" class="form-label fw-bold small">Resize Mode</label>
+                  <select id="tn-bulk-mode" class="form-select">
+                    <option value="dimensions" selected>Exact Dimensions (Width &times; Height)</option>
+                    <option value="filesize">Target File Size (KB / MB)</option>
+                    <option value="percentage">Scale by Percentage (%)</option>
+                    <option value="longest">Longest Side (Preserve Aspect Ratio)</option>
+                    <option value="width">Fixed Width (Auto Aspect Height)</option>
+                    <option value="height">Fixed Height (Auto Aspect Width)</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="tn-bulk-preset" class="form-label fw-bold small">Quick Social / Portal Preset</label>
+                  <select id="tn-bulk-preset" class="form-select"></select>
+                </div>
+              </div>
+
+              <!-- Mode: Width & Height -->
+              <div id="tn-bulk-dim-group" class="row g-3 mb-3">
+                <div id="tn-bulk-w-col" class="col-6">
+                  <label for="tn-bulk-width" class="form-label fw-bold small">Target Width (px)</label>
+                  <input type="number" id="tn-bulk-width" class="form-control" value="1200" min="16" max="8000">
+                </div>
+                <div id="tn-bulk-h-col" class="col-6">
+                  <label for="tn-bulk-height" class="form-label fw-bold small">Target Height (px)</label>
+                  <input type="number" id="tn-bulk-height" class="form-control" value="630" min="16" max="8000">
+                </div>
+              </div>
+
+              <!-- Mode: Percentage -->
+              <div id="tn-bulk-pct-group" class="row g-3 mb-3 d-none">
+                <div class="col-md-6">
+                  <label for="tn-bulk-pct" class="form-label fw-bold small">Scale Percentage (%)</label>
+                  <div class="input-group">
+                    <input type="number" id="tn-bulk-pct" class="form-control" value="50" min="5" max="500">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mode: Longest Side -->
+              <div id="tn-bulk-longest-group" class="row g-3 mb-3 d-none">
+                <div class="col-md-6">
+                  <label for="tn-bulk-longest" class="form-label fw-bold small">Max Longest Side (px)</label>
+                  <div class="input-group">
+                    <input type="number" id="tn-bulk-longest" class="form-control" value="1200" min="16" max="8000">
+                    <span class="input-group-text">px</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mode: Target File Size (KB / MB) -->
+              <div id="tn-bulk-filesize-group" class="p-3 rounded-3 border bg-white mb-3 d-none">
+                <div class="row g-3 align-items-end">
+                  <div class="col-sm-6 col-md-5">
+                    <label for="tn-bulk-target-size" class="form-label fw-bold small">Target File Size (Approximate)</label>
+                    <div class="input-group">
+                      <input type="number" id="tn-bulk-target-size" class="form-control" value="5" min="1" max="50000" step="0.1">
+                      <select id="tn-bulk-target-unit" class="form-select" style="max-width: 95px;" aria-label="File size unit">
+                        <option value="KB">KB</option>
+                        <option value="MB" selected>MB</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-7">
+                    <label for="tn-bulk-filesize-strategy" class="form-label fw-bold small">File Size Adjustment Method</label>
+                    <select id="tn-bulk-filesize-strategy" class="form-select">
+                      <option value="auto" selected>Smart Auto (Scale Dimensions + Optimize Quality)</option>
+                      <option value="dimensions-only">Scale Pixel Dimensions Only (Keep Quality Fixed)</option>
+                      <option value="quality-first">Adjust Quality First, Then Scale Dimensions</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mt-2 d-flex flex-wrap align-items-center gap-1">
+                  <span class="small text-muted me-1">Quick Target Sizes:</span>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-fsize-val="50" data-fsize-unit="KB">50 KB</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-fsize-val="100" data-fsize-unit="KB">100 KB</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-fsize-val="500" data-fsize-unit="KB">500 KB</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-fsize-val="1" data-fsize-unit="MB">1 MB</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-fsize-val="2" data-fsize-unit="MB">2 MB</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm py-0 px-2 fw-semibold" data-fsize-val="5" data-fsize-unit="MB">5 MB</button>
+                </div>
+
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="checkbox" id="tn-bulk-filesize-pad" checked>
+                  <label class="form-check-label small text-muted" for="tn-bulk-filesize-pad">
+                    Precision target match (if an image is smaller than target like <strong>5 MB</strong> even after scaling, add safe metadata bytes so final file size is right near your target)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Fit Mode, 9-Point Crop Anchor & Background Fill -->
+              <div id="tn-bulk-fit-group" class="row g-3 mb-2">
+                <div class="col-sm-6 col-md-5">
+                  <label for="tn-bulk-fit" class="form-label fw-bold small">Aspect Ratio / Fit Mode</label>
+                  <select id="tn-bulk-fit" class="form-select">
+                    <option value="cover" selected>Crop to Fill (Cover)</option>
+                    <option value="contain">Fit Inside (Pad with Background)</option>
+                    <option value="stretch">Stretch to Exact Dimensions</option>
+                  </select>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-bulk-anchor" class="form-label fw-bold small">9-Point Crop / Pad Anchor</label>
+                  <select id="tn-bulk-anchor" class="form-select">
+                    <option value="center" selected>Center (Middle)</option>
+                    <option value="top">Top Center</option>
+                    <option value="bottom">Bottom Center</option>
+                    <option value="left">Middle Left</option>
+                    <option value="right">Middle Right</option>
+                    <option value="top-left">Top Left</option>
+                    <option value="top-right">Top Right</option>
+                    <option value="bottom-left">Bottom Left</option>
+                    <option value="bottom-right">Bottom Right</option>
+                  </select>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <label for="tn-bulk-bg" class="form-label fw-bold small">Background Fill</label>
+                  <input type="color" id="tn-bulk-bg" class="form-control form-control-color w-100" value="#FFFFFF">
+                </div>
+              </div>
+
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="tn-bulk-no-enlarge">
+                <label class="form-check-label small fw-semibold" for="tn-bulk-no-enlarge">
+                  Do not enlarge if original image is smaller than target dimensions
+                </label>
+              </div>
+            </div>
+
+            <!-- 3. Export Format, Quality, Orientation & File Naming -->
+            <div class="p-3 rounded-3 border bg-light mb-4">
+              <h3 class="h6 fw-bold text-primary mb-3">
+                <i class="bi bi-gear-wide-connected me-1" aria-hidden="true"></i> Step 2B: Batch Format, Orientation &amp; Custom File Naming
+              </h3>
+
+              <div class="row g-3 mb-3">
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-bulk-format" class="form-label fw-bold small">Export Image Format</label>
+                  <select id="tn-bulk-format" class="form-select">
+                    <option value="image/jpeg" selected>JPEG (.jpg)</option>
+                    <option value="image/webp">WebP (.webp)</option>
+                    <option value="image/png">PNG (.png)</option>
+                    <option value="original">Keep Original Format</option>
+                  </select>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="d-flex justify-content-between">
+                    <label for="tn-bulk-quality" class="form-label fw-bold small mb-1">JPG / WebP Quality</label>
+                    <span id="tn-bulk-quality-val" class="badge bg-primary">85%</span>
+                  </div>
+                  <input type="range" id="tn-bulk-quality" class="form-range" min="15" max="100" step="5" value="85">
+                </div>
+                <div class="col-sm-12 col-md-4">
+                  <label for="tn-bulk-rotate" class="form-label fw-bold small">Rotate Batch</label>
+                  <select id="tn-bulk-rotate" class="form-select">
+                    <option value="0" selected>No Rotation (0&deg;)</option>
+                    <option value="90">Rotate 90&deg; Clockwise</option>
+                    <option value="180">Rotate 180&deg;</option>
+                    <option value="270">Rotate 90&deg; Counter-Clockwise</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row g-3 align-items-end">
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-bulk-prefix" class="form-label fw-bold small">Filename Prefix</label>
+                  <input type="text" id="tn-bulk-prefix" class="form-control form-control-sm" value="" placeholder="e.g. web_">
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-bulk-suffix" class="form-label fw-bold small">Filename Suffix Pattern</label>
+                  <input type="text" id="tn-bulk-suffix" class="form-control form-control-sm" value="_{width}x{height}" placeholder="e.g. _{width}x{height}">
+                </div>
+                <div class="col-md-4 d-flex gap-3 pb-1">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-bulk-fliph">
+                    <label class="form-check-label small fw-semibold" for="tn-bulk-fliph">Flip H</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-bulk-flipv">
+                    <label class="form-check-label small fw-semibold" for="tn-bulk-flipv">Flip V</label>
+                  </div>
+                </div>
+              </div>
+              <div class="small text-muted mt-1">
+                Supported naming placeholders: <code>{width}</code>, <code>{height}</code>, <code>{index}</code> (e.g. <code>photo_1200x630.jpg</code>)
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button type="button" id="tn-bulk-run-btn" class="btn tn-btn--primary px-4">
+                <i class="bi bi-arrows-angle-contract" aria-hidden="true"></i> Resize Images
+              </button>
+              <button type="button" id="tn-bulk-sample-btn" class="btn tn-btn--outline">
+                <i class="bi bi-magic" aria-hidden="true"></i> Load 4 Sample Photos
+              </button>
+              <button type="button" id="tn-bulk-clear-btn" class="btn tn-btn--outline text-danger">
+                <i class="bi bi-trash3" aria-hidden="true"></i> Clear Queue
+              </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="tn-bulk-progress-wrap" class="mb-3 d-none">
+              <div class="small fw-semibold mb-1">Batch resizing images in browser...</div>
+              <div class="progress" style="height: 20px;">
+                <div id="tn-bulk-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%;">0%</div>
+              </div>
+            </div>
+
+            <!-- Processed Results & ZIP Download -->
+            <div id="tn-bulk-results-wrap" class="d-none mt-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 p-3 mb-3 rounded-3 bg-success-subtle border border-success-subtle">
+                <div id="tn-bulk-summary-text" class="small text-dark"></div>
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" id="tn-bulk-dl-zip" class="btn tn-btn--success btn-sm">
+                    <i class="bi bi-file-earmark-zip-fill" aria-hidden="true"></i> Download All as .ZIP
+                  </button>
+                  <button type="button" id="tn-bulk-dl-each" class="btn tn-btn--outline btn-sm">
+                    <i class="bi bi-download" aria-hidden="true"></i> Download Individually
+                  </button>
+                </div>
+              </div>
+              <div id="tn-bulk-results-list"></div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Batch Resize Multiple Images at Once</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Drop Your Image Batch:</strong> Drag and drop dozens of photos into the upload box (or click <em>Load 4 Sample Photos</em> to test a multi-image batch immediately).
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Pick Your Resize Rule &amp; Naming Pattern:</strong> Choose between <em>Exact Dimensions</em>, <em>Target File Size (KB / MB, e.g. 500 KB or 5 MB)</em>, <em>Percentage (%)</em>, <em>Longest Side</em>, or <em>Fixed Width/Height</em>. Select your crop anchor (e.g. Top Center for portraits), output format (JPG, WebP, PNG), and filename suffix pattern.
+              </li>
+              <li>
+                <strong>Step 3 — Download as a Single ZIP:</strong> Click <strong>Resize All Queued Images</strong>, review the before/after dimensions and file sizes, and click <strong>Download All as .ZIP</strong>.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Why E-Commerce Stores &amp; Designers Love This Bulk Image Resizer</h2>
+            <p class="text-muted">
+              Preparing a catalog of 50 product photos for Daraz, Shopify, WooCommerce, or a Facebook shop one image at a time is tedious and error-prone. Inspired by professional batch workflows like RedKetchup Bulk Image Resizer, ToolNest gives you complete control over dimensions, target file sizes (KB/MB), aspect ratios, cropping anchors, and file naming across an entire folder of images in seconds.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-arrows-fullscreen text-primary me-1" aria-hidden="true"></i> 6 Flexible Resize Modes (Incl. File Size)</h3>
+                  <p class="small text-muted mb-0">Resize by exact Width &times; Height, Target File Size (e.g. 100 KB or 5 MB), Percentage, Longest Side, or Fixed Width/Height.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-grid-3x3 text-primary me-1" aria-hidden="true"></i> 9-Point Crop Anchor Grid</h3>
+                  <p class="small text-muted mb-0">Keep faces or products centered—or anchor crops to Top, Bottom, Left, or Right when batch-cropping mixed aspect ratios.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-input-cursor-text text-primary me-1" aria-hidden="true"></i> Dynamic Filename Templates</h3>
+                  <p class="small text-muted mb-0">Automatically append <code>_{width}x{height}</code> or sequential <code>{index}</code> numbers to every exported file.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-file-earmark-zip text-primary me-1" aria-hidden="true"></i> One-Click Client-Side ZIP</h3>
+                  <p class="small text-muted mb-0">Bundle all resized and converted images into a single clean <code>.zip</code> archive without waiting for server downloads.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="bulkFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bkFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bkFaqCol1" aria-expanded="true" aria-controls="bkFaqCol1">
+                    1. How many images can I resize at once with the Bulk Image Resizer?
+                  </button>
+                </h3>
+                <div id="bkFaqCol1" class="accordion-collapse collapse show" aria-labelledby="bkFaq1" data-bs-parent="#bulkFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    You can select or drag and drop dozens of images in a single batch. Because processing uses your device's local hardware rather than uploading over the internet, even 30+ high-resolution photos resize in a few seconds.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bkFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bkFaqCol2" aria-expanded="false" aria-controls="bkFaqCol2">
+                    2. What resize modes are available in the Bulk Image Resizer?
+                  </button>
+                </h3>
+                <div id="bkFaqCol2" class="accordion-collapse collapse" aria-labelledby="bkFaq2" data-bs-parent="#bulkFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Choose from 5 modes: <strong>Exact Dimensions</strong> (Width &times; Height), <strong>Scale by Percentage</strong> (e.g. 50%), <strong>Longest Side</strong> (e.g. max 1200px), <strong>Fixed Width</strong>, or <strong>Fixed Height</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bkFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bkFaqCol3" aria-expanded="false" aria-controls="bkFaqCol3">
+                    3. How does the 9-Point Crop Anchor work when resizing multiple photos?
+                  </button>
+                </h3>
+                <div id="bkFaqCol3" class="accordion-collapse collapse" aria-labelledby="bkFaq3" data-bs-parent="#bulkFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    When cropping a batch of vertical portrait photos into square thumbnails, choosing <strong>Top Center</strong> ensures heads are never cut off, while <strong>Center</strong> keeps standard product shots balanced.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bkFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bkFaqCol4" aria-expanded="false" aria-controls="bkFaqCol4">
+                    4. Can I rename all resized images automatically and download them as a ZIP?
+                  </button>
+                </h3>
+                <div id="bkFaqCol4" class="accordion-collapse collapse" aria-labelledby="bkFaq4" data-bs-parent="#bulkFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Set a custom prefix (like <code>shop_</code>) or suffix (like <code>_{width}x{height}</code>), and click <strong>Download All as .ZIP</strong> to save every resized image in one organized archive.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bkFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bkFaqCol5" aria-expanded="false" aria-controls="bkFaqCol5">
+                    5. Are my batch photos uploaded to any external server?
+                  </button>
+                </h3>
+                <div id="bkFaqCol5" class="accordion-collapse collapse" aria-labelledby="bkFaq5" data-bs-parent="#bulkFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All resizing, cropping, format conversion, and ZIP archiving happen 100% locally in your browser.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a></h3>
+                  <p class="small text-muted mb-0">Batch compress JPG, PNG, and WebP file sizes.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-resizer/index.html" class="stretched-link text-reset">Single Image Resizer</a></h3>
+                  <p class="small text-muted mb-0">Interactive live canvas preview with social presets.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/passport-photo-maker/index.html" class="stretched-link text-reset">Passport Photo Maker</a></h3>
+                  <p class="small text-muted mb-0">Create 300 DPI passport photos and 4R/A4 sheets.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Batch Image Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Image Resizer (Live Canvas)</a></li>
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport &amp; Visa Photo Maker</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">QR Code Generator (PNG/SVG)</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <!-- Pinned JSZip 3.10.1 loaded ONLY on Bulk Image Resizer page for one-click ZIP download -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/bulk-image-resizer.js" defer></script>
+</body>
+</html>

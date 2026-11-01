@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="ToolNest Logo">
+  <defs>
+    <linearGradient id="tnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+  </defs>
+  <!-- Nest / Grid Icon -->
+  <g transform="translate(4, 4)">
+    <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#tnGrad)" />
+    <rect x="8" y="8" width="10" height="10" rx="2.5" fill="#FFFFFF" />
+    <rect x="22" y="8" width="10" height="10" rx="2.5" fill="#F59E0B" />
+    <rect x="8" y="22" width="10" height="10" rx="2.5" fill="#FFFFFF" opacity="0.85" />
+    <rect x="22" y="22" width="10" height="10" rx="2.5" fill="#FFFFFF" />
+  </g>
+  <!-- Brand Text -->
+  <text x="54" y="32" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" fill="#0F172A" letter-spacing="-0.5">
+    Tool<tspan fill="#2563EB">Nest</tspan>
+  </text>
+</svg>

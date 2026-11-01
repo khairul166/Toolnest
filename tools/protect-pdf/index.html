@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protect PDF (Encrypt PDF with Password &amp; Permissions) — ToolNest</title>
+  <meta name="description" content="Encrypt and password-protect PDF files 100% locally in your browser. Set a user open password, owner permissions password, and restrict printing, copying, or editing.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/protect-pdf/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Protect PDF (Encrypt PDF with Password &amp; Permissions) — ToolNest">
+  <meta property="og:description" content="Password-protect PDF files with 128-bit encryption and custom printing, copying, and editing permissions 100% in your browser.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/protect-pdf/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Protect PDF (Encrypt PDF with Password &amp; Permissions) — ToolNest">
+  <meta name="twitter:description" content="Password-protect PDF files with 128-bit encryption and custom permissions 100% in your browser.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <style>
+    .tn-ppdf-preview-box {
+      width: 110px;
+      height: 150px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .tn-ppdf-preview-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .tn-ppdf-strength-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    .tn-ppdf-strength-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.2s ease, background-color 0.2s ease;
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Protect PDF", "item": "https://[DOMAIN]/tools/protect-pdf/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Protect PDF",
+        "url": "https://[DOMAIN]/tools/protect-pdf/",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Encrypt PDF documents with a user open password, owner permissions password, and printing/copying/editing restrictions locally in your browser."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between a User Password and an Owner Password in a PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A User Password (Document Open Password) is required by anyone trying to open and view the PDF file. An Owner Password (Permissions Password) allows opening the file according to your chosen restrictions, while requiring the owner password to change security settings or lift restrictions on printing, copying, or editing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my confidential PDF files or passwords sent to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Both your PDF document and your password remain 100% inside your browser's local memory. Encryption is performed client-side using the ISO 32000-1 Standard Security Handler."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I restrict printing and copying text in my protected PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Under Document Permissions, you can disable printing (or limit it to low resolution), block copying of text and graphics, prevent page modifications, and restrict form filling or annotations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which PDF viewers support the encrypted PDFs created by this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All standard PDF readers—including Adobe Acrobat Reader, Chrome, Microsoft Edge, Apple Preview, Firefox, and mobile PDF apps—prompt for your password and enforce permissions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can ToolNest recover my password if I forget it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Because encryption runs entirely on your device with zero server storage, we never see or store your password. Please keep a safe copy of your password before closing the tab."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link active" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap">
+            <label for="tn-header-search" class="visually-hidden">Search all tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, Taka)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <!-- Main 2-Column Layout -->
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Primary Tool Column -->
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Protect PDF</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Protect PDF (Encrypt PDF with Password &amp; Permissions)</h1>
+          <p class="text-muted mb-3">
+            Secure your confidential PDF documents with <strong>128-bit Standard PDF Encryption</strong>. Set a <strong>Document Open Password</strong>, configure an <strong>Owner Permissions Password</strong>, and restrict printing, copying text, or modifying pages. Runs <strong>100% in your browser</strong>—your files and passwords never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Protect PDF Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+              100% Client-Side Encryption &bull; Files &amp; Passwords Never Leave Your Device
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Select PDF File</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Set Password &amp; Permissions</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Encrypt &amp; Download PDF</div>
+            </div>
+
+            <!-- 1. Drag and Drop PDF Upload Zone -->
+            <div id="tn-ppdf-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Upload or drag and drop a PDF file to protect">
+              <i class="bi bi-file-earmark-lock2-fill tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drag &amp; Drop Your PDF File Here</h2>
+              <p class="small text-muted mb-3">Protect contracts, bank statements, salary slips, and academic certificates locally.</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                <label for="tn-ppdf-file-input" class="btn tn-btn--primary mb-0">
+                  <i class="bi bi-folder2-open" aria-hidden="true"></i> Select PDF File
+                </label>
+                <button type="button" id="tn-ppdf-sample-btn" class="btn tn-btn--outline">
+                  <i class="bi bi-magic" aria-hidden="true"></i> Load Sample PDF
+                </button>
+              </div>
+              <input type="file" id="tn-ppdf-file-input" class="d-none" accept=".pdf,application/pdf">
+            </div>
+
+            <!-- Selected File Summary Card -->
+            <div id="tn-ppdf-file-card" class="p-3 rounded-3 border bg-light mb-3 d-none">
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <div class="tn-ppdf-preview-box">
+                  <img id="tn-ppdf-thumb" src="" alt="First page thumbnail">
+                </div>
+                <div class="flex-grow-1">
+                  <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                    <h3 id="tn-ppdf-file-name" class="h6 fw-bold mb-0">document.pdf</h3>
+                    <span id="tn-ppdf-page-badge" class="badge bg-primary">1 Page</span>
+                    <span id="tn-ppdf-size-badge" class="badge bg-secondary-subtle text-dark border">0 KB</span>
+                    <span id="tn-ppdf-status-badge" class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">
+                      <i class="bi bi-unlock" aria-hidden="true"></i> Unprotected
+                    </span>
+                  </div>
+                  <p class="small text-muted mb-2">Ready for 128-bit Standard PDF Security encryption.</p>
+                  <button type="button" id="tn-ppdf-change-file-btn" class="btn btn-sm tn-btn--outline">
+                    <i class="bi bi-arrow-repeat" aria-hidden="true"></i> Change PDF File
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Password Configuration Panel -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <h3 class="h6 fw-bold text-primary mb-0">
+                  <i class="bi bi-key-fill me-1" aria-hidden="true"></i> Step 2: Set Document Open &amp; Owner Passwords
+                </h3>
+                <button type="button" id="tn-ppdf-gen-pwd-btn" class="btn btn-sm tn-btn--outline">
+                  <i class="bi bi-lightning-charge" aria-hidden="true"></i> Generate Strong Password
+                </button>
+              </div>
+
+              <div class="row g-3">
+                <!-- User Password (Open Password) -->
+                <div class="col-md-6">
+                  <label for="tn-ppdf-user-pwd" class="form-label fw-bold small mb-1">
+                    Document Open Password (Required to View) <span class="text-danger">*</span>
+                  </label>
+                  <div class="input-group">
+                    <input type="password" id="tn-ppdf-user-pwd" class="form-control" placeholder="Enter password to open PDF" autocomplete="new-password">
+                    <button type="button" id="tn-ppdf-toggle-user-pwd" class="btn btn-outline-secondary" aria-label="Show or hide password" title="Show/Hide Password">
+                      <i class="bi bi-eye" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" id="tn-ppdf-copy-user-pwd" class="btn btn-outline-secondary" aria-label="Copy password" title="Copy Password">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <div class="mt-2">
+                    <div class="tn-ppdf-strength-bar">
+                      <div id="tn-ppdf-strength-fill" class="tn-ppdf-strength-fill"></div>
+                    </div>
+                    <div id="tn-ppdf-strength-label" class="small text-muted mt-1">Enter a password to check strength</div>
+                  </div>
+                </div>
+
+                <!-- Confirm User Password -->
+                <div class="col-md-6">
+                  <label for="tn-ppdf-confirm-pwd" class="form-label fw-bold small mb-1">
+                    Confirm Document Open Password <span class="text-danger">*</span>
+                  </label>
+                  <input type="password" id="tn-ppdf-confirm-pwd" class="form-control" placeholder="Re-enter open password" autocomplete="new-password">
+                  <div id="tn-ppdf-match-feedback" class="small text-muted mt-1">Must match the Document Open Password</div>
+                </div>
+
+                <!-- Optional Separate Owner Password -->
+                <div class="col-12">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" id="tn-ppdf-use-owner-chk">
+                    <label class="form-check-label small fw-semibold" for="tn-ppdf-use-owner-chk">
+                      Set a separate <strong>Owner Password (Permissions Password)</strong> for editing security settings
+                    </label>
+                  </div>
+                  <div id="tn-ppdf-owner-wrap" class="d-none">
+                    <label for="tn-ppdf-owner-pwd" class="form-label fw-bold small mb-1">Owner / Permissions Password</label>
+                    <input type="password" id="tn-ppdf-owner-pwd" class="form-control" placeholder="Enter owner password (controls permissions &amp; restrictions)" autocomplete="new-password">
+                    <div class="form-text small">If left blank, a strong owner key is automatically derived so restrictions remain enforced.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Document Permissions & Restrictions (Adobe Acrobat Style) -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <h3 class="h6 fw-bold text-primary mb-0">
+                  <i class="bi bi-shield-check me-1" aria-hidden="true"></i> Step 3: Document Restrictions &amp; Permissions
+                </h3>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Permission presets">
+                  <button type="button" id="tn-ppdf-preset-strict" class="btn btn-outline-secondary">Strict (View Only)</button>
+                  <button type="button" id="tn-ppdf-preset-print" class="btn btn-outline-secondary">Allow Print Only</button>
+                  <button type="button" id="tn-ppdf-preset-all" class="btn btn-outline-secondary">Allow All</button>
+                </div>
+              </div>
+
+              <div class="row g-3 align-items-center">
+                <div class="col-md-6">
+                  <label for="tn-ppdf-print-perm" class="form-label fw-bold small mb-1">Printing Allowed</label>
+                  <select id="tn-ppdf-print-perm" class="form-select">
+                    <option value="high" selected>High Resolution Printing</option>
+                    <option value="low">Low Resolution Only (150 dpi)</option>
+                    <option value="none">Not Allowed (Block Printing)</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="tn-ppdf-filename" class="form-label fw-bold small mb-1">Output File Name</label>
+                  <input type="text" id="tn-ppdf-filename" class="form-control" value="document-protected.pdf" placeholder="document-protected.pdf">
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-ppdf-perm-copy">
+                    <label class="form-check-label small" for="tn-ppdf-perm-copy">
+                      Allow copying of text, images, and other content
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-ppdf-perm-modify">
+                    <label class="form-check-label small" for="tn-ppdf-perm-modify">
+                      Allow modifying document contents
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-ppdf-perm-annot" checked>
+                    <label class="form-check-label small" for="tn-ppdf-perm-annot">
+                      Allow commenting and filling in form fields
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-ppdf-perm-assemble">
+                    <label class="form-check-label small" for="tn-ppdf-perm-assemble">
+                      Allow page assembly (insert, rotate, delete pages)
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tn-ppdf-perm-access" checked>
+                    <label class="form-check-label small" for="tn-ppdf-perm-access">
+                      Enable text access for screen reader devices for the visually impaired
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button type="button" id="tn-ppdf-protect-btn" class="btn tn-btn--primary px-4">
+                <i class="bi bi-lock-fill" aria-hidden="true"></i> Protect &amp; Download PDF
+              </button>
+              <button type="button" id="tn-ppdf-clear-btn" class="btn tn-btn--outline text-danger ms-auto">
+                <i class="bi bi-trash3" aria-hidden="true"></i> Reset
+              </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="tn-ppdf-progress-wrap" class="mb-3 d-none">
+              <div id="tn-ppdf-progress-text" class="small fw-semibold text-primary mb-1">Encrypting PDF objects...</div>
+              <div class="progress" style="height: 18px;">
+                <div id="tn-ppdf-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%;">0%</div>
+              </div>
+            </div>
+
+            <!-- Ready Protected PDF Result Card -->
+            <div id="tn-ppdf-result-card" class="tn-result-box border-success bg-success-subtle d-none mt-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <div id="tn-ppdf-result-summary" class="small text-dark"></div>
+                <button type="button" id="tn-ppdf-download-btn" class="btn tn-btn--success btn-sm">
+                  <i class="bi bi-download" aria-hidden="true"></i> Download Protected PDF
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Password-Protect a PDF</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Upload Your PDF:</strong> Drag and drop your PDF document into the box above (or click <em>Load Sample PDF</em> to test).
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Set Your Open Password &amp; Permissions:</strong> Type a strong Document Open Password (or click <strong>Generate Strong Password</strong>), confirm it, and choose whether recipients can print, copy text, or modify pages.
+              </li>
+              <li>
+                <strong>Step 3 — Encrypt &amp; Download:</strong> Click <strong>Protect &amp; Download PDF</strong>. Your browser encrypts every stream and text object locally and downloads the locked PDF immediately.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Why Encrypt Confidential PDFs Locally in Your Browser?</h2>
+            <p class="text-muted">
+              When sending bank statements, salary slips, tax returns, legal contracts, or NID/passport scans over email or WhatsApp, leaving the PDF unencrypted means anyone who intercepts or forwards the file can read and copy your private data. However, uploading sensitive PDFs and passwords to an unknown online server defeats the entire purpose of security. ToolNest's <strong>Protect PDF</strong> utility performs <strong>128-bit Standard Security Handler encryption</strong> directly inside your browser.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-lock text-primary me-1" aria-hidden="true"></i> Document Open Password</h3>
+                  <p class="small text-muted mb-0">Requires the exact user password before Adobe Acrobat, Chrome, Edge, or mobile PDF viewers can decrypt and display any page.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-printer text-primary me-1" aria-hidden="true"></i> Granular Permission Controls</h3>
+                  <p class="small text-muted mb-0">Configure the standard PDF permission bitmask (<code>/P</code>) to block printing, prevent text copying, or lock page modifications.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-shield-check text-primary me-1" aria-hidden="true"></i> Zero-Knowledge Privacy</h3>
+                  <p class="small text-muted mb-0">Neither your PDF file nor your password is ever transmitted over the internet. Everything stays in your device RAM.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-file-earmark-check text-primary me-1" aria-hidden="true"></i> Universal Viewer Compatibility</h3>
+                  <p class="small text-muted mb-0">Uses the ISO 32000-1 Standard Security specification supported across desktop and smartphone PDF readers worldwide.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="ppdfFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ppdfFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ppdfFaqCol1" aria-expanded="true" aria-controls="ppdfFaqCol1">
+                    1. What is the difference between a Document Open Password and an Owner Password?
+                  </button>
+                </h3>
+                <div id="ppdfFaqCol1" class="accordion-collapse collapse show" aria-labelledby="ppdfFaq1" data-bs-parent="#ppdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    The <strong>Document Open Password (User Password)</strong> is required to open and view the file. The <strong>Owner Password (Permissions Password)</strong> controls document restrictions (such as printing, copying text, and editing pages) so recipients who open the PDF with the User Password still cannot bypass your restrictions without the Owner Password.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ppdfFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ppdfFaqCol2" aria-expanded="false" aria-controls="ppdfFaqCol2">
+                    2. Are my PDF files or passwords uploaded to any server?
+                  </button>
+                </h3>
+                <div id="ppdfFaqCol2" class="accordion-collapse collapse" aria-labelledby="ppdfFaq2" data-bs-parent="#ppdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. All key derivation and object encryption happen 100% locally in your browser using JavaScript. Your files and passwords never leave your device.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ppdfFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ppdfFaqCol3" aria-expanded="false" aria-controls="ppdfFaqCol3">
+                    3. Can I prevent people from copying text or printing my PDF?
+                  </button>
+                </h3>
+                <div id="ppdfFaqCol3" class="accordion-collapse collapse" aria-labelledby="ppdfFaq3" data-bs-parent="#ppdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Use the <strong>Strict (View Only)</strong> preset or uncheck <em>Allow copying of text, images, and other content</em> and set <em>Printing Allowed</em> to <strong>Not Allowed</strong> before encrypting.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ppdfFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ppdfFaqCol4" aria-expanded="false" aria-controls="ppdfFaqCol4">
+                    4. Will the protected PDF open on mobile phones and browsers?
+                  </button>
+                </h3>
+                <div id="ppdfFaqCol4" class="accordion-collapse collapse" aria-labelledby="ppdfFaq4" data-bs-parent="#ppdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. The encrypted PDF follows the official ISO 32000-1 Standard Security Handler format, which is natively supported by Adobe Acrobat, Google Chrome, Microsoft Edge, Apple Preview, iOS Files, and Android PDF viewers.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ppdfFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ppdfFaqCol5" aria-expanded="false" aria-controls="ppdfFaqCol5">
+                    5. What happens if I forget the password I set?
+                  </button>
+                </h3>
+                <div id="ppdfFaqCol5" class="accordion-collapse collapse" aria-labelledby="ppdfFaq5" data-bs-parent="#ppdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Because ToolNest never transmits or stores your password, we cannot recover a forgotten password. Always copy and save your password in a secure password manager before sharing the encrypted PDF.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/create-pdf/index.html" class="stretched-link text-reset">Create PDF &amp; Organize Pages</a></h3>
+                  <p class="small text-muted mb-0">Combine images and PDFs with an Adobe Acrobat-style visual page organizer.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-merge-split/index.html" class="stretched-link text-reset">PDF Merge &amp; Split</a></h3>
+                  <p class="small text-muted mb-0">Merge multiple PDF documents or split custom page ranges.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/password-generator/index.html" class="stretched-link text-reset">Password Generator</a></h3>
+                  <p class="small text-muted mb-0">Generate high-entropy random passwords with strength analysis.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/create-pdf/index.html" class="fw-medium">Create PDF &amp; Organize Pages</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+                <li class="mb-2"><a href="../../tools/image-to-pdf/index.html" class="fw-medium">Image to PDF Converter</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-to-jpg/index.html" class="fw-medium">PDF to JPG &amp; PNG</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-to-word/index.html" class="fw-medium">PDF to MS Word (.DOCX)</a></li>
+                <li class="mb-0"><a href="../../tools/password-generator/index.html" class="fw-medium">Strong Password Generator</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/create-pdf/index.html" class="tn-footer__link">Create PDF &amp; Organize Pages</a></li>
+            <li><a href="../../tools/protect-pdf/index.html" class="tn-footer__link">Protect PDF</a></li>
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <!-- Pinned pdf.js 3.11.174 (first-page preview) and pdf-lib 1.17.1 (PDF structure & encryption) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/protect-pdf.js" defer></script>
+</body>
+</html>

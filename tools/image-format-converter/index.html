@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Format Converter (HEIC, WebP, PNG, JPG) — ToolNest</title>
+  <meta name="description" content="Convert images between JPG, PNG, WebP, and iPhone HEIC/HEIF in batches. Includes quality slider, transparent-to-white background fill, and ZIP export.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/image-format-converter/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Image Format Converter (HEIC, WebP, PNG, JPG) — ToolNest">
+  <meta property="og:description" content="Convert images between JPG, PNG, WebP, and iPhone HEIC/HEIF in batches. Includes quality slider, transparent-to-white background fill, and ZIP export.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/image-format-converter/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Format Converter (HEIC, WebP, PNG, JPG) — ToolNest">
+  <meta name="twitter:description" content="Convert images between JPG, PNG, WebP, and iPhone HEIC/HEIF in batches. Includes quality slider, transparent-to-white background fill, and ZIP export.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Image Format Converter", "item": "https://[DOMAIN]/tools/image-format-converter/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Image Format Converter",
+        "url": "https://[DOMAIN]/tools/image-format-converter/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Batch convert between JPG, PNG, WebP, and HEIC/HEIF (input) locally in your browser with quality control, background fill, and ZIP download."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I convert iPhone HEIC / HEIF photos to JPG or PNG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When you select a .heic or .heif file, the tool automatically loads a lightweight client-side decoder (heic2any) on demand and converts your iPhone photos to JPG, PNG, or WebP inside your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to transparent areas when converting PNG to JPG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because the JPEG format does not support transparency, unstyled transparent pixels normally turn black. ToolNest includes a 'Fill transparent areas with white/color' option enabled by default for clean results."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the quality slider affect PNG output files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. PNG is a lossless image format, so the quality slider only applies when exporting to lossy/modern formats like JPEG (.jpg) and WebP (.webp)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert multiple images at once and download a single ZIP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Drop dozens of mixed JPG, PNG, WebP, or HEIC files into the upload zone and click 'Download All as .ZIP' to save all converted files in one archive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my HEIC or PNG photos uploaded to a cloud server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Every image conversion happens 100% locally in your browser."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Image Format Converter</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Image Format Converter (HEIC, WebP, PNG &amp; JPG)</h1>
+          <p class="text-muted mb-3">
+            Batch convert images between <strong>JPG, PNG, WebP, and iPhone HEIC/HEIF</strong> (input) with a customizable quality slider, white background fill for transparent PNGs, and one-click <strong>.ZIP export</strong>. Runs <strong>100% in your browser</strong>—your files never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Image Format Converter Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Photos &amp; HEIC Files Never Leave Your Device
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Select JPG / PNG / WebP / HEIC</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Pick Output Format &amp; Quality</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Download Files or .ZIP</div>
+            </div>
+
+            <!-- Conversion Controls -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <div class="row g-3 align-items-end">
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-ifc-format" class="form-label fw-bold small">Convert To Format</label>
+                  <select id="tn-ifc-format" class="form-select">
+                    <option value="image/jpeg" selected>JPEG (.jpg)</option>
+                    <option value="image/webp">WebP (.webp)</option>
+                    <option value="image/png">PNG (.png — Lossless)</option>
+                  </select>
+                </div>
+
+                <div id="tn-ifc-quality-group" class="col-sm-6 col-md-5">
+                  <div class="d-flex justify-content-between mb-1">
+                    <label for="tn-ifc-quality" class="form-label fw-bold small mb-0">JPG / WebP Quality</label>
+                    <span id="tn-ifc-quality-val" class="badge bg-primary">88%</span>
+                  </div>
+                  <input type="range" id="tn-ifc-quality" class="form-range" min="15" max="100" step="1" value="88">
+                </div>
+
+                <div class="col-sm-12 col-md-3">
+                  <label for="tn-ifc-bg-color" class="form-label fw-bold small">Transparency Fill</label>
+                  <input type="color" id="tn-ifc-bg-color" class="form-control form-control-color w-100" value="#FFFFFF" title="Background fill color for transparent PNGs">
+                </div>
+              </div>
+
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="tn-ifc-fill-white" checked>
+                <label class="form-check-label small fw-semibold" for="tn-ifc-fill-white">
+                  Fill transparent areas with solid background color (recommended when converting PNG/WebP to JPG)
+                </label>
+              </div>
+            </div>
+
+            <!-- Drag and Drop Upload Box -->
+            <div id="tn-ifc-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Upload or drag and drop JPG, PNG, WebP, or HEIC images">
+              <i class="bi bi-file-earmark-arrow-up tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drag &amp; Drop JPG, PNG, WebP, or HEIC Files Here</h2>
+              <p class="small text-muted mb-3">Supports multiple files at once. HEIC decoder loads automatically on demand when a .heic file is chosen.</p>
+              <label for="tn-ifc-file-input" class="btn tn-btn--primary mb-0">
+                <i class="bi bi-folder2-open" aria-hidden="true"></i> Choose Image Files
+              </label>
+              <input type="file" id="tn-ifc-file-input" class="d-none" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" multiple>
+            </div>
+
+            <!-- Queued Files Strip -->
+            <div id="tn-ifc-queue-wrap" class="p-3 rounded border bg-light mb-3 d-none">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span id="tn-ifc-queue-count" class="badge bg-primary">0 Files Selected</span>
+                <span class="small text-muted">Click &times; to remove any file</span>
+              </div>
+              <div id="tn-ifc-queue-list" class="d-flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Friendly Error Alert -->
+            <div id="tn-ifc-error-box" class="alert alert-danger py-2 px-3 small d-none mb-3" role="alert"></div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button type="button" id="tn-ifc-convert-btn" class="btn tn-btn--primary">
+                <i class="bi bi-arrow-repeat" aria-hidden="true"></i> Convert Selected Images
+              </button>
+              <button type="button" id="tn-ifc-sample-btn" class="btn tn-btn--outline">
+                <i class="bi bi-magic" aria-hidden="true"></i> Load Sample PNG &amp; WebP
+              </button>
+              <button type="button" id="tn-ifc-reset-btn" class="btn tn-btn--outline text-danger">
+                <i class="bi bi-trash3" aria-hidden="true"></i> Clear All
+              </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="tn-ifc-progress-wrap" class="mb-3 d-none">
+              <div id="tn-ifc-progress-text" class="small fw-semibold mb-1">Converting image formats...</div>
+              <div class="progress" style="height: 20px;">
+                <div id="tn-ifc-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%;">0%</div>
+              </div>
+            </div>
+
+            <!-- Results List & ZIP Export -->
+            <div id="tn-ifc-results-wrap" class="d-none mt-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 p-3 mb-3 rounded-3 bg-success-subtle border border-success-subtle">
+                <div id="tn-ifc-summary-text" class="small text-dark"></div>
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" id="tn-ifc-dl-zip" class="btn tn-btn--success btn-sm">
+                    <i class="bi bi-file-earmark-zip-fill" aria-hidden="true"></i> Download All as .ZIP
+                  </button>
+                  <button type="button" id="tn-ifc-dl-each" class="btn tn-btn--outline btn-sm">
+                    <i class="bi bi-download" aria-hidden="true"></i> Download Individually
+                  </button>
+                </div>
+              </div>
+              <div id="tn-ifc-results-list"></div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Convert Image Formats in Your Browser</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Choose Output Format &amp; Quality:</strong> Select whether you want to export your files as <em>JPEG (.jpg)</em>, <em>WebP (.webp)</em>, or lossless <em>PNG (.png)</em>, and set the quality slider.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Drop Your Images (Including iPhone HEIC):</strong> Drag and drop one or multiple JPG, PNG, WebP, or HEIC/HEIF files into the upload zone.
+              </li>
+              <li>
+                <strong>Step 3 — Compare Sizes &amp; Export ZIP:</strong> Review the original vs. converted file sizes and click <strong>Download All as .ZIP</strong> or save individual files.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Why Convert Between HEIC, WebP, PNG, and JPG Locally?</h2>
+            <p class="text-muted">
+              Modern smartphones and web browsers use specialized image formats that are not always compatible with older government job portals, university admission forms, or desktop software. Apple iPhones capture photos in <strong>HEIC (High Efficiency Image Container)</strong> by default, while websites serve graphics in Google's <strong>WebP</strong> format. ToolNest's Image Format Converter bridges all of these formats right inside your browser without uploading private photos to any server.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-phone text-primary me-1" aria-hidden="true"></i> On-Demand HEIC / HEIF Support</h3>
+                  <p class="small text-muted mb-0">Convert iPhone <code>.heic</code> and <code>.heif</code> photos into standard JPG or PNG files. The HEIC decoder loads only when needed so the page stays lightning fast.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-Speedometer2 text-primary me-1" aria-hidden="true"></i> PNG &amp; JPG to Next-Gen WebP</h3>
+                  <p class="small text-muted mb-0">Cut website image payload by 30%–70% by batch-converting legacy PNG and JPEG assets into modern WebP images for higher Core Web Vitals scores.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-palette text-primary me-1" aria-hidden="true"></i> Smart Transparency Fill</h3>
+                  <p class="small text-muted mb-0">Automatically fills transparent PNG alpha channels with clean white (or any custom color) when exporting to JPEG, avoiding ugly black backgrounds.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-file-earmark-zip text-primary me-1" aria-hidden="true"></i> Batch Processing &amp; ZIP Archive</h3>
+                  <p class="small text-muted mb-0">Convert 20+ photos simultaneously with live progress tracking and download them in one organized <code>.zip</code> bundle.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="ifcFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ifcFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ifcFaqCol1" aria-expanded="true" aria-controls="ifcFaqCol1">
+                    1. Can I convert iPhone HEIC / HEIF photos to JPG or PNG?
+                  </button>
+                </h3>
+                <div id="ifcFaqCol1" class="accordion-collapse collapse show" aria-labelledby="ifcFaq1" data-bs-parent="#ifcFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. As soon as you select a <code>.heic</code> or <code>.heif</code> photo, ToolNest loads the pinned client-side <code>heic2any</code> library and decodes the image directly in your browser.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ifcFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ifcFaqCol2" aria-expanded="false" aria-controls="ifcFaqCol2">
+                    2. What happens to transparent areas when converting PNG to JPG?
+                  </button>
+                </h3>
+                <div id="ifcFaqCol2" class="accordion-collapse collapse" aria-labelledby="ifcFaq2" data-bs-parent="#ifcFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    JPEG does not support transparent pixels. With the <strong>Fill transparent areas with solid background color</strong> option checked, transparent regions are filled with crisp white (<code>#FFFFFF</code>) or your chosen color instead of turning black.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ifcFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ifcFaqCol3" aria-expanded="false" aria-controls="ifcFaqCol3">
+                    3. Does the quality slider affect PNG output files?
+                  </button>
+                </h3>
+                <div id="ifcFaqCol3" class="accordion-collapse collapse" aria-labelledby="ifcFaq3" data-bs-parent="#ifcFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. PNG is a lossless format that preserves every pixel and alpha channel intact. The quality slider applies when converting to JPEG or WebP.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ifcFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ifcFaqCol4" aria-expanded="false" aria-controls="ifcFaqCol4">
+                    4. Can I convert multiple images at once and download a single ZIP?
+                  </button>
+                </h3>
+                <div id="ifcFaqCol4" class="accordion-collapse collapse" aria-labelledby="ifcFaq4" data-bs-parent="#ifcFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Select as many files as you need and click <strong>Download All as .ZIP</strong> to get all converted images in a single archive.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ifcFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ifcFaqCol5" aria-expanded="false" aria-controls="ifcFaqCol5">
+                    5. Are my HEIC or PNG photos uploaded to a cloud server?
+                  </button>
+                </h3>
+                <div id="ifcFaqCol5" class="accordion-collapse collapse" aria-labelledby="ifcFaq5" data-bs-parent="#ifcFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All decoding, canvas rendering, and ZIP creation happen 100% locally on your device.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a></h3>
+                  <p class="small text-muted mb-0">Reduce JPG, PNG, and WebP file sizes in batches.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/bulk-image-resizer/index.html" class="stretched-link text-reset">Bulk Image Resizer</a></h3>
+                  <p class="small text-muted mb-0">Batch resize images by pixels, percentage, or file size.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-to-pdf/index.html" class="stretched-link text-reset">Image to PDF</a></h3>
+                  <p class="small text-muted mb-0">Combine multiple JPG, PNG, and WebP photos into a PDF.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Batch Image Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/bulk-image-resizer/index.html" class="fw-medium">Bulk Image Resizer (ZIP)</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Image Resizer (Social Presets)</a></li>
+                <li class="mb-2"><a href="../../tools/color-picker/index.html" class="fw-medium">Color Picker &amp; Eyedropper</a></li>
+                <li class="mb-2"><a href="../../tools/image-to-pdf/index.html" class="fw-medium">Image to PDF Converter</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <!-- Pinned JSZip 3.10.1 for batch ZIP download (heic2any@0.0.4 is lazy-loaded only when a HEIC file is selected) -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/image-format-converter.js" defer></script>
+</body>
+</html>

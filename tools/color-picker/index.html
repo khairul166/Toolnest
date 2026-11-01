@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker &amp; Image Eyedropper (HEX, RGB, HSL) — ToolNest</title>
+  <meta name="description" content="Free online Color Picker and Image Eyedropper. Pick colors from any image, convert HEX, RGB, HSL, HSV, CMYK, and check WCAG contrast.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/color-picker/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Color Picker &amp; Image Eyedropper (HEX, RGB, HSL) — ToolNest">
+  <meta property="og:description" content="Free online Color Picker and Image Eyedropper. Pick colors from any image, convert HEX, RGB, HSL, HSV, CMYK, and check WCAG contrast.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/color-picker/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Color Picker &amp; Image Eyedropper (HEX, RGB, HSL) — ToolNest">
+  <meta name="twitter:description" content="Free online Color Picker and Image Eyedropper. Pick colors from any image, convert HEX, RGB, HSL, HSV, CMYK, and check WCAG contrast.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Color Picker", "item": "https://[DOMAIN]/tools/color-picker/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Color Picker & Image Eyedropper",
+        "url": "https://[DOMAIN]/tools/color-picker/",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Pick pixel colors from any image, extract dominant palettes, convert HEX, RGB, HSL, HSV, and CMYK codes, generate color harmonies, and check WCAG contrast ratios."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I pick a color from an image using this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Drag and drop any JPG, PNG, WebP, or SVG image into the Image Eyedropper box. Hover over the canvas to inspect pixel coordinates and click anywhere to copy the exact HEX code and extract an 8-color dominant palette."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which color code formats does the Color Picker support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every selected color is automatically converted into HEX (#RRGGBB), RGB, HSL, HSV/HSB, CMYK (for print), and a ready-to-paste CSS custom property variable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the Color Picker include a WCAG contrast ratio checker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The tool calculates real-time WCAG 2.1 contrast ratios against both White (#FFFFFF) and Dark (#0F172A) text and displays AA / AAA Pass or Fail badges."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are Complementary, Analogous, and Triadic palettes generated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tool rotates the active color's Hue angle on the 360-degree HSL color wheel (180 degrees for Complementary, +/-30 degrees for Analogous, 120 degrees for Triadic) to produce balanced UI harmonies."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my uploaded images or logos sent to a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Image pixel inspection and palette extraction run 100% locally in your browser using HTML5 Canvas."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Color Picker</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Color Picker, Image Eyedropper &amp; Palette Generator</h1>
+          <p class="text-muted mb-3">
+            Pick exact pixel colors from any uploaded photo or logo, convert between <strong>HEX, RGB, HSL, HSV, and CMYK</strong>, generate color harmonies and tints/shades, and verify <strong>WCAG 2.1 contrast ratios</strong>. Runs <strong>100% in your browser</strong>—your images never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Color Picker Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Image Eyedropper &amp; Palette Extractor Run Locally
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Pick Color or Click Image</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Convert HEX / RGB / HSL / CMYK</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Copy Harmonies &amp; Palette</div>
+            </div>
+
+            <!-- 1. Interactive Color Picker & Format Codes -->
+            <div class="p-3 rounded-3 border bg-light mb-4">
+              <div class="row g-3 align-items-center mb-3">
+                <div class="col-md-5">
+                  <div class="p-3 rounded-3 border bg-white text-center shadow-sm">
+                    <div id="tn-cp-preview-swatch" class="rounded-3 border mb-2 mx-auto" style="height: 96px; background-color: #2563EB;"></div>
+                    <div id="tn-cp-preview-hex" class="h5 fw-bold font-monospace mb-2">#2563EB</div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <label for="tn-cp-native" class="btn tn-btn--primary btn-sm mb-0">
+                        <i class="bi bi-palette-fill" aria-hidden="true"></i> Open Color Wheel
+                      </label>
+                      <input type="color" id="tn-cp-native" class="form-control form-control-color" value="#2563EB" title="Choose a color">
+                      <button type="button" id="tn-cp-eyedropper-btn" class="btn tn-btn--outline btn-sm" title="Pick color from screen">
+                        <i class="bi bi-eyedropper" aria-hidden="true"></i> Screen Pick
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- RGB Channel Sliders -->
+                <div class="col-md-7">
+                  <div class="p-3 rounded-3 border bg-white">
+                    <div class="mb-2">
+                      <div class="d-flex justify-content-between small fw-bold">
+                        <label for="tn-cp-r" class="text-danger">Red (R)</label>
+                        <span id="tn-cp-r-val" class="badge bg-danger">37</span>
+                      </div>
+                      <input type="range" id="tn-cp-r" class="form-range" min="0" max="255" value="37">
+                    </div>
+                    <div class="mb-2">
+                      <div class="d-flex justify-content-between small fw-bold">
+                        <label for="tn-cp-g" class="text-success">Green (G)</label>
+                        <span id="tn-cp-g-val" class="badge bg-success">99</span>
+                      </div>
+                      <input type="range" id="tn-cp-g" class="form-range" min="0" max="255" value="99">
+                    </div>
+                    <div class="mb-0">
+                      <div class="d-flex justify-content-between small fw-bold">
+                        <label for="tn-cp-b" class="text-primary">Blue (B)</label>
+                        <span id="tn-cp-b-val" class="badge bg-primary">235</span>
+                      </div>
+                      <input type="range" id="tn-cp-b" class="form-range" min="0" max="255" value="235">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Color Format Inputs with One-Click Copy -->
+              <div class="row g-3">
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-cp-hex" class="form-label fw-bold small mb-1">HEX Code</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="tn-cp-hex" class="form-control font-monospace fw-bold" value="#2563EB">
+                    <button type="button" class="btn btn-outline-primary" data-copy-target="tn-cp-hex" aria-label="Copy HEX">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-cp-rgb" class="form-label fw-bold small mb-1">RGB Code</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="tn-cp-rgb" class="form-control font-monospace" value="rgb(37, 99, 235)" readonly>
+                    <button type="button" class="btn btn-outline-primary" data-copy-target="tn-cp-rgb" aria-label="Copy RGB">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-cp-hsl" class="form-label fw-bold small mb-1">HSL Code</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="tn-cp-hsl" class="form-control font-monospace" value="hsl(221, 83%, 53%)" readonly>
+                    <button type="button" class="btn btn-outline-primary" data-copy-target="tn-cp-hsl" aria-label="Copy HSL">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-cp-hsv" class="form-label fw-bold small mb-1">HSV / HSB</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="tn-cp-hsv" class="form-control font-monospace" value="hsv(221, 84%, 92%)" readonly>
+                    <button type="button" class="btn btn-outline-primary" data-copy-target="tn-cp-hsv" aria-label="Copy HSV">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-cp-cmyk" class="form-label fw-bold small mb-1">CMYK (Print)</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="tn-cp-cmyk" class="form-control font-monospace" value="cmyk(84%, 58%, 0%, 8%)" readonly>
+                    <button type="button" class="btn btn-outline-primary" data-copy-target="tn-cp-cmyk" aria-label="Copy CMYK">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-cp-css" class="form-label fw-bold small mb-1">CSS Variable</label>
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="tn-cp-css" class="form-control font-monospace" value="--color-primary: #2563EB;" readonly>
+                    <button type="button" class="btn btn-outline-primary" data-copy-target="tn-cp-css" aria-label="Copy CSS Variable">
+                      <i class="bi bi-clipboard" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <button type="button" id="tn-cp-save-btn" class="btn tn-btn--primary btn-sm">
+                  <i class="bi bi-bookmark-plus" aria-hidden="true"></i> Save Color to Palette
+                </button>
+                <button type="button" id="tn-cp-random-btn" class="btn tn-btn--outline btn-sm">
+                  <i class="bi bi-shuffle" aria-hidden="true"></i> Random Color
+                </button>
+              </div>
+            </div>
+
+            <!-- 2. Image Color Picker (Eyedropper from Image + Dominant Palette) -->
+            <div class="p-3 rounded-3 border bg-light mb-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <h2 class="h6 fw-bold text-primary mb-0">
+                  <i class="bi bi-eyedropper me-1" aria-hidden="true"></i> Pick Color from Image (Eyedropper &amp; Auto Palette)
+                </h2>
+                <div class="d-flex gap-2">
+                  <label for="tn-cp-file-input" class="btn tn-btn--primary btn-sm mb-0">
+                    <i class="bi bi-upload" aria-hidden="true"></i> Upload Image
+                  </label>
+                  <button type="button" id="tn-cp-sample-img-btn" class="btn tn-btn--outline btn-sm">
+                    <i class="bi bi-image" aria-hidden="true"></i> Reload Sample Artwork
+                  </button>
+                </div>
+              </div>
+
+              <div id="tn-cp-dropzone" class="tn-dropzone py-3 mb-3" role="button" tabindex="0" aria-label="Upload an image to pick pixel colors">
+                <p class="small text-muted mb-0">
+                  <i class="bi bi-cloud-arrow-up text-primary me-1" aria-hidden="true"></i>
+                  Drag &amp; drop any JPG, PNG, WebP, or SVG image here, then <strong>click anywhere on the image below</strong> to pick its exact pixel color.
+                </p>
+                <input type="file" id="tn-cp-file-input" class="d-none" accept="image/*">
+              </div>
+
+              <div id="tn-cp-canvas-wrap" class="text-center">
+                <div id="tn-cp-loupe-info" class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill border bg-white small mb-2 shadow-sm">
+                  <span id="tn-cp-loupe-swatch" class="d-inline-block rounded-circle border" style="width: 18px; height: 18px; background-color: #2563EB;"></span>
+                  <span id="tn-cp-loupe-text" class="font-monospace fw-semibold">Hover &amp; click image to pick pixel color</span>
+                </div>
+                <div class="overflow-auto border rounded-3 bg-white p-2">
+                  <canvas id="tn-cp-image-canvas" class="img-fluid rounded" style="cursor: crosshair;"></canvas>
+                </div>
+
+                <div class="text-start mt-3">
+                  <div class="small fw-bold text-muted mb-2">
+                    <i class="bi bi-stars text-warning me-1" aria-hidden="true"></i> Auto-Extracted Dominant Image Palette (Click any swatch to select &amp; copy):
+                  </div>
+                  <div id="tn-cp-image-palette" class="d-flex flex-wrap gap-2"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Color Harmonies, Tints & Shades, and WCAG Contrast -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <h2 class="h6 fw-bold text-primary mb-2">
+                <i class="bi bi-bezier2 me-1" aria-hidden="true"></i> Color Harmonies (Click Any Swatch to Copy)
+              </h2>
+              <div id="tn-cp-harmonies" class="row g-2 mb-3"></div>
+
+              <h2 class="h6 fw-bold text-primary mb-2">
+                <i class="bi bi-layers-half me-1" aria-hidden="true"></i> Tints &amp; Shades Scale
+              </h2>
+              <div id="tn-cp-shades" class="d-flex flex-wrap gap-2 mb-3"></div>
+
+              <!-- WCAG 2.1 Contrast Ratio Checker -->
+              <div class="p-3 rounded-3 border bg-white">
+                <h3 class="h6 fw-bold mb-2">
+                  <i class="bi bi-universal-access-circle text-primary me-1" aria-hidden="true"></i> WCAG 2.1 Accessibility Contrast Checker
+                </h3>
+                <div class="row g-3 align-items-center">
+                  <div class="col-sm-4">
+                    <div class="p-2 border rounded-3 text-center">
+                      <div class="small text-muted">vs. White Text (<code>#FFFFFF</code>)</div>
+                      <div id="tn-cp-contrast-white" class="fw-bold fs-6">5.17 : 1</div>
+                      <span id="tn-cp-contrast-white-badge" class="badge bg-success">AA Pass</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-2 border rounded-3 text-center">
+                      <div class="small text-muted">vs. Dark Text (<code>#0F172A</code>)</div>
+                      <div id="tn-cp-contrast-dark" class="fw-bold fs-6">3.68 : 1</div>
+                      <span id="tn-cp-contrast-dark-badge" class="badge bg-warning text-dark">AA Large Only</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div id="tn-cp-contrast-demo" class="p-3 rounded-3 text-center fw-bold" style="background-color: #2563EB; color: #FFFFFF;">
+                      Live Text Contrast Preview
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Session Swatches -->
+            <div class="p-3 rounded-3 border bg-white">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small fw-bold text-muted">Saved Color Swatches (Click to Copy HEX)</span>
+                <button type="button" id="tn-cp-clear-history" class="btn btn-link btn-sm text-danger p-0 text-decoration-none">Clear Swatches</button>
+              </div>
+              <div id="tn-cp-history" class="d-flex flex-wrap gap-2"></div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Use the Color Picker &amp; Image Eyedropper</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Pick a Color or Upload an Image:</strong> Use the interactive color wheel, drag the Red/Green/Blue sliders, or drop any image into the <em>Image Eyedropper</em> and click on any pixel.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Convert &amp; Check Contrast:</strong> View instant conversions across <strong>HEX, RGB, HSL, HSV, and CMYK</strong> along with live WCAG 2.1 text contrast ratings.
+              </li>
+              <li>
+                <strong>Step 3 — Copy Harmonies &amp; Swatches:</strong> Click any swatch in the auto-extracted image palette, Complementary/Triadic harmonies, or Tints &amp; Shades scale to copy its HEX code immediately.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">All-in-One Browser Color Toolkit for Designers &amp; Developers</h2>
+            <p class="text-muted">
+              Whether you are matching a client's brand color from a product photo, converting web HEX codes into CMYK percentages for a print shop in Dhaka, or verifying WCAG AA accessibility contrast for a modern user interface, ToolNest's Color Picker brings every color workflow into one fast, zero-upload workspace.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-eyedropper text-primary me-1" aria-hidden="true"></i> Pixel-Exact Image Eyedropper</h3>
+                  <p class="small text-muted mb-0">Hover over any uploaded photo or logo to inspect exact RGB values and extract an 8-color dominant palette automatically.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-arrow-left-right text-primary me-1" aria-hidden="true"></i> 6 Instant Color Formats</h3>
+                  <p class="small text-muted mb-0">Convert seamlessly between HEX, RGB, HSL, HSV/HSB, print CMYK, and ready-to-use CSS variables.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-palette2 text-primary me-1" aria-hidden="true"></i> Harmonies &amp; Tints/Shades</h3>
+                  <p class="small text-muted mb-0">Generate Complementary, Analogous, Triadic, and Split-Complementary palettes plus a 9-step lightness scale.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-universal-access text-primary me-1" aria-hidden="true"></i> WCAG 2.1 Contrast Verifier</h3>
+                  <p class="small text-muted mb-0">Check contrast ratios against white and dark text with instant AA and AAA compliance badges.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="cpFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cpFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cpFaqCol1" aria-expanded="true" aria-controls="cpFaqCol1">
+                    1. How do I pick a color from an image using this tool?
+                  </button>
+                </h3>
+                <div id="cpFaqCol1" class="accordion-collapse collapse show" aria-labelledby="cpFaq1" data-bs-parent="#cpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Drag and drop any JPG, PNG, WebP, or SVG image into the <strong>Pick Color from Image</strong> section. Move your cursor over the image to inspect pixels and click anywhere to select and copy that exact color.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cpFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cpFaqCol2" aria-expanded="false" aria-controls="cpFaqCol2">
+                    2. Which color code formats does the Color Picker support?
+                  </button>
+                </h3>
+                <div id="cpFaqCol2" class="accordion-collapse collapse" aria-labelledby="cpFaq2" data-bs-parent="#cpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Every color is displayed simultaneously in <strong>HEX</strong>, <strong>RGB</strong>, <strong>HSL</strong>, <strong>HSV/HSB</strong>, <strong>CMYK</strong>, and a <strong>CSS Variable</strong> snippet with one-click copy buttons.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cpFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cpFaqCol3" aria-expanded="false" aria-controls="cpFaqCol3">
+                    3. Does the Color Picker include a WCAG contrast ratio checker?
+                  </button>
+                </h3>
+                <div id="cpFaqCol3" class="accordion-collapse collapse" aria-labelledby="cpFaq3" data-bs-parent="#cpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. It calculates the exact WCAG 2.1 luminance contrast ratio against both White (<code>#FFFFFF</code>) and Dark (<code>#0F172A</code>) text so you know immediately whether your button or banner text passes AA or AAA accessibility standards.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cpFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cpFaqCol4" aria-expanded="false" aria-controls="cpFaqCol4">
+                    4. How are Complementary, Analogous, and Triadic palettes generated?
+                  </button>
+                </h3>
+                <div id="cpFaqCol4" class="accordion-collapse collapse" aria-labelledby="cpFaq4" data-bs-parent="#cpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    The tool calculates color harmonies mathematically on the 360&deg; HSL color wheel—rotating hue by 180&deg; for Complementary, &plusmn;30&deg; for Analogous, and 120&deg; intervals for Triadic combinations.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="cpFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cpFaqCol5" aria-expanded="false" aria-controls="cpFaqCol5">
+                    5. Are my uploaded images or logos sent to a server?
+                  </button>
+                </h3>
+                <div id="cpFaqCol5" class="accordion-collapse collapse" aria-labelledby="cpFaq5" data-bs-parent="#cpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All pixel inspection and dominant palette extraction run 100% locally inside your browser using HTML5 Canvas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/bulk-image-resizer/index.html" class="stretched-link text-reset">Bulk Image Resizer</a></h3>
+                  <p class="small text-muted mb-0">Batch resize images by pixels, percentage, or file size.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a></h3>
+                  <p class="small text-muted mb-0">Reduce JPG, PNG, and WebP file sizes in batches.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/qr-code-generator/index.html" class="stretched-link text-reset">QR Code Generator</a></h3>
+                  <p class="small text-muted mb-0">Create custom-colored QR codes with your logo.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/bulk-image-resizer/index.html" class="fw-medium">Bulk Image Resizer (ZIP)</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Image Resizer &amp; Social Presets</a></li>
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Batch Image Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport &amp; Visa Photo Maker</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">Custom QR Code Generator</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/color-picker.js" defer></script>
+</body>
+</html>

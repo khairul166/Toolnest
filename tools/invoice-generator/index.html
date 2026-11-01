@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice &amp; COD Courier Slip Generator (Print/PDF) — ToolNest</title>
+  <meta name="description" content="Create professional invoices and Bangladesh COD courier parcel slips with line items, delivery charges, and Print/PDF export. 100% browser-based by ToolNest.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/invoice-generator/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Invoice &amp; COD Courier Slip Generator (Print/PDF) — ToolNest">
+  <meta property="og:description" content="Create professional invoices and Bangladesh COD courier parcel slips with line items, delivery charges, and Print/PDF export. 100% browser-based by ToolNest.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/invoice-generator/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Invoice &amp; COD Courier Slip Generator (Print/PDF) — ToolNest">
+  <meta name="twitter:description" content="Create professional invoices and Bangladesh COD courier parcel slips with line items, delivery charges, and Print/PDF export. 100% browser-based by ToolNest.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Invoice & Courier Slip Generator", "item": "https://[DOMAIN]/tools/invoice-generator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Invoice & COD Courier Slip Generator",
+        "url": "https://[DOMAIN]/tools/invoice-generator/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Generate printable commercial invoices and Cash-on-Delivery (COD) courier slips with item rows, delivery charges, advance payments, and PDF export."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I use this tool for Bangladesh F-commerce Cash on Delivery (COD) parcels?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Switch the Document Mode to 'COD Courier Parcel Slip', select your courier (Steadfast, Pathao, RedX, Sundarban, Paperfly), enter delivery charges and any bKash advance paid, and the slip automatically highlights the exact Collectible COD amount."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I save the invoice as a PDF or send it on Messenger/WhatsApp?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Click 'Print / Save as PDF' and select 'Save as PDF' in your browser print dialog, or click 'Download PNG Receipt' to save a crisp image file ready to send to customers on WhatsApp or Facebook Messenger."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my customer phone numbers and order details stored on your server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All calculations and receipt generation run 100% locally inside your browser. Customer names, addresses, and phone numbers never leave your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I add multiple product rows, discounts, and partial advances?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Click '+ Add Item Row' to add unlimited products, and enter optional Discount, Tax/VAT %, Delivery Charge, and Advance Paid to compute the exact net balance due."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the invoice generator support currencies other than BDT Taka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use the Currency dropdown to switch between BDT (৳), USD ($), INR (₹), GBP (£), and EUR (€) for international freelance clients."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Invoice &amp; Courier Slip Generator</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Invoice &amp; COD Courier Slip Generator</h1>
+          <p class="text-muted mb-3">
+            Create clean commercial invoices or <strong>Bangladesh F-commerce Cash-on-Delivery (COD) courier slips</strong> with dynamic item rows, delivery charges, advance deductions, and one-click <strong>Print / PDF &amp; PNG receipt export</strong>. Runs <strong>100% in your browser</strong>—your customer and sales data never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Invoice and Courier Slip Generator Workspace">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <span class="tn-privacy-banner mb-0">
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                100% Client-Side &bull; Customer Data Never Leaves Your Device
+              </span>
+              <div class="d-flex gap-2">
+                <button type="button" id="tn-inv-sample-btn" class="btn tn-btn--outline btn-sm">
+                  <i class="bi bi-magic" aria-hidden="true"></i> Load Sample COD Order
+                </button>
+                <button type="button" id="tn-inv-reset-btn" class="btn tn-btn--outline btn-sm text-danger">
+                  <i class="bi bi-trash3" aria-hidden="true"></i> Clear Form
+                </button>
+              </div>
+            </div>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Enter Store &amp; Customer</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Add Product Rows &amp; COD</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Print PDF or Save PNG</div>
+            </div>
+
+            <!-- Document Settings -->
+            <div class="row g-3 mb-3">
+              <div class="col-sm-6 col-md-3">
+                <label for="tn-inv-mode" class="form-label fw-bold small">Document Type</label>
+                <select id="tn-inv-mode" class="form-select form-select-sm">
+                  <option value="courier" selected>COD Courier Parcel Slip</option>
+                  <option value="invoice">Standard Invoice</option>
+                </select>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <label for="tn-inv-courier" class="form-label fw-bold small">Courier Service</label>
+                <select id="tn-inv-courier" class="form-select form-select-sm">
+                  <option value="Steadfast Courier" selected>Steadfast Courier</option>
+                  <option value="Pathao Courier">Pathao Courier</option>
+                  <option value="RedX Logistics">RedX Logistics</option>
+                  <option value="Sundarban Courier">Sundarban Courier</option>
+                  <option value="Paperfly">Paperfly</option>
+                  <option value="Home Delivery">Own Rider / Direct</option>
+                </select>
+              </div>
+              <div class="col-4 col-md-2">
+                <label for="tn-inv-currency" class="form-label fw-bold small">Currency</label>
+                <select id="tn-inv-currency" class="form-select form-select-sm">
+                  <option value="৳" selected>BDT (৳)</option>
+                  <option value="$">USD ($)</option>
+                  <option value="₹">INR (₹)</option>
+                  <option value="£">GBP (£)</option>
+                  <option value="€">EUR (€)</option>
+                </select>
+              </div>
+              <div class="col-4 col-md-2">
+                <label for="tn-inv-number" class="form-label fw-bold small">Invoice / Order #</label>
+                <input type="text" id="tn-inv-number" class="form-control form-control-sm" value="ORD-2026-101">
+              </div>
+              <div class="col-4 col-md-2">
+                <label for="tn-inv-date" class="form-label fw-bold small">Date</label>
+                <input type="date" id="tn-inv-date" class="form-control form-control-sm">
+              </div>
+            </div>
+
+            <!-- Seller & Buyer Columns -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <div class="p-3 rounded border bg-light h-100">
+                  <h2 class="h6 fw-bold text-primary mb-2">From (Merchant / Seller Details)</h2>
+                  <div class="mb-2">
+                    <label for="tn-inv-seller-name" class="visually-hidden">Store or Company Name</label>
+                    <input type="text" id="tn-inv-seller-name" class="form-control form-control-sm" value="Dhaka Attire &amp; Lifestyle" placeholder="Store / Business Name">
+                  </div>
+                  <div class="mb-2">
+                    <label for="tn-inv-seller-phone" class="visually-hidden">Merchant Phone</label>
+                    <input type="text" id="tn-inv-seller-phone" class="form-control form-control-sm" value="01711-000000" placeholder="Merchant Phone Number">
+                  </div>
+                  <div>
+                    <label for="tn-inv-seller-addr" class="visually-hidden">Merchant Address</label>
+                    <input type="text" id="tn-inv-seller-addr" class="form-control form-control-sm" value="Dhanmondi, Dhaka-1209" placeholder="Pickup / Office Address">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="p-3 rounded border bg-light h-100">
+                  <h2 class="h6 fw-bold text-primary mb-2">To (Customer / Recipient Details)</h2>
+                  <div class="mb-2">
+                    <label for="tn-inv-buyer-name" class="visually-hidden">Customer Name</label>
+                    <input type="text" id="tn-inv-buyer-name" class="form-control form-control-sm" value="Tanvir Ahmed" placeholder="Customer Full Name">
+                  </div>
+                  <div class="mb-2">
+                    <label for="tn-inv-buyer-phone" class="visually-hidden">Customer Phone</label>
+                    <input type="text" id="tn-inv-buyer-phone" class="form-control form-control-sm" value="01819-555555" placeholder="Customer Phone Number">
+                  </div>
+                  <div>
+                    <label for="tn-inv-buyer-addr" class="visually-hidden">Customer Delivery Address</label>
+                    <input type="text" id="tn-inv-buyer-addr" class="form-control form-control-sm" value="House 12, Road 3, Uttara Sector 7, Dhaka" placeholder="Full Delivery Address &amp; Thana">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Line Items Editor -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 class="h6 fw-bold mb-0">Order Line Items</h2>
+                <button type="button" id="tn-inv-add-item" class="btn tn-btn--outline btn-sm">
+                  <i class="bi bi-plus-circle-fill text-primary" aria-hidden="true"></i> Add Item Row
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered table-sm align-middle mb-0">
+                  <thead class="table-light small">
+                    <tr>
+                      <th>Item / Product Description</th>
+                      <th class="text-center">Qty</th>
+                      <th class="text-end">Unit Price</th>
+                      <th class="text-end">Line Total</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tn-inv-items-editor"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Charges, Discount & Advance Inputs -->
+            <div class="row g-2 mb-4">
+              <div class="col-6 col-sm-3">
+                <label for="tn-inv-discount" class="form-label fw-bold small">Discount (Flat)</label>
+                <input type="number" id="tn-inv-discount" class="form-control form-control-sm" value="0" min="0">
+              </div>
+              <div class="col-6 col-sm-3">
+                <label for="tn-inv-tax" class="form-label fw-bold small">Tax / VAT (%)</label>
+                <input type="number" id="tn-inv-tax" class="form-control form-control-sm" value="0" min="0" max="100" step="0.5">
+              </div>
+              <div class="col-6 col-sm-3">
+                <label for="tn-inv-delivery" class="form-label fw-bold small">Delivery Charge</label>
+                <input type="number" id="tn-inv-delivery" class="form-control form-control-sm" value="80" min="0">
+              </div>
+              <div class="col-6 col-sm-3">
+                <label for="tn-inv-advance" class="form-label fw-bold small">Advance Paid (bKash)</label>
+                <input type="number" id="tn-inv-advance" class="form-control form-control-sm" value="100" min="0">
+              </div>
+              <div class="col-12 mt-2">
+                <label for="tn-inv-notes" class="form-label fw-bold small mb-1">Delivery / Invoice Note</label>
+                <input type="text" id="tn-inv-notes" class="form-control form-control-sm" value="Please call customer before delivery. Allow parcel check in front of rider.">
+              </div>
+            </div>
+
+            <!-- Printable Live Preview Sheet -->
+            <div class="tn-invoice-preview tn-printable-area mb-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-start border-bottom pb-3 mb-3 gap-2">
+                <div>
+                  <h3 id="tn-prev-seller-name" class="h4 fw-bold mb-1">Dhaka Attire &amp; Lifestyle</h3>
+                  <div id="tn-prev-seller-phone" class="small fw-semibold">01711-000000</div>
+                  <div id="tn-prev-seller-addr" class="small text-muted">Dhanmondi, Dhaka-1209</div>
+                </div>
+                <div class="text-sm-end">
+                  <span id="tn-prev-title" class="badge bg-primary fs-6 px-3 py-2 mb-1 d-inline-block">COD COURIER PARCEL SLIP</span>
+                  <div class="small"><strong>No:</strong> <span id="tn-prev-invno">ORD-2026-101</span> &bull; <strong>Date:</strong> <span id="tn-prev-date">2026-10-26</span></div>
+                  <span id="tn-prev-courier-badge" class="badge bg-warning text-dark mt-1">Steadfast Courier</span>
+                </div>
+              </div>
+
+              <!-- Recipient Details -->
+              <div class="p-3 rounded bg-light border mb-3">
+                <div class="small text-uppercase text-muted fw-bold mb-1">Deliver / Bill To:</div>
+                <div id="tn-prev-buyer-name" class="fw-bold fs-5">Tanvir Ahmed</div>
+                <div class="small fw-semibold">Phone: <span id="tn-prev-buyer-phone">01819-555555</span></div>
+                <div id="tn-prev-buyer-addr" class="small text-muted">House 12, Road 3, Uttara Sector 7, Dhaka</div>
+              </div>
+
+              <!-- Preview Items Table -->
+              <div class="table-responsive mb-3">
+                <table class="table table-sm table-bordered mb-0 small">
+                  <thead class="table-light">
+                    <tr>
+                      <th style="width:40px;">#</th>
+                      <th>Description</th>
+                      <th class="text-center" style="width:70px;">Qty</th>
+                      <th class="text-end" style="width:120px;">Price</th>
+                      <th class="text-end" style="width:130px;">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tn-prev-items-body"></tbody>
+                </table>
+              </div>
+
+              <div class="row g-3 align-items-center">
+                <div class="col-md-6">
+                  <div id="tn-prev-cod-banner" class="p-3 rounded bg-success-subtle border border-success text-success fw-bold text-center fs-5 mb-2">
+                    COLLECTIBLE COD: ৳ 2,080.00
+                  </div>
+                  <p id="tn-prev-notes" class="small text-muted mb-0"></p>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled small mb-0">
+                    <li class="d-flex justify-content-between py-1 border-bottom">
+                      <span>Subtotal:</span>
+                      <strong id="tn-prev-subtotal">৳ 2,100.00</strong>
+                    </li>
+                    <li class="d-flex justify-content-between py-1 border-bottom">
+                      <span>Discount:</span>
+                      <strong id="tn-prev-discount">- ৳ 0.00</strong>
+                    </li>
+                    <li class="d-flex justify-content-between py-1 border-bottom">
+                      <span>Tax / VAT:</span>
+                      <strong id="tn-prev-tax">৳ 0.00</strong>
+                    </li>
+                    <li class="d-flex justify-content-between py-1 border-bottom">
+                      <span>Delivery Charge:</span>
+                      <strong id="tn-prev-delivery">৳ 80.00</strong>
+                    </li>
+                    <li class="d-flex justify-content-between py-1 border-bottom">
+                      <span>Advance Paid:</span>
+                      <strong id="tn-prev-advance">- ৳ 100.00</strong>
+                    </li>
+                    <li class="d-flex justify-content-between pt-2 fs-6 fw-bold text-primary">
+                      <span>Net Balance / COD Due:</span>
+                      <span id="tn-prev-due">৳ 2,080.00</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Export Buttons -->
+            <div class="d-flex flex-wrap gap-2 justify-content-center tn-no-print">
+              <button type="button" id="tn-inv-print-btn" class="btn tn-btn--primary">
+                <i class="bi bi-printer-fill" aria-hidden="true"></i> Print / Save as PDF
+              </button>
+              <button type="button" id="tn-inv-dl-img-btn" class="btn tn-btn--success">
+                <i class="bi bi-image" aria-hidden="true"></i> Download PNG Receipt (For Messenger/WhatsApp)
+              </button>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Generate an Invoice or COD Courier Slip</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Fill Merchant &amp; Customer Info:</strong> Choose between <em>COD Courier Parcel Slip</em> or <em>Standard Invoice</em>, pick your courier service, and enter the sender and recipient details.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Add Products &amp; Charges:</strong> Add product rows, set quantities and prices, and enter delivery charges (e.g. 60 BDT Inside Dhaka / 120 BDT Outside Dhaka) and any advance bKash payment.
+              </li>
+              <li>
+                <strong>Step 3 — Print PDF or Share PNG:</strong> Click <strong>Print / Save as PDF</strong> to print on A4/thermal paper or click <strong>Download PNG Receipt</strong> to send an instant order confirmation image in Messenger.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Built for Bangladesh F-Commerce Sellers &amp; Global Freelancers</h2>
+            <p class="text-muted">
+              Running a Facebook page shop (F-commerce) or small e-commerce business in Bangladesh means handling dozens of Cash-on-Delivery (COD) orders every day through Steadfast, Pathao, RedX, Sundarban, or Paperfly. Customers frequently pay the delivery fee in advance via bKash or Nagad and pay the remaining balance in cash to the delivery rider.
+            </p>
+            <p class="text-muted">
+              Standard western invoice templates lack fields for courier names, delivery charges, and partial advance deductions—leading to confusion when the courier rider collects cash at the doorstep. ToolNest's Invoice &amp; Courier Slip Generator calculates the exact <strong>Collectible COD Balance</strong> automatically and displays it in a bold banner.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-truck text-primary me-1" aria-hidden="true"></i> Courier-Ready COD Banner</h3>
+                  <p class="small text-muted mb-0">Clearly shows riders whether an order is Paid in Full (৳ 0 COD) or the exact Taka amount to collect.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-whatsapp text-primary me-1" aria-hidden="true"></i> Instant Messenger PNG Receipt</h3>
+                  <p class="small text-muted mb-0">Export a clean PNG receipt image in one click so you can send order confirmation bills directly in chat.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="invFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="iFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#iFaqCol1" aria-expanded="true" aria-controls="iFaqCol1">
+                    1. Can I use this tool for Bangladesh F-commerce Cash on Delivery (COD) parcels?
+                  </button>
+                </h3>
+                <div id="iFaqCol1" class="accordion-collapse collapse show" aria-labelledby="iFaq1" data-bs-parent="#invFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Select <em>COD Courier Parcel Slip</em>, choose your courier (Steadfast, Pathao, RedX, Sundarban, Paperfly), enter the delivery charge and any bKash advance, and the slip highlights the exact COD amount to collect.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="iFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iFaqCol2" aria-expanded="false" aria-controls="iFaqCol2">
+                    2. How do I save the invoice as a PDF or send it on Messenger/WhatsApp?
+                  </button>
+                </h3>
+                <div id="iFaqCol2" class="accordion-collapse collapse" aria-labelledby="iFaq2" data-bs-parent="#invFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Click <strong>Print / Save as PDF</strong> to print only the clean invoice box (all website menus and ads are hidden automatically when printing), or click <strong>Download PNG Receipt</strong> to get an image file for chat apps.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="iFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iFaqCol3" aria-expanded="false" aria-controls="iFaqCol3">
+                    3. Are my customer phone numbers and order details stored on your server?
+                  </button>
+                </h3>
+                <div id="iFaqCol3" class="accordion-collapse collapse" aria-labelledby="iFaq3" data-bs-parent="#invFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. Everything runs 100% locally in your web browser. Your customer database and sales figures stay completely private on your device.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="iFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iFaqCol4" aria-expanded="false" aria-controls="iFaqCol4">
+                    4. Can I add multiple product rows, discounts, and partial advances?
+                  </button>
+                </h3>
+                <div id="iFaqCol4" class="accordion-collapse collapse" aria-labelledby="iFaq4" data-bs-parent="#invFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Click <strong>+ Add Item Row</strong> to add as many products as needed, and use the Discount, Tax %, Delivery Charge, and Advance Paid fields to calculate the net balance automatically.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="iFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iFaqCol5" aria-expanded="false" aria-controls="iFaqCol5">
+                    5. Does the invoice generator support currencies other than BDT Taka?
+                  </button>
+                </h3>
+                <div id="iFaqCol5" class="accordion-collapse collapse" aria-labelledby="iFaq5" data-bs-parent="#invFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Switch the Currency selector between BDT (৳), USD ($), INR (₹), GBP (£), and EUR (€) at any time.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/discount-vat-profit-calculator/index.html" class="stretched-link text-reset">Discount, VAT &amp; Profit</a></h3>
+                  <p class="small text-muted mb-0">Calculate stacked discounts, VAT, and F-commerce net profit.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/amount-to-words/index.html" class="stretched-link text-reset">Amount to Words</a></h3>
+                  <p class="small text-muted mb-0">Spell out invoice totals in Lakh, Crore, and Bangla words.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-format-converter/index.html" class="stretched-link text-reset">Image Format Converter</a></h3>
+                  <p class="small text-muted mb-0">Convert iPhone HEIC and WebP product photos to JPG/PNG.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT Taka)</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">Store QR Code Generator</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Facebook Ad &amp; Post Resizer</a></li>
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Product Photo Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/invoice-generator.js" defer></script>
+</body>
+</html>

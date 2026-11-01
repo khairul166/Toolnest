@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport &amp; Visa Photo Maker (4R/A4 Sheet) — ToolNest</title>
+  <meta name="description" content="Create official Bangladesh, US, UK, and Schengen passport and visa photos with crop, background color, and printable 4R/A4 sheets. 100% browser-based.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/passport-photo-maker/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Passport &amp; Visa Photo Maker (4R/A4 Sheet) — ToolNest">
+  <meta property="og:description" content="Create official Bangladesh, US, UK, and Schengen passport and visa photos with crop, background color, and printable 4R/A4 sheets. 100% browser-based.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/passport-photo-maker/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Passport &amp; Visa Photo Maker (4R/A4 Sheet) — ToolNest">
+  <meta name="twitter:description" content="Create official Bangladesh, US, UK, and Schengen passport and visa photos with crop, background color, and printable 4R/A4 sheets. 100% browser-based.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Passport & Visa Photo Maker", "item": "https://[DOMAIN]/tools/passport-photo-maker/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Passport & Visa Photo Maker",
+        "url": "https://[DOMAIN]/tools/passport-photo-maker/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Create 300 DPI passport and visa photos with size presets, crop, background color fill, and printable 4R/A4 sheets."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the official Bangladesh passport photo size in mm and pixels?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The official Bangladesh passport and e-Visa photo size is 35 mm wide by 45 mm high, which equals 413 x 531 pixels at standard 300 DPI print resolution."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many passport photos fit on a 4R or A4 printable sheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard 4R (4 x 6 inch) photo paper sheet fits 8 passport-size photos (4 columns by 2 rows), while an A4 sheet fits up to 20 passport photos with cut guidelines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I change the background color of my passport photo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can pick Pure White (#FFFFFF), Studio Sky Blue (#D0E7FF), Light Gray, or any custom color. If your photo has a plain wall behind you, increase the Smart Background Replace slider to swap it with your chosen color."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my biometric portrait photos uploaded to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Your portrait photo is cropped and formatted 100% inside your browser using HTML5 Canvas. Your personal photos never leave your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool support US 2x2 inch and Schengen 35x45mm visa specs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Both US/India 2x2 inch (600x600 px at 300 DPI) and UK/Schengen/Canada 35x45mm presets are built into the size selector."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Passport &amp; Visa Photo Maker</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Passport &amp; Visa Photo Maker (পাসপোর্ট ছবি তৈরি)</h1>
+          <p class="text-muted mb-3">
+            Create studio-grade 300 DPI <strong>Bangladesh, US, UK, Schengen, and Stamp-size passport photos</strong> with interactive crop/zoom, background color selection, and ready-to-print <strong>4R (8 copies) or A4 (20 copies)</strong> sheets. Runs <strong>100% in your browser</strong>—your portrait photo never leaves your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Passport Photo Maker Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Portrait Photos Never Leave Your Device
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Upload Portrait</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Crop &amp; Pick Background</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Download Single or Sheet</div>
+            </div>
+
+            <!-- Upload Box -->
+            <div id="tn-pass-dropzone" class="tn-dropzone mb-4" role="button" tabindex="0" aria-label="Upload portrait photo">
+              <i class="bi bi-person-bounding-box tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Upload Your Portrait Photo (JPG, PNG, or WebP)</h2>
+              <p class="small text-muted mb-3">Use a well-lit front-facing photo against a plain wall or transparent PNG.</p>
+              <label for="tn-pass-file-input" class="btn tn-btn--primary mb-0">
+                <i class="bi bi-camera-fill" aria-hidden="true"></i> Select Portrait Photo
+              </label>
+              <input type="file" id="tn-pass-file-input" class="d-none" accept="image/*">
+            </div>
+
+            <!-- Controls Grid -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="tn-pass-preset" class="form-label fw-bold">1. Official Country / Size Preset</label>
+                <select id="tn-pass-preset" class="form-select"></select>
+              </div>
+              <div class="col-md-6">
+                <label for="tn-pass-sheet" class="form-label fw-bold">2. Printable Sheet Paper Size</label>
+                <select id="tn-pass-sheet" class="form-select">
+                  <option value="4r" selected>4R Photo Paper (4 &times; 6 inch — 8 Photos)</option>
+                  <option value="a4">A4 Sheet (210 &times; 297 mm — 20 Photos)</option>
+                </select>
+              </div>
+
+              <!-- Crop / Zoom / Pan Sliders -->
+              <div class="col-md-4">
+                <label for="tn-pass-zoom" class="form-label fw-semibold small mb-1">Zoom Scale (%)</label>
+                <input type="range" id="tn-pass-zoom" class="form-range" min="60" max="220" value="100">
+              </div>
+              <div class="col-md-4">
+                <label for="tn-pass-panx" class="form-label fw-semibold small mb-1">Horizontal Position (X)</label>
+                <input type="range" id="tn-pass-panx" class="form-range" min="-200" max="200" value="0">
+              </div>
+              <div class="col-md-4">
+                <label for="tn-pass-pany" class="form-label fw-semibold small mb-1">Vertical Position (Y)</label>
+                <input type="range" id="tn-pass-pany" class="form-range" min="-200" max="200" value="0">
+              </div>
+
+              <!-- Background Color & Smart Replacer -->
+              <div class="col-md-7">
+                <label class="form-label fw-bold d-block mb-1">Background Color (One-Click Studio Presets)</label>
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                  <button type="button" class="btn tn-btn--outline btn-sm" data-pass-bg="#FFFFFF">Pure White</button>
+                  <button type="button" class="btn tn-btn--outline btn-sm" data-pass-bg="#D0E7FF">Studio Sky Blue</button>
+                  <button type="button" class="btn tn-btn--outline btn-sm" data-pass-bg="#F1F5F9">Light Gray</button>
+                  <button type="button" class="btn tn-btn--outline btn-sm" data-pass-bg="#1D4ED8">Royal Blue</button>
+                  <input type="color" id="tn-pass-bgcolor" class="form-control form-control-color" value="#D0E7FF" aria-label="Custom background color">
+                </div>
+              </div>
+              <div class="col-md-5">
+                <label for="tn-pass-tolerance" class="form-label fw-semibold small mb-1">Smart Plain-Wall Color Replace</label>
+                <input type="range" id="tn-pass-tolerance" class="form-range" min="0" max="50" value="0">
+                <div class="small text-muted">Slide right if replacing a solid wall behind you</div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <div class="d-flex flex-wrap gap-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tn-pass-guide" checked>
+                  <label class="form-check-label small fw-semibold" for="tn-pass-guide">Show Head Alignment Guide</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tn-pass-border" checked>
+                  <label class="form-check-label small fw-semibold" for="tn-pass-border">Add Cut Border Line</label>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <button type="button" id="tn-pass-sample-btn" class="btn tn-btn--outline btn-sm">Load Sample</button>
+                <button type="button" id="tn-pass-reset-btn" class="btn tn-btn--outline btn-sm text-danger">Reset Crop</button>
+              </div>
+            </div>
+
+            <!-- Dual Live Previews: Single Photo & Printable Sheet -->
+            <div class="row g-4 align-items-start">
+              <div class="col-md-5 text-center">
+                <h3 class="h6 fw-bold mb-2">Single Photo Preview</h3>
+                <div class="tn-canvas-preview mb-2">
+                  <canvas id="tn-pass-single-canvas" width="413" height="531" aria-label="Single passport photo preview"></canvas>
+                </div>
+                <div id="tn-pass-single-meta" class="small text-muted mb-3">413 &times; 531 px (300 DPI)</div>
+                <button type="button" id="tn-pass-dl-single" class="btn tn-btn--primary w-100">
+                  <i class="bi bi-download" aria-hidden="true"></i> Download Single Photo
+                </button>
+              </div>
+
+              <div class="col-md-7 text-center">
+                <h3 class="h6 fw-bold mb-2">Printable Multi-Photo Sheet Preview</h3>
+                <div class="tn-canvas-preview mb-2">
+                  <canvas id="tn-pass-sheet-canvas" width="1800" height="1200" aria-label="Printable multi-photo sheet preview"></canvas>
+                </div>
+                <div class="small text-muted mb-3">Ready for 4R lab printing or A4 home color printer</div>
+                <button type="button" id="tn-pass-dl-sheet" class="btn tn-btn--success w-100">
+                  <i class="bi bi-printer-fill" aria-hidden="true"></i> Download Printable Sheet (JPG)
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Make a Passport Photo &amp; Printable Sheet</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Upload Your Portrait:</strong> Choose a front-facing photo taken in even lighting against a plain wall, or upload a transparent-background PNG.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Select Country Size &amp; Align Face:</strong> Choose <em>Bangladesh Passport (35 &times; 45 mm)</em>, <em>US Visa (2 &times; 2 inch)</em>, or <em>Stamp Size</em>. Use the Zoom and Position sliders so your head fits neatly inside the blue oval guide.
+              </li>
+              <li>
+                <strong>Step 3 — Pick Background &amp; Download:</strong> Click Pure White or Studio Sky Blue, then download either the <strong>Single Photo</strong> for online portals or the <strong>Printable 4R / A4 Sheet</strong> to print 8 to 20 copies for pennies at any local photo lab.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Official Passport, Visa &amp; Stamp Size Specifications</h2>
+            <p class="text-muted">
+              Getting passport and visa photos printed at a studio often costs 150 to 300 BDT for just four copies, and digital copies frequently have the wrong pixel dimensions for online visa portals. With ToolNest's Passport &amp; Visa Photo Maker, you can prepare compliant 300 DPI digital photos and multi-copy 4R sheets in under a minute from your phone or laptop.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-rulers text-primary me-1" aria-hidden="true"></i> Exact 300 DPI Calibration</h3>
+                  <p class="small text-muted mb-0">Outputs exact 413&times;531 px for 35&times;45mm (Bangladesh, UK, Schengen) and 600&times;600 px for 2&times;2 inch (US &amp; Indian Visa).</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-grid-3x2-gap text-primary me-1" aria-hidden="true"></i> Automatic 4R &amp; A4 Tiling</h3>
+                  <p class="small text-muted mb-0">Arranges 8 photos on a 4&times;6 inch (4R) sheet or up to 20 photos on A4 paper with crisp scissor cut lines.</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted mb-0 mt-2">
+              Note that the blue dashed head alignment oval is only a visual helper on your screen—it is automatically hidden when you click Download so your final JPEG is 100% clean.
+            </p>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="passFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pFaqCol1" aria-expanded="true" aria-controls="pFaqCol1">
+                    1. What is the official Bangladesh passport photo size in mm and pixels?
+                  </button>
+                </h3>
+                <div id="pFaqCol1" class="accordion-collapse collapse show" aria-labelledby="pFaq1" data-bs-parent="#passFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Bangladesh passport and e-Visa applications require a <strong>35 mm wide &times; 45 mm high</strong> photo. At standard 300 DPI print resolution, that equals <strong>413 &times; 531 pixels</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pFaqCol2" aria-expanded="false" aria-controls="pFaqCol2">
+                    2. How many passport photos fit on a 4R or A4 printable sheet?
+                  </button>
+                </h3>
+                <div id="pFaqCol2" class="accordion-collapse collapse" aria-labelledby="pFaq2" data-bs-parent="#passFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    A standard <strong>4R (4 &times; 6 inch)</strong> lab print holds <strong>8 passport photos</strong> (4 columns &times; 2 rows). An <strong>A4 sheet</strong> holds up to <strong>20 passport photos</strong> (5 columns &times; 4 rows).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pFaqCol3" aria-expanded="false" aria-controls="pFaqCol3">
+                    3. Can I change the background color of my passport photo?
+                  </button>
+                </h3>
+                <div id="pFaqCol3" class="accordion-collapse collapse" aria-labelledby="pFaq3" data-bs-parent="#passFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Select Pure White, Studio Sky Blue, Light Gray, or any custom color. If your photo was taken against a uniform wall, move the <em>Smart Plain-Wall Color Replace</em> slider to blend your new background color behind you.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pFaqCol4" aria-expanded="false" aria-controls="pFaqCol4">
+                    4. Are my biometric portrait photos uploaded to any server?
+                  </button>
+                </h3>
+                <div id="pFaqCol4" class="accordion-collapse collapse" aria-labelledby="pFaq4" data-bs-parent="#passFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. Everything runs 100% client-side in your browser using HTML5 Canvas. Your personal or family photos never leave your device.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pFaqCol5" aria-expanded="false" aria-controls="pFaqCol5">
+                    5. Will the blue oval alignment guide appear on my downloaded photo?
+                  </button>
+                </h3>
+                <div id="pFaqCol5" class="accordion-collapse collapse" aria-labelledby="pFaq5" data-bs-parent="#passFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. The blue oval guide is only displayed on screen to help you center your face. It is automatically removed when generating both single photos and printable sheets.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a></h3>
+                  <p class="small text-muted mb-0">Compress your passport photo under 50 KB or 100 KB.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-resizer/index.html" class="stretched-link text-reset">Image Resizer</a></h3>
+                  <p class="small text-muted mb-0">Resize 300&times;80px signatures for BD job forms.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/age-calculator/index.html" class="stretched-link text-reset">Age Calculator</a></h3>
+                  <p class="small text-muted mb-0">Check exact age on passport or job application dates.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Compress Photo Under 100 KB</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Resize 300&times;80 Signature</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">Combine Documents into 1 PDF</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Calculate Exact Circular Age</a></li>
+                <li class="mb-2"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+                <li class="mb-0"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT Taka)</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/passport-photo-maker.js" defer></script>
+</body>
+</html>

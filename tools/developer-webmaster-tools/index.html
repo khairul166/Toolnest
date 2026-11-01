@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer &amp; Webmaster Tools — ToolNest</title>
+  <meta name="description" content="Free browser-based JSON, Base64, URL, password, UUID, hash, SEO meta, robots.txt, gradient, and color tools.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/developer-webmaster-tools/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Developer &amp; Webmaster Tools — ToolNest">
+  <meta property="og:description" content="Free browser-based JSON, Base64, URL, password, UUID, hash, SEO meta, robots.txt, gradient, and color tools.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/developer-webmaster-tools/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Developer &amp; Webmaster Tools — ToolNest">
+  <meta name="twitter:description" content="Free browser-based JSON, Base64, URL, password, UUID, hash, SEO meta, robots.txt, gradient, and color tools.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>.dw-section{scroll-margin-top:90px}.dw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}.dw-card{background:var(--tn-surface);border:1px solid var(--tn-border);border-radius:var(--tn-radius-md);padding:1.25rem}.dw-card h2{font-size:1.1rem}.dw-card textarea{min-height:110px}.dw-gradient{height:110px;border-radius:var(--tn-radius-md);border:1px solid var(--tn-border)}</style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Developer & Webmaster Tools", "item": "https://[DOMAIN]/tools/developer-webmaster-tools/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Developer & Webmaster Tools",
+        "url": "https://[DOMAIN]/tools/developer-webmaster-tools/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Free browser-based JSON, Base64, URL, password, UUID, hash, SEO meta, robots.txt, gradient, and color tools."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What utilities are included on the Developer & Webmaster Tools page?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This toolkit includes a JSON Formatter, Base64 Encoder/Decoder, URL Encoder/Decoder, Password Generator, UUID v4 Generator, SHA Hash Generator, Meta Tag & SERP Preview, robots.txt Generator, CSS Gradient Builder, and HEX/RGB Color Converter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are JSON payloads, passwords, or hashes sent to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Every tool on this page uses native browser APIs such as JSON, Web Crypto, and TextEncoder locally on your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which cryptographic hash algorithms are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Hash Generator uses the browser's built-in Web Crypto API (crypto.subtle.digest) to compute SHA-256, SHA-384, and SHA-512 digests."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ToolNest also have dedicated pages for JSON, Passwords, Meta Tags, and robots.txt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can use the quick cards here for fast multi-tasking or open the dedicated JSON Formatter, Password Generator, Meta Tag Generator, and Robots.txt Generator pages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Base64 encoding support Unicode and Bangla text?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Base64 encoder and decoder handle UTF-8 strings so Bangla and international Unicode characters encode and decode accurately."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Developer Tools</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Developer &amp; Webmaster Tools</h1>
+          <p class="text-muted mb-3">Fast, private browser tools for developers, SEO specialists, designers, and website owners.</p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Developer &amp; Webmaster Tools Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Code, Tokens &amp; Hashes Stay in Your Browser
+            </span>
+            <div class="dw-grid">
+              <section id="json-formatter" class="dw-card dw-section"><h2>JSON Formatter</h2><textarea id="dw-json-input" class="form-control mb-2" placeholder='{"name":"ToolNest","free":true}'></textarea><div class="d-flex gap-2 mb-2"><button id="dw-json-format" class="btn tn-btn--primary">Format</button><button id="dw-json-minify" class="btn tn-btn--outline">Minify</button></div><textarea id="dw-json-output" class="form-control" readonly></textarea></section>
+              <section id="base64-encoder" class="dw-card dw-section"><h2>Base64 Encoder / Decoder</h2><textarea id="dw-base64-input" class="form-control mb-2" placeholder="Text or Base64 input"></textarea><div class="d-flex gap-2 mb-2"><button id="dw-base64-encode" class="btn tn-btn--primary">Encode</button><button id="dw-base64-decode" class="btn tn-btn--outline">Decode</button></div><textarea id="dw-base64-output" class="form-control" readonly></textarea></section>
+              <section id="url-encoder" class="dw-card dw-section"><h2>URL Encoder / Decoder</h2><textarea id="dw-url-input" class="form-control mb-2" placeholder="https://example.com/?q=hello world"></textarea><div class="d-flex gap-2 mb-2"><button id="dw-url-encode" class="btn tn-btn--primary">Encode</button><button id="dw-url-decode" class="btn tn-btn--outline">Decode</button></div><textarea id="dw-url-output" class="form-control" readonly></textarea></section>
+              <section id="password-generator" class="dw-card dw-section"><h2>Password Generator</h2><label class="form-label" for="dw-password-length">Length</label><input id="dw-password-length" type="number" class="form-control mb-2" value="16" min="6" max="128"><div class="input-group"><input id="dw-password-output" class="form-control" readonly><button id="dw-password-generate" class="btn tn-btn--primary">Generate</button></div></section>
+              <section id="uuid-generator" class="dw-card dw-section"><h2>UUID Generator</h2><div class="input-group"><input id="dw-uuid-output" class="form-control" readonly placeholder="Click Generate"><button id="dw-uuid-generate" class="btn tn-btn--primary">Generate</button></div></section>
+              <section id="hash-generator" class="dw-card dw-section"><h2>Hash Generator</h2><textarea id="dw-hash-input" class="form-control mb-2" placeholder="Text to hash"></textarea><div class="input-group"><select id="dw-hash-algorithm" class="form-select"><option value="SHA-256">SHA-256</option><option value="SHA-384">SHA-384</option><option value="SHA-512">SHA-512</option></select><button id="dw-hash-generate" class="btn tn-btn--primary">Hash</button></div><textarea id="dw-hash-output" class="form-control mt-2" readonly></textarea></section>
+              <section id="meta-tag-generator" class="dw-card dw-section"><h2>Meta Tag Generator &amp; SERP Preview</h2><input id="dw-meta-title" class="form-control mb-2" placeholder="Page title"><input id="dw-meta-description" class="form-control mb-2" placeholder="Meta description"><input id="dw-meta-url" class="form-control mb-2" placeholder="Canonical URL"><input id="dw-meta-image" class="form-control mb-2" placeholder="Social image URL"><textarea id="dw-meta-output" class="form-control mb-2" readonly></textarea><div class="border rounded p-2"><strong id="dw-serp-title">Page title preview</strong><p id="dw-serp-description" class="small text-muted mb-0">Search result description preview.</p></div></section>
+              <section id="robots-generator" class="dw-card dw-section"><h2>robots.txt Generator</h2><input id="dw-robots-agent" class="form-control mb-2" value="*" placeholder="User-agent"><input id="dw-robots-disallow" class="form-control mb-2" value="/admin/" placeholder="Disallow path"><input id="dw-robots-sitemap" class="form-control mb-2" placeholder="https://example.com/sitemap.xml"><button id="dw-robots-generate" class="btn tn-btn--primary mb-2">Generate</button><textarea id="dw-robots-output" class="form-control" readonly></textarea></section>
+              <section id="gradient-generator" class="dw-card dw-section"><h2>CSS Gradient Generator</h2><div id="dw-gradient-preview" class="dw-gradient mb-2"></div><div class="row g-2"><div class="col-4"><input id="dw-gradient-a" type="color" class="form-control form-control-color" value="#2563eb"></div><div class="col-4"><input id="dw-gradient-b" type="color" class="form-control form-control-color" value="#f59e0b"></div><div class="col-4"><input id="dw-gradient-angle" type="number" class="form-control" value="90"></div></div><input id="dw-gradient-output" class="form-control mt-2" readonly></section>
+              <section id="color-format-converter" class="dw-card dw-section"><h2>Color Format Converter</h2><input id="dw-color-hex" class="form-control mb-2" value="#2563EB" placeholder="#RRGGBB"><pre id="dw-color-output" class="bg-light p-3 rounded mb-0"></pre><a href="../color-picker/index.html" class="small">Open full Color Picker &amp; Eyedropper →</a></section>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Use the Developer &amp; Webmaster Suite</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Pick Your Utility Card:</strong> Scroll to the JSON Formatter, Base64/URL Encoder, Password/UUID/Hash Generator, SEO Meta/robots.txt Builder, or CSS Color/Gradient card.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Enter Input or Adjust Controls:</strong> Paste your string, JSON payload, URL, or color values and click the action button.
+              </li>
+              <li>
+                <strong>Step 3 — Copy Your Result:</strong> Copy the formatted output directly from the read-only result field for use in your code or website.
+              </li>
+            </ol>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="dwFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dwFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dwFaqCol1" aria-expanded="true" aria-controls="dwFaqCol1">
+                    1. What utilities are included on the Developer &amp; Webmaster Tools page?
+                  </button>
+                </h3>
+                <div id="dwFaqCol1" class="accordion-collapse collapse show" aria-labelledby="dwFaq1" data-bs-parent="#dwFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    This all-in-one page includes a JSON Formatter &amp; Minifier, Base64 Encoder/Decoder, URL Encoder/Decoder, Password Generator, UUID v4 Generator, SHA Hash Generator, Meta Tag &amp; SERP Preview, robots.txt Generator, CSS Gradient Builder, and HEX/RGB Color Converter.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dwFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dwFaqCol2" aria-expanded="false" aria-controls="dwFaqCol2">
+                    2. Are JSON payloads, passwords, or hashes sent to any server?
+                  </button>
+                </h3>
+                <div id="dwFaqCol2" class="accordion-collapse collapse" aria-labelledby="dwFaq2" data-bs-parent="#dwFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. Every utility on this page executes 100% locally in your browser using native JavaScript and Web Crypto APIs.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dwFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dwFaqCol3" aria-expanded="false" aria-controls="dwFaqCol3">
+                    3. Which cryptographic hash algorithms are supported?
+                  </button>
+                </h3>
+                <div id="dwFaqCol3" class="accordion-collapse collapse" aria-labelledby="dwFaq3" data-bs-parent="#dwFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    The Hash Generator uses the browser's built-in <code>crypto.subtle.digest</code> API to compute hexadecimal SHA-256, SHA-384, and SHA-512 hashes.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dwFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dwFaqCol4" aria-expanded="false" aria-controls="dwFaqCol4">
+                    4. Does ToolNest also have dedicated pages for JSON, Passwords, Meta Tags, and robots.txt?
+                  </button>
+                </h3>
+                <div id="dwFaqCol4" class="accordion-collapse collapse" aria-labelledby="dwFaq4" data-bs-parent="#dwFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Use the compact cards here when working on multiple tasks at once, or open our standalone JSON Formatter, Password Generator, Meta Tag Generator, and Robots.txt Generator pages for expanded controls.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dwFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dwFaqCol5" aria-expanded="false" aria-controls="dwFaqCol5">
+                    5. Does Base64 encoding support Unicode and Bangla text?
+                  </button>
+                </h3>
+                <div id="dwFaqCol5" class="accordion-collapse collapse" aria-labelledby="dwFaq5" data-bs-parent="#dwFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. The Base64 encoder and decoder process UTF-8 strings so Bangla and international characters encode and decode cleanly.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/json-formatter/index.html" class="stretched-link text-reset">JSON Formatter</a></h3>
+                  <p class="small text-muted mb-0">Format, validate, and minify JSON payloads in your browser.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/meta-tag-generator/index.html" class="stretched-link text-reset">Meta Tag Generator</a></h3>
+                  <p class="small text-muted mb-0">Build SEO, Open Graph, and Twitter Card HTML meta tags.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/robots-txt-generator/index.html" class="stretched-link text-reset">Robots.txt Generator</a></h3>
+                  <p class="small text-muted mb-0">Create crawler directives and sitemap rules for search engines.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/json-formatter/index.html" class="fw-medium">JSON Formatter &amp; Minifier</a></li>
+                <li class="mb-2"><a href="../../tools/password-generator/index.html" class="fw-medium">Strong Password Generator</a></li>
+                <li class="mb-2"><a href="../../tools/meta-tag-generator/index.html" class="fw-medium">SEO Meta Tag Generator</a></li>
+                <li class="mb-2"><a href="../../tools/robots-txt-generator/index.html" class="fw-medium">Robots.txt Generator</a></li>
+                <li class="mb-2"><a href="../../tools/color-picker/index.html" class="fw-medium">Color Picker &amp; Eyedropper</a></li>
+                <li class="mb-0"><a href="../../tools/utm-link-builder/index.html" class="fw-medium">UTM Campaign Link Builder</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/developer-webmaster-tools.js" defer></script>
+</body>
+</html>

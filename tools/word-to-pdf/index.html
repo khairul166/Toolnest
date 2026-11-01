@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word to PDF Converter (.DOCX &amp; .DOC to PDF) — ToolNest</title>
+  <meta name="description" content="Convert Microsoft Word (.docx, .doc) and text documents into clean, printable A4 or Letter PDF files 100% locally in your browser with zero uploads.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/word-to-pdf/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Word to PDF Converter (.DOCX &amp; .DOC to PDF) — ToolNest">
+  <meta property="og:description" content="Convert Microsoft Word (.docx, .doc) and text documents into clean, printable A4 or Letter PDF files 100% locally in your browser with zero uploads.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/word-to-pdf/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word to PDF Converter (.DOCX &amp; .DOC to PDF) — ToolNest">
+  <meta name="twitter:description" content="Convert Microsoft Word (.docx, .doc) and text documents into clean, printable A4 or Letter PDF files 100% locally in your browser with zero uploads.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data: WebApplication, FAQPage, BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://[DOMAIN]/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "All Tools",
+            "item": "https://[DOMAIN]/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Word to PDF Converter",
+            "item": "https://[DOMAIN]/tools/word-to-pdf/"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "MS Word (.DOCX) to PDF Converter",
+        "url": "https://[DOMAIN]/tools/word-to-pdf/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Free client-side Microsoft Word (.docx, .doc, .txt) to PDF converter with A4/Letter page sizing, live document editor, margin control, and automatic page numbering."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does ToolNest convert Word (.docx) to PDF without uploading my file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ToolNest reads the internal XML structure (word/document.xml) of your .docx file directly inside your browser using JSZip, formats the headings and paragraphs, and builds a vector PDF file using pdf-lib—all 100% locally on your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I edit my Word document before saving it as a PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Once you select a .docx, .doc, or .txt file, the extracted content loads into an editable live preview box so you can fix typos or update dates before clicking Download PDF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which page sizes and margins are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can choose between A4 (210 × 297 mm) and US Letter (8.5 × 11 in) in Portrait or Landscape orientation, with Narrow (0.5 in), Normal (0.75 in), or Wide (1.0 in) margins."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I convert a Word document that contains Bangla Unicode text?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For documents containing Bangla Unicode or complex scripts, click the Print / Save Unicode PDF button. It uses your browser's native Hind Siliguri font renderer to save a crisp Bangla PDF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert a PDF back into an editable Word document?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use our companion PDF to MS Word (.DOCX) Converter to extract text and paragraphs from any PDF back into a Word file."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Word to PDF</li>
+            </ol>
+          </nav>
+
+          <span class="tn-privacy-banner">
+            <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+            100% Browser-Based &bull; Files Never Leave Your Device
+          </span>
+
+          <h1 class="tn-page-title">MS Word (.DOCX) to PDF Converter</h1>
+          <p class="text-muted mb-4">
+            Convert Microsoft Word (<strong><code>.docx</code></strong>, <strong><code>.doc</code></strong>) and plain text (<strong><code>.txt</code></strong>) documents into clean, paginated A4 or US Letter PDF files right inside your browser. Zero server uploads keep your resumes, contracts, and proposals 100% private.
+          </p>
+
+          <!-- TOOL AREA START (No Ads Inside) -->
+          <section class="tn-tool-workspace" aria-label="Word to PDF Converter Workspace">
+            <!-- Upload Dropzone -->
+            <div id="tn-w2p-dropzone" class="tn-dropzone mb-3" tabindex="0" role="button" aria-label="Upload a Word file to convert to PDF">
+              <i class="bi bi-file-earmark-word tn-dropzone__icon text-primary" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drop Your MS Word (.DOCX, .DOC) File Here or Click to Browse</h2>
+              <p class="small text-muted mb-3">Automatically converts your Word document to PDF preserving its layout, headings, fonts, and tables</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                <label for="tn-w2p-file-input" class="btn tn-btn--primary">
+                  <i class="bi bi-folder2-open" aria-hidden="true"></i> Upload Word File
+                </label>
+                <button type="button" id="tn-w2p-sample-btn" class="btn tn-btn--outline">
+                  <i class="bi bi-magic" aria-hidden="true"></i> Try Sample Word (.DOCX)
+                </button>
+              </div>
+              <input type="file" id="tn-w2p-file-input" class="d-none" accept=".docx,.doc,.txt,.rtf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,text/plain">
+            </div>
+
+            <!-- Converting Progress State -->
+            <div id="tn-w2p-progress" class="d-none p-4 rounded-3 bg-light border text-center mb-3">
+              <div class="spinner-border text-primary mb-2" role="status" aria-hidden="true"></div>
+              <div class="fw-bold">Converting Word document to PDF...</div>
+              <div class="small text-muted">Preserving document page setup, headings, paragraphs, and tables</div>
+            </div>
+
+            <!-- Error Alert -->
+            <div id="tn-w2p-error-box" class="alert alert-danger d-none py-2 small mb-3" role="alert"></div>
+
+            <!-- Conversion Complete & Download Box -->
+            <div id="tn-w2p-results-wrap" class="d-none mt-3">
+              <div class="tn-result-box">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 p-3 rounded-3 bg-white border mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="rounded-3 bg-danger-subtle text-danger d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                      <i class="bi bi-file-earmark-pdf-fill fs-3" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span id="tn-w2p-file-name" class="fw-bold text-dark">document.pdf</span>
+                        <span class="badge bg-success-subtle text-success">Converted</span>
+                      </div>
+                      <div id="tn-w2p-file-meta" class="small text-muted">PDF Document &bull; 1 Page</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-wrap gap-2">
+                    <button type="button" id="tn-w2p-dl-pdf" class="btn tn-btn--success px-4">
+                      <i class="bi bi-download me-1" aria-hidden="true"></i> Download PDF
+                    </button>
+                    <button type="button" id="tn-w2p-reset-btn" class="btn tn-btn--outline">
+                      <i class="bi bi-arrow-counterclockwise me-1" aria-hidden="true"></i> Convert Another
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Visual Document Preview -->
+                <div class="border rounded-3 bg-white overflow-hidden">
+                  <div class="bg-light px-3 py-2 border-bottom d-flex justify-content-between align-items-center">
+                    <span class="small fw-semibold text-secondary"><i class="bi bi-eye me-1 text-primary" aria-hidden="true"></i> Document Preview</span>
+                    <span id="tn-w2p-para-badge" class="badge bg-secondary-subtle text-secondary-emphasis">1 Page</span>
+                  </div>
+                  <div id="tn-w2p-preview" class="p-4" style="max-height: 380px; overflow-y: auto; background: #fff;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Convert MS Word (.DOCX) to PDF</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Upload Your Word Document:</strong> Drag and drop your <code>.docx</code>, <code>.doc</code>, or <code>.rtf</code> file into the upload box above, or click <strong>Upload Word File</strong>.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Automatic Conversion:</strong> The converter immediately reads your Word document's page dimensions, margins, headings, bold/italic styles, alignments, lists, and tables and converts it into a matching PDF file.
+              </li>
+              <li>
+                <strong>Step 3 — Download Your PDF:</strong> Click <strong>Download PDF</strong> to save the converted PDF file directly to your device.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Detailed SEO Guide (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="guide-heading">
+            <h2 id="guide-heading" class="tn-section-title">Why Convert Word Documents to PDF Locally in Your Browser?</h2>
+            <p class="text-muted">
+              Sending a raw <code>.docx</code> file to a client, recruiter, or government portal often leads to broken layouts when the recipient opens the file on a different operating system or without your installed fonts. Converting your Word document into a standardized <strong>PDF (Portable Document Format)</strong> locks in your pagination, margins, and typography across every phone, tablet, and desktop.
+            </p>
+            <p class="text-muted">
+              With ToolNest, you never have to upload confidential employment contracts, legal drafts, or academic papers to a third-party server. Our browser engine unpacks the OpenXML structure of your <code>.docx</code> file locally using <code>JSZip</code>, reads the document's original page setup, styles, and tables, and builds an exact multi-page vector PDF using <code>pdf-lib</code>.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-file-earmark-lock2 text-primary me-1" aria-hidden="true"></i> 100% Private &amp; Instant</h3>
+                  <p class="small text-muted mb-0">Zero upload wait times and zero cloud storage—your Word files remain strictly inside your browser's local RAM.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-file-earmark-check text-primary me-1" aria-hidden="true"></i> Matches Word Formatting</h3>
+                  <p class="small text-muted mb-0">Automatically preserves your Word file's page size, margins, headings, bold/italic text, alignments, lists, and tables.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="tn-card mb-4" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="w2pFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="wpFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wpFaqCol1" aria-expanded="true" aria-controls="wpFaqCol1">
+                    1. How does ToolNest convert Word (.docx) to PDF without uploading my file?
+                  </button>
+                </h3>
+                <div id="wpFaqCol1" class="accordion-collapse collapse show" aria-labelledby="wpFaq1" data-bs-parent="#w2pFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    ToolNest reads the internal XML structure (<code>word/document.xml</code>) of your <code>.docx</code> file directly inside your browser using JSZip, formats the headings and paragraphs, and builds a vector PDF file using <code>pdf-lib</code>—all 100% locally on your device.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="wpFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wpFaqCol2" aria-expanded="false" aria-controls="wpFaqCol2">
+                    2. Can I edit my Word document before saving it as a PDF?
+                  </button>
+                </h3>
+                <div id="wpFaqCol2" class="accordion-collapse collapse" aria-labelledby="wpFaq2" data-bs-parent="#w2pFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Once you select a <code>.docx</code>, <code>.doc</code>, or <code>.txt</code> file, the extracted content loads into an editable live preview box so you can fix typos or update dates before clicking <strong>Download PDF</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="wpFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wpFaqCol3" aria-expanded="false" aria-controls="wpFaqCol3">
+                    3. Which page sizes and margins are supported?
+                  </button>
+                </h3>
+                <div id="wpFaqCol3" class="accordion-collapse collapse" aria-labelledby="wpFaq3" data-bs-parent="#w2pFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    You can choose between <strong>A4 (210 &times; 297 mm)</strong> and <strong>US Letter (8.5 &times; 11 in)</strong> in Portrait or Landscape orientation, with Narrow (0.5 in), Normal (0.75 in), or Wide (1.0 in) margins.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="wpFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wpFaqCol4" aria-expanded="false" aria-controls="wpFaqCol4">
+                    4. How do I convert a Word document that contains Bangla Unicode text?
+                  </button>
+                </h3>
+                <div id="wpFaqCol4" class="accordion-collapse collapse" aria-labelledby="wpFaq4" data-bs-parent="#w2pFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    For documents containing Bangla Unicode or complex scripts, click the <strong>Print / Save Unicode PDF</strong> button. It uses your browser's native Hind Siliguri font renderer to save a crisp Bangla PDF.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="wpFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wpFaqCol5" aria-expanded="false" aria-controls="wpFaqCol5">
+                    5. Can I convert a PDF back into an editable Word document?
+                  </button>
+                </h3>
+                <div id="wpFaqCol5" class="accordion-collapse collapse" aria-labelledby="wpFaq5" data-bs-parent="#w2pFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Use our companion <a href="../../tools/pdf-to-word/index.html">PDF to MS Word (.DOCX) Converter</a> to extract text and paragraphs from any PDF back into a Word file.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-to-word/index.html" class="stretched-link text-reset">PDF to MS Word</a></h3>
+                  <p class="small text-muted mb-0">Convert PDF documents back into editable Word (.DOCX) files.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/excel-to-pdf/index.html" class="stretched-link text-reset">MS Excel to PDF</a></h3>
+                  <p class="small text-muted mb-0">Convert Excel (.XLSX) &amp; CSV spreadsheets into formatted PDF tables.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-merge-split/index.html" class="stretched-link text-reset">PDF Merge &amp; Split</a></h3>
+                  <p class="small text-muted mb-0">Combine multiple PDF files or extract specific page ranges.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/pdf-to-word/index.html" class="fw-medium">PDF to MS Word (.DOCX)</a></li>
+                <li class="mb-2"><a href="../../tools/excel-to-pdf/index.html" class="fw-medium">MS Excel (.XLSX) to PDF</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-to-excel/index.html" class="fw-medium">PDF to MS Excel (.XLSX)</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge, Reorder &amp; Split</a></li>
+                <li class="mb-2"><a href="../../tools/image-to-pdf/index.html" class="fw-medium">Image to PDF Converter</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.20/dist/docx-preview.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/word-to-pdf.js" defer></script>
+</body>
+</html>

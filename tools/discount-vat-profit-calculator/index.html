@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount, VAT &amp; Profit Calculator (BDT ৳) — ToolNest</title>
+  <meta name="description" content="Calculate sale discounts, add or remove VAT, and compute profit margin, markup, and F-commerce net profit per order in BDT (৳) or global currencies.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/discount-vat-profit-calculator/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Discount, VAT &amp; Profit Calculator (BDT ৳) — ToolNest">
+  <meta property="og:description" content="Calculate sale discounts, add or remove VAT, and compute profit margin, markup, and F-commerce net profit per order in BDT (৳) or global currencies.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/discount-vat-profit-calculator/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Discount, VAT &amp; Profit Calculator (BDT ৳) — ToolNest">
+  <meta name="twitter:description" content="Calculate sale discounts, add or remove VAT, and compute profit margin, markup, and F-commerce net profit per order in BDT (৳) or global currencies.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Discount, VAT & Profit Calculator", "item": "https://[DOMAIN]/tools/discount-vat-profit-calculator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Discount, VAT & Profit Calculator",
+        "url": "https://[DOMAIN]/tools/discount-vat-profit-calculator/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "3-in-1 Discount, VAT (Inclusive/Exclusive), and F-Commerce Profit Margin Calculator with BDT Taka default and real-time net profit breakdown."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I remove VAT from a VAT-inclusive price?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simply subtracting 15% from a gross price gives an incorrect number. To remove VAT accurately, divide the VAT-inclusive price by (1 + VAT Rate / 100). For example, at 15% VAT, divide by 1.15."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Profit Margin % and Markup %?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Profit Margin % expresses profit as a percentage of the Selling Price ((Selling - Cost) / Selling x 100), whereas Markup % expresses profit as a percentage of the Cost Price ((Selling - Cost) / Cost x 100)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does stacked (second) discount work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 20% discount followed by an extra 10% coupon does not equal 30% off. The second 10% discount is applied to the already-reduced price after the first 20% discount, resulting in a 28% effective discount."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do F-commerce sellers calculate true Net Profit per order?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Subtract not only product cost, but also courier delivery charges, packaging materials, Facebook/TikTok ad cost per order, and return/delivery failure allowance from your selling price."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my pricing or profit figures stored on any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All calculations run 100% locally in your browser."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Discount, VAT &amp; Profit Calculator</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Discount, VAT &amp; Profit Margin Calculator (BDT ৳)</h1>
+          <p class="text-muted mb-3">
+            Calculate single or stacked <strong>sale discounts</strong>, add or extract <strong>VAT</strong> with an editable tax rate, and compute <strong>Profit Margin, Markup, and F-Commerce Net Profit per Order</strong> (including delivery, packaging, ad cost, and return allowance). Runs <strong>100% in your browser</strong>—your business numbers never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Discount, VAT and Profit Calculator Workspace">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <span class="tn-privacy-banner mb-0">
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                100% Client-Side &bull; Financial Figures Never Leave Your Browser
+              </span>
+              <div class="d-flex align-items-center gap-2">
+                <label for="tn-dvp-currency" class="small fw-bold text-muted mb-0">Currency:</label>
+                <select id="tn-dvp-currency" class="form-select form-select-sm" style="width: auto; min-height: 38px;"></select>
+              </div>
+            </div>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Select Calculator Tab</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Enter Price, VAT or Cost</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> View &amp; Copy Breakdown</div>
+            </div>
+
+            <!-- 3 Tabs Navigation -->
+            <ul class="nav nav-pills nav-fill gap-2 p-2 bg-light rounded-3 border mb-4" id="dvpTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold" id="tab-disc-btn" data-bs-toggle="pill" data-bs-target="#pane-discount" type="button" role="tab" aria-controls="pane-discount" aria-selected="true">
+                  <i class="bi bi-tag-fill me-1" aria-hidden="true"></i> 1. Discount
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="tab-vat-btn" data-bs-toggle="pill" data-bs-target="#pane-vat" type="button" role="tab" aria-controls="pane-vat" aria-selected="false">
+                  <i class="bi bi-percent me-1" aria-hidden="true"></i> 2. VAT Calculator
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="tab-prof-btn" data-bs-toggle="pill" data-bs-target="#pane-profit" type="button" role="tab" aria-controls="pane-profit" aria-selected="false">
+                  <i class="bi bi-graph-up-arrow me-1" aria-hidden="true"></i> 3. Profit &amp; F-Commerce
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="dvpTabContent">
+              <!-- TAB 1: DISCOUNT CALCULATOR -->
+              <div class="tab-pane fade show active" id="pane-discount" role="tabpanel" aria-labelledby="tab-disc-btn">
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label for="tn-disc-orig" class="form-label fw-bold">Original Price</label>
+                    <input type="number" id="tn-disc-orig" class="form-control" value="2500" min="0" step="any">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="tn-disc-type" class="form-label fw-bold">Primary Discount Type</label>
+                    <select id="tn-disc-type" class="form-select">
+                      <option value="percent" selected>Percentage Off (%)</option>
+                      <option value="amount">Fixed Cash Discount Amount</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="tn-disc-val" class="form-label fw-bold">Primary Discount Value</label>
+                    <input type="number" id="tn-disc-val" class="form-control" value="20" min="0" step="any">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="tn-disc-extra" class="form-label fw-bold">Optional 2nd Stacked Discount (%)</label>
+                    <input type="number" id="tn-disc-extra" class="form-control" value="0" min="0" max="100" step="any" placeholder="e.g. 5 for extra coupon">
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-4">
+                    <div class="tn-stat-card border-primary bg-primary-subtle">
+                      <div id="tn-disc-final" class="tn-stat-card__value">৳ 2,000.00</div>
+                      <div class="tn-stat-card__label">Final Payable Price</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="tn-stat-card">
+                      <div id="tn-disc-saved" class="tn-stat-card__value text-success">৳ 500.00</div>
+                      <div class="tn-stat-card__label">Total Amount Saved</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="tn-stat-card">
+                      <div id="tn-disc-eff" class="tn-stat-card__value">20%</div>
+                      <div class="tn-stat-card__label">Effective Discount %</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" id="tn-disc-copy-btn" class="btn tn-btn--primary btn-sm">
+                    <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Discount Result
+                  </button>
+                  <button type="button" id="tn-disc-reset-btn" class="btn tn-btn--outline btn-sm text-danger">
+                    <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- TAB 2: VAT CALCULATOR -->
+              <div class="tab-pane fade" id="pane-vat" role="tabpanel" aria-labelledby="tab-vat-btn">
+                <div class="alert alert-warning d-flex align-items-center gap-2 py-2 px-3 mb-3 small" role="note">
+                  <i class="bi bi-info-circle-fill text-warning fs-5" aria-hidden="true"></i>
+                  <div>
+                    <strong>Official NBR Note:</strong> Check the current VAT rate and rules with the National Board of Revenue (NBR) before using this for official purposes.
+                  </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-4">
+                    <label for="tn-vat-amount" class="form-label fw-bold">Price Amount</label>
+                    <input type="number" id="tn-vat-amount" class="form-control" value="1000" min="0" step="any">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="tn-vat-rate" class="form-label fw-bold">VAT Rate (%) — Editable</label>
+                    <div class="input-group">
+                      <input type="number" id="tn-vat-rate" class="form-control" value="15" min="0" max="100" step="any">
+                      <span class="input-group-text">%</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="tn-vat-mode" class="form-label fw-bold">Calculation Operation</label>
+                    <select id="tn-vat-mode" class="form-select">
+                      <option value="add" selected>Add VAT (Price is VAT-Exclusive)</option>
+                      <option value="remove">Remove VAT (Price is VAT-Inclusive)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-1 mb-4">
+                  <span class="small text-muted me-1">Quick VAT Rates:</span>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-vat-preset="5">5%</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-vat-preset="7.5">7.5%</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-vat-preset="10">10%</button>
+                  <button type="button" class="btn btn-outline-primary btn-sm py-0 px-2 fw-semibold" data-vat-preset="15">15% (Standard)</button>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-4">
+                    <div class="tn-stat-card">
+                      <div id="tn-vat-net" class="tn-stat-card__value">৳ 1,000.00</div>
+                      <div class="tn-stat-card__label">Net Price (Excl. VAT)</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="tn-stat-card">
+                      <div id="tn-vat-tax" class="tn-stat-card__value text-danger">৳ 150.00</div>
+                      <div class="tn-stat-card__label">VAT Amount</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="tn-stat-card border-primary bg-primary-subtle">
+                      <div id="tn-vat-gross" class="tn-stat-card__value">৳ 1,150.00</div>
+                      <div class="tn-stat-card__label">Gross Price (Incl. VAT)</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" id="tn-vat-copy-btn" class="btn tn-btn--primary btn-sm">
+                    <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy VAT Breakdown
+                  </button>
+                  <button type="button" id="tn-vat-reset-btn" class="btn tn-btn--outline btn-sm text-danger">
+                    <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- TAB 3: PROFIT MARGIN & F-COMMERCE NET PROFIT -->
+              <div class="tab-pane fade" id="pane-profit" role="tabpanel" aria-labelledby="tab-prof-btn">
+                <div class="row g-3 mb-3">
+                  <div class="col-md-4">
+                    <label for="tn-prof-mode" class="form-label fw-bold">Calculation Mode</label>
+                    <select id="tn-prof-mode" class="form-select">
+                      <option value="standard" selected>Cost + Selling &rarr; Margin %</option>
+                      <option value="reverse">Reverse: Cost + Target Margin % &rarr; Selling Price</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="tn-prof-cost" class="form-label fw-bold">Product Cost Price</label>
+                    <input type="number" id="tn-prof-cost" class="form-control" value="600" min="0" step="any">
+                  </div>
+                  <div id="tn-prof-sell-wrap" class="col-md-4">
+                    <label for="tn-prof-sell" class="form-label fw-bold">Selling Price</label>
+                    <input type="number" id="tn-prof-sell" class="form-control" value="1100" min="0" step="any">
+                  </div>
+                  <div id="tn-prof-target-wrap" class="col-md-4 d-none">
+                    <label for="tn-prof-target" class="form-label fw-bold">Target Gross Margin (%)</label>
+                    <input type="number" id="tn-prof-target" class="form-control" value="40" min="0" max="99.9" step="any">
+                  </div>
+                </div>
+
+                <!-- Optional F-Commerce Extra Cost Fields -->
+                <div class="p-3 rounded-3 border bg-light mb-3">
+                  <h2 class="h6 fw-bold text-primary mb-2">
+                    <i class="bi bi-box-seam me-1" aria-hidden="true"></i> Optional F-Commerce / E-Commerce Per-Order Costs
+                  </h2>
+                  <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                      <label for="tn-prof-delivery" class="form-label small fw-bold mb-1">Delivery / Courier</label>
+                      <input type="number" id="tn-prof-delivery" class="form-control form-control-sm" value="80" min="0" step="any">
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <label for="tn-prof-pack" class="form-label small fw-bold mb-1">Packaging Cost</label>
+                      <input type="number" id="tn-prof-pack" class="form-control form-control-sm" value="25" min="0" step="any">
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <label for="tn-prof-ad" class="form-label small fw-bold mb-1">Ad Cost / Order</label>
+                      <input type="number" id="tn-prof-ad" class="form-control form-control-sm" value="90" min="0" step="any">
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <label for="tn-prof-return" class="form-label small fw-bold mb-1">Return Allowance</label>
+                      <input type="number" id="tn-prof-return" class="form-control form-control-sm" value="35" min="0" step="any">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Profit Results Grid -->
+                <div class="row g-3 mb-3">
+                  <div class="col-6 col-md-3">
+                    <div class="tn-stat-card py-2">
+                      <div id="tn-prof-out-selling" class="tn-stat-card__value fs-5">৳ 1,100.00</div>
+                      <div class="tn-stat-card__label">Selling Price</div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="tn-stat-card py-2">
+                      <div id="tn-prof-out-gross" class="tn-stat-card__value fs-5">৳ 500.00</div>
+                      <div class="tn-stat-card__label">Gross Profit</div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="tn-stat-card py-2">
+                      <div id="tn-prof-out-margin" class="tn-stat-card__value fs-5">45.45%</div>
+                      <div class="tn-stat-card__label">Gross Margin %</div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="tn-stat-card py-2">
+                      <div id="tn-prof-out-markup" class="tn-stat-card__value fs-5">83.33%</div>
+                      <div class="tn-stat-card__label">Markup %</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tn-result-box border-success bg-success-subtle mb-3 text-center">
+                  <div class="small fw-bold text-uppercase text-success">True F-Commerce Net Profit Per Order</div>
+                  <div id="tn-prof-out-net" class="tn-stat-card__value text-success">৳ 270.00</div>
+                  <div id="tn-prof-out-net-margin" class="small text-muted">Net Margin: 24.55% (Extra Costs: ৳ 230.00)</div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" id="tn-prof-copy-btn" class="btn tn-btn--primary btn-sm">
+                    <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Profit Summary
+                  </button>
+                  <button type="button" id="tn-prof-reset-btn" class="btn tn-btn--outline btn-sm text-danger">
+                    <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Use the Discount, VAT &amp; Profit Calculator</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Pick Your Currency &amp; Tab:</strong> Keep the default <strong>৳ (BDT)</strong> currency or switch to USD/EUR/INR, then choose between the <em>Discount</em>, <em>VAT</em>, or <em>Profit &amp; F-Commerce</em> tabs.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Enter Your Price or Cost Numbers:</strong> Type your original price, editable VAT rate, or product and courier costs. Every stat card updates in real time.
+              </li>
+              <li>
+                <strong>Step 3 — Copy Your Summary:</strong> Click the <strong>Copy</strong> button to paste the formatted calculation into your quotation, invoice, or pricing spreadsheet.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Explanation of Each Formula & F-Commerce Guide (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Formulas Explained: Discount, VAT Extraction, Margin vs. Markup &amp; F-Commerce Net Profit</h2>
+            <p class="text-muted">
+              Accurate pricing is the difference between a profitable online store and selling at a hidden loss. Many Facebook commerce (F-commerce) and Daraz/Shopify merchants calculate gross product profit (`Selling Price - Sourcing Cost`) without accounting for Steadfast/Pathao/RedX courier fees, bubble-wrap packaging, Facebook ad cost per conversion, and COD parcel return losses. ToolNest gives you transparent formulas for every scenario:
+            </p>
+
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-tag text-primary me-1" aria-hidden="true"></i> 1. Discount &amp; Stacked Discount Formula</h3>
+                  <p class="small text-muted mb-0">
+                    <code>Discount = Price &times; (Discount% &divide; 100)</code><br>
+                    <code>After 1st = Price &minus; Discount</code><br>
+                    <code>2nd Discount = After 1st &times; (Extra% &divide; 100)</code>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-percent text-primary me-1" aria-hidden="true"></i> 2. Add VAT vs. Remove Inclusive VAT</h3>
+                  <p class="small text-muted mb-0">
+                    <strong>Add VAT:</strong> <code>Gross = Net &times; (1 + Rate/100)</code><br>
+                    <strong>Remove VAT:</strong> <code>Net = Gross &divide; (1 + Rate/100)</code><br>
+                    <code>VAT Amount = Gross &minus; Net</code>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-calculator text-primary me-1" aria-hidden="true"></i> 3. Profit Margin % vs. Markup %</h3>
+                  <p class="small text-muted mb-0">
+                    <code>Gross Profit = Selling &minus; Cost</code><br>
+                    <code>Margin % = (Gross Profit &divide; Selling) &times; 100</code><br>
+                    <code>Markup % = (Gross Profit &divide; Cost) &times; 100</code><br>
+                    <strong>Reverse Selling Price:</strong> <code>Cost &divide; (1 &minus; Target Margin%)</code>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-truck text-primary me-1" aria-hidden="true"></i> 4. F-Commerce Net Profit Formula</h3>
+                  <p class="small text-muted mb-0">
+                    <code>Net Profit = Gross Profit &minus; (Delivery + Packaging + Ad Cost + Return Allowance)</code><br>
+                    <code>Net Margin % = (Net Profit &divide; Selling) &times; 100</code>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="dvpFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dvpFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dvpFaqCol1" aria-expanded="true" aria-controls="dvpFaqCol1">
+                    1. How do I remove VAT from a VAT-inclusive price?
+                  </button>
+                </h3>
+                <div id="dvpFaqCol1" class="accordion-collapse collapse show" aria-labelledby="dvpFaq1" data-bs-parent="#dvpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Select <strong>Remove VAT (Price is VAT-Inclusive)</strong> in the VAT tab. Instead of subtracting 15% directly, the tool divides the gross amount by <code>1 + (VAT Rate / 100)</code> (e.g., dividing <code>৳ 1,150</code> by <code>1.15</code> gives a net price of <code>৳ 1,000</code> and VAT of <code>৳ 150</code>).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dvpFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dvpFaqCol2" aria-expanded="false" aria-controls="dvpFaqCol2">
+                    2. What is the difference between Profit Margin % and Markup %?
+                  </button>
+                </h3>
+                <div id="dvpFaqCol2" class="accordion-collapse collapse" aria-labelledby="dvpFaq2" data-bs-parent="#dvpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    <strong>Profit Margin %</strong> divides profit by the <em>Selling Price</em>, while <strong>Markup %</strong> divides profit by the <em>Cost Price</em>. For example, buying an item for ৳ 100 and selling it for ৳ 150 gives a <strong>50% Markup</strong> but a <strong>33.33% Profit Margin</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dvpFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dvpFaqCol3" aria-expanded="false" aria-controls="dvpFaqCol3">
+                    3. How does the Reverse Target Margin mode work?
+                  </button>
+                </h3>
+                <div id="dvpFaqCol3" class="accordion-collapse collapse" aria-labelledby="dvpFaq3" data-bs-parent="#dvpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    When you switch to <strong>Reverse: Cost + Target Margin % &rarr; Selling Price</strong>, enter your product cost and desired gross margin percentage (e.g. 40%). The calculator computes the exact selling price needed using <code>Cost &divide; (1 &minus; 0.40)</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dvpFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dvpFaqCol4" aria-expanded="false" aria-controls="dvpFaqCol4">
+                    4. Why should F-commerce sellers enter a Return / Failure Allowance?
+                  </button>
+                </h3>
+                <div id="dvpFaqCol4" class="accordion-collapse collapse" aria-labelledby="dvpFaq4" data-bs-parent="#dvpFaqFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    In cash-on-delivery (COD) e-commerce, if 10% of parcels are returned uncollected, the seller still pays the courier charge for those failed deliveries. Adding a small per-order return allowance (e.g. ৳ 25–৳ 40) reveals your true sustainable net profit.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dvpFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dvpFaqCol5" aria-expanded="false" aria-controls="dvpFaqCol5">
+                    5. Can I change the VAT rate to match specific NBR slabs?
+                  </button>
+                </h3>
+                <div id="dvpFaqCol5" class="accordion-collapse collapse" aria-labelledby="dvpFaq5" data-bs-parent="#dvpFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. The VAT rate field is completely editable—type any rate (such as 5%, 7.5%, 10%, or 15%) or click the quick preset buttons. Always verify official NBR rules for your specific business sector.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/utm-link-builder/index.html" class="stretched-link text-reset">UTM Link Builder</a></h3>
+                  <p class="small text-muted mb-0">Build GA4 &amp; Facebook Ad tracking links for your store.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/invoice-generator/index.html" class="stretched-link text-reset">Invoice &amp; Courier Slip</a></h3>
+                  <p class="small text-muted mb-0">Generate printable client invoices and 3-in-1 COD labels.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/amount-to-words/index.html" class="stretched-link text-reset">Amount to Words</a></h3>
+                  <p class="small text-muted mb-0">Convert BDT Taka &amp; Paisa amounts into Bangla/English words.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; COD Courier Slip</a></li>
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">BDT Taka Amount to Words</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">QR Code Generator (No Expiry)</a></li>
+                <li class="mb-2"><a href="../../tools/bulk-image-resizer/index.html" class="fw-medium">Bulk Product Image Resizer</a></li>
+                <li class="mb-2"><a href="../../tools/land-area-converter/index.html" class="fw-medium">Land Area Converter</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/discount-vat-profit-calculator.js" defer></script>
+</body>
+</html>

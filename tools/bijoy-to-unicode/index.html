@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bijoy to Unicode &amp; Unicode to Bijoy Converter — ToolNest</title>
+  <meta name="description" content="Convert Bangla text between Bijoy ANSI (SutonnyMJ) and Unicode in both directions instantly. 100% free browser-based Bangla font converter by ToolNest.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/bijoy-to-unicode/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Bijoy to Unicode &amp; Unicode to Bijoy Converter — ToolNest">
+  <meta property="og:description" content="Convert Bangla text between Bijoy ANSI (SutonnyMJ) and Unicode in both directions instantly. 100% free browser-based Bangla font converter by ToolNest.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/bijoy-to-unicode/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bijoy to Unicode &amp; Unicode to Bijoy Converter — ToolNest">
+  <meta name="twitter:description" content="Convert Bangla text between Bijoy ANSI (SutonnyMJ) and Unicode in both directions instantly. 100% free browser-based Bangla font converter by ToolNest.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data: WebApplication, FAQPage, BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Bijoy to Unicode Converter", "item": "https://[DOMAIN]/tools/bijoy-to-unicode/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Bijoy to Unicode & Unicode to Bijoy Converter",
+        "url": "https://[DOMAIN]/tools/bijoy-to-unicode/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Free bidirectional Bangla encoding converter between Bijoy ANSI (SutonnyMJ) and Unicode."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between Bijoy ANSI and Bangla Unicode?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bijoy ANSI (such as SutonnyMJ) maps Bangla glyphs over standard English ASCII character codes for legacy DTP printing, whereas Bangla Unicode (UTF-8) uses universal character code points readable across all modern smartphones, websites, and search engines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert both Bijoy to Unicode and Unicode to Bijoy here?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can paste Bijoy text into the top/left box to get Unicode immediately, or paste Unicode Bangla (typed with Avro or Google Bangla) into the Unicode box to get SutonnyMJ-compatible Bijoy text."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my confidential Bangla document uploaded to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All character mapping and vowel sign reordering happen 100% locally inside your browser. Your text never leaves your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Bijoy text look like random English letters in my browser?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because Bijoy ANSI relies on legacy non-Unicode font files like SutonnyMJ. When you convert that text into Unicode using this tool, it becomes readable everywhere in standard Bangla fonts like Hind Siliguri or Noto Sans Bengali."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this converter handle compound letters (Juktakkhor) and Reph properly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our engine automatically repositions pre-kar vowel signs (ই-কার, এ-কার, ঐ-কার), compound vowels (ও-কার, ঔ-কার), Reph (র্), and common Bangla juktakkhors accurately."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Main Tool Column -->
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Bijoy to Unicode Converter</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Bijoy to Unicode Converter (বিজয় টু ইউনিকোড)</h1>
+          <p class="text-muted mb-3">
+            Convert Bangla text seamlessly between <strong>Bijoy ANSI (SutonnyMJ)</strong> and <strong>Bangla Unicode (UTF-8)</strong> in both directions. Whether you are preparing newspaper copy, government ministry circulars, or Facebook posts, this tool runs <strong>100% in your browser</strong>—your text never leaves your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Bijoy to Unicode Converter Workspace">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+              <span class="tn-privacy-banner mb-0">
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                100% Client-Side &bull; Text Never Leaves Your Browser
+              </span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="tn-bijoy-live" checked>
+                <label class="form-check-label small fw-semibold" for="tn-bijoy-live">Instant Live Conversion</label>
+              </div>
+            </div>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Paste Bijoy or Unicode</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Convert Either Way</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Copy Clean Bangla</div>
+            </div>
+
+            <!-- Action Toolbar -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button type="button" id="tn-bijoy-sample" class="btn tn-btn--outline btn-sm">
+                <i class="bi bi-magic" aria-hidden="true"></i> Load Sample Bangla
+              </button>
+              <button type="button" id="tn-bijoy-clear" class="btn tn-btn--outline btn-sm text-danger">
+                <i class="bi bi-trash3" aria-hidden="true"></i> Reset / Clear Both
+              </button>
+            </div>
+
+            <!-- Bijoy Box -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="tn-bijoy-input" class="form-label fw-bold mb-0">
+                  Bijoy Classic (ANSI / SutonnyMJ) Text
+                </label>
+                <span id="tn-bijoy-stats" class="small text-muted">0 words &middot; 0 characters</span>
+              </div>
+              <textarea id="tn-bijoy-input" class="form-control" rows="6" placeholder="Paste or type Bijoy ANSI text here (e.g. Avgvi †mvbvi evsjv)..."></textarea>
+              <div class="d-flex justify-content-end mt-2">
+                <button type="button" id="tn-copy-bijoy" class="btn tn-btn--outline btn-sm">
+                  <i class="bi bi-clipboard" aria-hidden="true"></i> Copy Bijoy Text
+                </button>
+              </div>
+            </div>
+
+            <!-- Directional Conversion Buttons -->
+            <div class="d-flex flex-wrap justify-content-center gap-3 my-3">
+              <button type="button" id="tn-btn-bijoy-to-uni" class="btn tn-btn--primary">
+                <i class="bi bi-arrow-down-circle-fill" aria-hidden="true"></i> Bijoy to Unicode (বিজয় &rarr; ইউনিকোড)
+              </button>
+              <button type="button" id="tn-btn-uni-to-bijoy" class="btn tn-btn--accent">
+                <i class="bi bi-arrow-up-circle-fill" aria-hidden="true"></i> Unicode to Bijoy (ইউনিকোড &rarr; বিজয়)
+              </button>
+            </div>
+
+            <!-- Unicode Box -->
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="tn-unicode-input" class="form-label fw-bold mb-0 tn-bangla-text">
+                  Bangla Unicode (ইউনিকোড / অভ্র / ওয়েব) Text
+                </label>
+                <span id="tn-unicode-stats" class="small text-muted">0 words &middot; 0 characters</span>
+              </div>
+              <textarea id="tn-unicode-input" class="form-control tn-bangla-text" rows="6" placeholder="এখানে ইউনিকোড বাংলা পেস্ট করুন বা লিখুন (যেমনঃ আমার সোনার বাংলা)..."></textarea>
+              <div class="d-flex justify-content-end mt-2">
+                <button type="button" id="tn-copy-unicode" class="btn tn-btn--success btn-sm">
+                  <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Unicode Text
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Use the Bijoy to Unicode Converter</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Paste Your Source Text:</strong> If you have legacy Bangla text written in Microsoft Word or Adobe Illustrator using the <em>SutonnyMJ</em> font, paste it into the top <strong>Bijoy Classic</strong> box. If you typed Bangla using Avro Keyboard or mobile voice typing, paste it into the bottom <strong>Bangla Unicode</strong> box.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Convert Instantly:</strong> With <em>Instant Live Conversion</em> enabled, the opposite text box updates automatically as you type or paste. You can also click the <strong>Bijoy to Unicode</strong> or <strong>Unicode to Bijoy</strong> button at any time.
+              </li>
+              <li>
+                <strong>Step 3 — Copy and Paste Anywhere:</strong> Click <strong>Copy Unicode Text</strong> to paste clean Bangla onto websites, Facebook, WhatsApp, or emails, or click <strong>Copy Bijoy Text</strong> and apply the SutonnyMJ font in your desktop publishing software.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Guide (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Key Features &amp; Why Professionals Use This Bangla Converter</h2>
+            <p class="text-muted">
+              In Bangladesh and West Bengal, two major Bangla text encoding standards coexist every day. Official government ministries, court offices, book publishers, and national newspapers frequently prepare manuscripts in <strong>Bijoy ANSI (SutonnyMJ)</strong> because legacy printing workflows and DTP layout programs depend on ANSI glyph tables. Meanwhile, modern web browsers, smartphones, Google Search, Facebook, and Government e-Service portals exclusively require <strong>UTF-8 Bangla Unicode</strong>.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-arrows-angle-expand text-primary me-1" aria-hidden="true"></i> Bidirectional Accuracy</h3>
+                  <p class="small text-muted mb-0">Convert effortlessly from Bijoy to Unicode for web publishing, or convert Unicode back to Bijoy when sending drafts to a printing press.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-cpu text-primary me-1" aria-hidden="true"></i> Smart Kar &amp; Juktakkhor Engine</h3>
+                  <p class="small text-muted mb-0">Automatically reorders pre-vowel signs (ি, ে, ৈ), two-part vowel signs (ো, ৌ), Reph (র্), and complex conjunct consonants without broken characters.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-wifi-off text-primary me-1" aria-hidden="true"></i> Zero Server Lag or Leaks</h3>
+                  <p class="small text-muted mb-0">Even a 20-page Bangla article converts in milliseconds inside your browser memory without uploading sensitive drafts online.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-check2-square text-primary me-1" aria-hidden="true"></i> Live Word &amp; Character Count</h3>
+                  <p class="small text-muted mb-0">Track exact word and character counts on both boxes in real time for newspaper columns and SMS campaigns.</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted mb-0 mt-2">
+              Whether you are a journalist meeting a tight deadline, a university student formatting a thesis, or an administrative officer updating an official notice board, ToolNest ensures your Bangla typography remains crisp, accurate, and universally readable.
+            </p>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="bijoyFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bFaqCol1" aria-expanded="true" aria-controls="bFaqCol1">
+                    1. What is the difference between Bijoy ANSI and Bangla Unicode?
+                  </button>
+                </h3>
+                <div id="bFaqCol1" class="accordion-collapse collapse show" aria-labelledby="bFaq1" data-bs-parent="#bijoyFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Bijoy ANSI (used with fonts like SutonnyMJ) replaces standard English letters with Bangla shapes so older desktop publishing programs can render Bangla. Unicode assigns a dedicated international code point to every Bangla letter so any phone, computer, or website can display Bangla without installing custom font files.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bFaqCol2" aria-expanded="false" aria-controls="bFaqCol2">
+                    2. Can I convert both Bijoy to Unicode and Unicode to Bijoy here?
+                  </button>
+                </h3>
+                <div id="bFaqCol2" class="accordion-collapse collapse" aria-labelledby="bFaq2" data-bs-parent="#bijoyFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Both directions work in real time. Paste Bijoy text in the top box to get Unicode in the bottom box, or type/paste Unicode in the bottom box to generate SutonnyMJ-ready Bijoy code in the top box.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bFaqCol3" aria-expanded="false" aria-controls="bFaqCol3">
+                    3. Is my confidential Bangla document uploaded to any server?
+                  </button>
+                </h3>
+                <div id="bFaqCol3" class="accordion-collapse collapse" aria-labelledby="bFaq3" data-bs-parent="#bijoyFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All conversion logic runs 100% locally in your browser via JavaScript. Legal drafts, exam papers, and unpublished articles never leave your computer.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bFaqCol4" aria-expanded="false" aria-controls="bFaqCol4">
+                    4. Why does Bijoy text look like garbled English letters in my browser?
+                  </button>
+                </h3>
+                <div id="bFaqCol4" class="accordion-collapse collapse" aria-labelledby="bFaq4" data-bs-parent="#bijoyFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Because Bijoy stores Bangla characters using standard ASCII codes (for example, <code>Avgvi</code> represents <em>আমার</em> when formatted with the SutonnyMJ font). Pasting that raw string into our converter immediately turns it into readable Bangla Unicode.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="bFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bFaqCol5" aria-expanded="false" aria-controls="bFaqCol5">
+                    5. Does this converter handle compound letters (Juktakkhor) and Reph properly?
+                  </button>
+                </h3>
+                <div id="bFaqCol5" class="accordion-collapse collapse" aria-labelledby="bFaq5" data-bs-parent="#bijoyFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Our conversion engine accurately maps over 60 Bangla conjuncts (such as ক্ষ, জ্ঞ, ক্ত, প্র, ত্র, হ্ম) and automatically places pre-kar vowels and Reph (র্) in the correct logical order required by Unicode and ANSI standards.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/bangla-typing-test/index.html" class="stretched-link text-reset">Bangla Typing Speed Test</a></h3>
+                  <p class="small text-muted mb-0">Practice 1, 2, or 5-minute Bangla Unicode typing with live WPM.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/amount-to-words/index.html" class="stretched-link text-reset">Amount to Words</a></h3>
+                  <p class="small text-muted mb-0">Convert BDT Taka &amp; Paisa into Bangla and English words.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/land-area-converter/index.html" class="stretched-link text-reset">Land Area Converter</a></h3>
+                  <p class="small text-muted mb-0">Convert Katha, Bigha, Decimal (Shatak), and Square Feet.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT Taka)</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Age Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport &amp; Visa Photo Maker</a></li>
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Batch Image Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+                <li class="mb-0"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; COD Slip Maker</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/bijoy-to-unicode.js" defer></script>
+</body>
+</html>

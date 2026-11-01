@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Merge &amp; Split (Reorder &amp; Extract Pages) — ToolNest</title>
+  <meta name="description" content="Combine multiple PDFs, reorder pages, or split custom page ranges 100% locally in your browser. Free zero-upload PDF tool by ToolNest.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/pdf-merge-split/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="PDF Merge &amp; Split (Reorder &amp; Extract Pages) — ToolNest">
+  <meta property="og:description" content="Combine multiple PDFs, reorder pages, or split custom page ranges 100% locally in your browser. Free zero-upload PDF tool by ToolNest.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/pdf-merge-split/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF Merge &amp; Split (Reorder &amp; Extract Pages) — ToolNest">
+  <meta name="twitter:description" content="Combine multiple PDFs, reorder pages, or split custom page ranges 100% locally in your browser. Free zero-upload PDF tool by ToolNest.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "PDF Merge & Split", "item": "https://[DOMAIN]/tools/pdf-merge-split/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest PDF Merge & Split",
+        "url": "https://[DOMAIN]/tools/pdf-merge-split/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Combine multiple PDF documents, reorder pages, or extract specific page ranges locally in your browser."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are my confidential PDF documents uploaded to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. ToolNest processes your PDF files 100% inside your browser using the client-side pdf-lib engine. Bank statements, academic transcripts, and legal contracts never leave your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I reorder pages across multiple PDF files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Once you upload one or more PDFs, every page is listed with its sequence number (#1, #2, #3...). Use the Up, Down, or Reverse Order buttons, or delete individual pages before clicking Download Merged PDF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I write page ranges when splitting or extracting pages?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enter comma-separated page numbers or hyphenated ranges in the Page Range box, such as '1-3, 5' or even reverse/custom sequences like '4, 1-2', then click Extract Page Range."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a file size limit or watermark added to my merged PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No watermarks are ever added, and because files are processed locally in your device RAM rather than uploaded over the internet, even large multi-page PDFs merge in seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I combine academic certificates for a scholarship or job application?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Drop your SSC, HSC, Honours, and NID PDF scans together, arrange them in the exact order requested by the application portal, and download a single combined PDF."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">PDF Merge &amp; Split</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">PDF Merge &amp; Split (Combine, Reorder &amp; Extract)</h1>
+          <p class="text-muted mb-3">
+            Merge multiple PDF files into one document, reorder individual pages up or down, delete unwanted sheets, or split custom page ranges into a new PDF. Everything runs <strong>100% in your browser</strong>—your confidential files never leave your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="PDF Merge and Split Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; PDFs Never Leave Your Device
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Add One or More PDFs</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Reorder or Enter Range</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Download New PDF</div>
+            </div>
+
+            <!-- Upload Zone -->
+            <div id="tn-pdf-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Upload or drag and drop PDF files">
+              <i class="bi bi-file-earmark-pdf-fill tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drag &amp; Drop One or Multiple PDF Files Here</h2>
+              <p class="small text-muted mb-3">You can keep adding more PDF files to append their pages to the list below.</p>
+              <label for="tn-pdf-file-input" class="btn tn-btn--primary mb-0">
+                <i class="bi bi-file-earmark-plus" aria-hidden="true"></i> Select PDF Files
+              </label>
+              <input type="file" id="tn-pdf-file-input" class="d-none" accept="application/pdf,.pdf" multiple>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button type="button" id="tn-pdf-sample-btn" class="btn tn-btn--outline btn-sm">
+                <i class="bi bi-magic" aria-hidden="true"></i> Load Sample 5-Page PDFs
+              </button>
+              <button type="button" id="tn-pdf-clear-btn" class="btn tn-btn--outline btn-sm text-danger">
+                <i class="bi bi-trash3" aria-hidden="true"></i> Clear All Pages
+              </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="tn-pdf-progress-wrap" class="mb-3 d-none">
+              <div class="progress" style="height: 22px;">
+                <div id="tn-pdf-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 30%;">Working...</div>
+              </div>
+            </div>
+
+            <!-- Loaded Pages & Split/Merge Controls -->
+            <div id="tn-pdf-workspace-panel" class="d-none mt-4">
+              <div class="row g-3 mb-3">
+                <!-- Merge Card -->
+                <div class="col-md-6">
+                  <div class="tn-result-box h-100 d-flex flex-column justify-content-between">
+                    <div>
+                      <h3 class="h6 fw-bold text-primary mb-1">
+                        <i class="bi bi-files me-1" aria-hidden="true"></i> Option A: Merge &amp; Export All Listed Pages
+                      </h3>
+                      <p class="small text-muted mb-3">Exports all pages below in their current reordered sequence into a single PDF.</p>
+                    </div>
+                    <button type="button" id="tn-pdf-merge-btn" class="btn tn-btn--primary w-100">
+                      <i class="bi bi-download" aria-hidden="true"></i> Download Merged PDF
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Split / Page Range Card -->
+                <div class="col-md-6">
+                  <div class="tn-result-box h-100 d-flex flex-column justify-content-between">
+                    <div>
+                      <h3 class="h6 fw-bold text-primary mb-1">
+                        <i class="bi bi-scissors me-1" aria-hidden="true"></i> Option B: Split / Extract Page Range
+                      </h3>
+                      <label for="tn-pdf-range-input" class="small text-muted mb-1 d-block">Enter page numbers or ranges (e.g. <code>1-3, 5</code>):</label>
+                      <input type="text" id="tn-pdf-range-input" class="form-control form-control-sm mb-2" value="1-2, 4" placeholder="e.g. 1-3, 5">
+                    </div>
+                    <button type="button" id="tn-pdf-split-btn" class="btn tn-btn--accent w-100">
+                      <i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Extract Page Range PDF
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Page Reorder List -->
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span id="tn-pdf-total-badge" class="badge bg-primary-subtle text-primary px-3 py-2">0 Pages</span>
+                <button type="button" id="tn-pdf-reverse-btn" class="btn tn-btn--outline btn-sm">
+                  <i class="bi bi-sort-numeric-down-alt" aria-hidden="true"></i> Reverse Page Order
+                </button>
+              </div>
+              <div id="tn-pdf-pages-list" class="p-3 rounded border bg-light" style="max-height: 360px; overflow-y: auto;"></div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Merge, Reorder, or Split PDF Files</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Upload One or More PDFs:</strong> Drag and drop your PDF files into the upload zone (or click <em>Load Sample 5-Page PDFs</em> to test immediately).
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Arrange Pages or Specify a Range:</strong> Use the Up (<i class="bi bi-arrow-up" aria-hidden="true"></i>), Down (<i class="bi bi-arrow-down" aria-hidden="true"></i>), and Remove (<i class="bi bi-x-lg" aria-hidden="true"></i>) buttons to customize page sequence, or type a page range like <code>1-3, 5</code> in the Split box.
+              </li>
+              <li>
+                <strong>Step 3 — Download Your New PDF:</strong> Click <strong>Download Merged PDF</strong> to combine everything or <strong>Extract Page Range PDF</strong> to save only your chosen pages.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Why Local Browser PDF Merging Is Safer for Confidential Documents</h2>
+            <p class="text-muted">
+              Whether you are assembling bank statements, TIN tax certificates, trade licenses, academic transcripts, or property deeds, your PDF files contain sensitive personal and financial records. Traditional cloud PDF mergers upload your documents to remote servers where files may be cached or logged.
+            </p>
+            <p class="text-muted">
+              ToolNest uses the open-source <code>pdf-lib</code> engine inside your web browser. When you select PDF files on this page, your browser reads the binary page streams directly from your device's memory and constructs the new PDF locally—zero bytes are ever uploaded over the internet.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-arrow-down-up text-primary me-1" aria-hidden="true"></i> Page-Level Reordering</h3>
+                  <p class="small text-muted mb-0">Unlike basic file-level mergers, you can move or delete individual pages from any loaded PDF before saving.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-Funnel text-primary me-1" aria-hidden="true"></i> Flexible Range Extraction</h3>
+                  <p class="small text-muted mb-0">Extract single pages, ranges (<code>2-6</code>), or custom sequences (<code>5, 1-2</code>) in one click.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="pdfFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pdfFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pdfFaqCol1" aria-expanded="true" aria-controls="pdfFaqCol1">
+                    1. Are my confidential PDF documents uploaded to any server?
+                  </button>
+                </h3>
+                <div id="pdfFaqCol1" class="accordion-collapse collapse show" aria-labelledby="pdfFaq1" data-bs-parent="#pdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All PDF merging, reordering, and page extraction happen 100% locally in your browser. Your documents never leave your computer or phone.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pdfFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pdfFaqCol2" aria-expanded="false" aria-controls="pdfFaqCol2">
+                    2. How do I reorder pages across multiple PDF files?
+                  </button>
+                </h3>
+                <div id="pdfFaqCol2" class="accordion-collapse collapse" aria-labelledby="pdfFaq2" data-bs-parent="#pdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Every page from every uploaded PDF is listed in the page queue (#1, #2, #3...). Click the Up or Down arrow next to any page to move it, or click the red X button to remove an unwanted page.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pdfFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pdfFaqCol3" aria-expanded="false" aria-controls="pdfFaqCol3">
+                    3. How do I write page ranges when splitting or extracting pages?
+                  </button>
+                </h3>
+                <div id="pdfFaqCol3" class="accordion-collapse collapse" aria-labelledby="pdfFaq3" data-bs-parent="#pdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Use commas to separate single pages and hyphens for ranges—for example, <code>1-3, 5</code> extracts pages 1, 2, 3, and 5 into a clean new PDF.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pdfFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pdfFaqCol4" aria-expanded="false" aria-controls="pdfFaqCol4">
+                    4. Is there a watermark or daily limit on merged PDFs?
+                  </button>
+                </h3>
+                <div id="pdfFaqCol4" class="accordion-collapse collapse" aria-labelledby="pdfFaq4" data-bs-parent="#pdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. ToolNest adds zero watermarks and imposes no daily limits. Your exported PDF preserves full vector text and image quality.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="pdfFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pdfFaqCol5" aria-expanded="false" aria-controls="pdfFaqCol5">
+                    5. Can I combine academic certificates for a scholarship or job application?
+                  </button>
+                </h3>
+                <div id="pdfFaqCol5" class="accordion-collapse collapse" aria-labelledby="pdfFaq5" data-bs-parent="#pdfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Select all your scanned certificate PDFs at once, arrange them in the exact sequence required by the portal, and click <em>Download Merged PDF</em>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-to-word/index.html" class="stretched-link text-reset">PDF to MS Word</a></h3>
+                  <p class="small text-muted mb-0">Convert PDF pages into editable Word (.DOCX) documents.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-to-excel/index.html" class="stretched-link text-reset">PDF to MS Excel</a></h3>
+                  <p class="small text-muted mb-0">Extract PDF tables into Excel (.XLSX) and CSV sheets.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-to-pdf/index.html" class="stretched-link text-reset">Image to PDF Converter</a></h3>
+                  <p class="small text-muted mb-0">Combine multiple JPG, PNG, and WebP photos into a PDF.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; Courier Slip Generator</a></li>
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT Taka)</a></li>
+                <li class="mb-2"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+                <li class="mb-2"><a href="../../tools/text-tools/index.html" class="fw-medium">Text Tools &amp; Word Counter</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">QR Code Generator</a></li>
+                <li class="mb-0"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Age Calculator</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <!-- Pinned pdf-lib 1.17.1 loaded ONLY on PDF Merge & Split page -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/pdf-merge-split.js" defer></script>
+</body>
+</html>

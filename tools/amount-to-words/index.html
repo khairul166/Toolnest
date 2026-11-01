@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amount to Words Converter (BDT Taka &amp; Bangla) — ToolNest</title>
+  <meta name="description" content="Convert numeric amounts into English and Bangla words with BDT Taka, Paisa, Lakh, and Crore systems. Free browser-based cheque &amp; invoice helper by ToolNest.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/amount-to-words/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Amount to Words Converter (BDT Taka &amp; Bangla) — ToolNest">
+  <meta property="og:description" content="Convert numeric amounts into English and Bangla words with BDT Taka, Paisa, Lakh, and Crore systems. Free browser-based cheque &amp; invoice helper by ToolNest.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/amount-to-words/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amount to Words Converter (BDT Taka &amp; Bangla) — ToolNest">
+  <meta name="twitter:description" content="Convert numeric amounts into English and Bangla words with BDT Taka, Paisa, Lakh, and Crore systems. Free browser-based cheque &amp; invoice helper by ToolNest.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Amount to Words Converter", "item": "https://[DOMAIN]/tools/amount-to-words/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Amount to Words Converter (BDT Taka & Bangla)",
+        "url": "https://[DOMAIN]/tools/amount-to-words/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert numbers and currency amounts into English and Bangla words using Lakh, Crore, Taka, Paisa, and International systems."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many zeroes are in 1 Lakh and 1 Crore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In the South Asian numbering system used in Bangladesh, 1 Lakh (১ লক্ষ) equals 1,00,000 (five zeroes, or 100 Thousand), and 1 Crore (১ কোটি) equals 1,00,00,000 (seven zeroes, or 10 Million)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I type Bangla digits (০-৯) directly into the input box?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can enter numbers in either English digits (e.g. 125500.50) or Bangla digits (e.g. ১২৫৫০০.৫০), and our converter will automatically parse and spell out both English and Bangla words."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool handle decimal Paisa and Cents for bank cheques?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Up to two decimal places are automatically converted into Paisa (পয়সা), Cents, or Paise, and appended with 'Only' or 'মাত্র' for standard bank cheque formatting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my financial numbers sent to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All calculations happen 100% locally in your browser using JavaScript. Your financial figures are never transmitted or stored anywhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I switch between BDT Taka, US Dollars, and plain numbers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use the Currency dropdown to switch instantly between BDT (Taka/Paisa), USD (Dollars/Cents), INR (Rupees/Paise), GBP, EUR, or plain numbers without currency labels."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Amount to Words Converter</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Amount to Words Converter (টাকা কথায় রূপান্তর)</h1>
+          <p class="text-muted mb-3">
+            Spell out numbers and currency amounts in <strong>English and Bangla words</strong> using the Bangladesh <strong>Lakh/Crore (Taka &amp; Paisa)</strong> system as well as International Million/Billion format. Ideal for writing error-free bank cheques, commercial invoices, and legal deeds. Runs <strong>100% in your browser</strong>—your data never leaves your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Amount to Words Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Financial Figures Never Leave Your Browser
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Enter Amount</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Choose Currency</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Copy Cheque Wording</div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-7">
+                <label for="tn-amount-input" class="form-label fw-bold">Enter Numeric Amount (English or বাংলা Digits)</label>
+                <input type="text" id="tn-amount-input" class="form-control form-control-lg fw-bold" value="125500.50" placeholder="e.g. 125500.50 or ১২৫৫০০.৫০" inputmode="decimal">
+              </div>
+              <div class="col-md-5">
+                <label for="tn-amount-currency" class="form-label fw-bold">Currency / Unit</label>
+                <select id="tn-amount-currency" class="form-select form-select-lg">
+                  <option value="BDT" selected>BDT — Taka &amp; Paisa (৳)</option>
+                  <option value="USD">USD — Dollars &amp; Cents ($)</option>
+                  <option value="INR">INR — Rupees &amp; Paise (₹)</option>
+                  <option value="GBP">GBP — Pounds &amp; Pence (£)</option>
+                  <option value="EUR">EUR — Euros &amp; Cents (€)</option>
+                  <option value="NONE">Plain Number (No Currency)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+              <div class="d-flex flex-wrap gap-2 align-items-center">
+                <span class="small text-muted fw-semibold">Quick Presets:</span>
+                <button type="button" class="btn tn-btn--outline btn-sm tn-quick-amount" data-amount="50000">50,000</button>
+                <button type="button" class="btn tn-btn--outline btn-sm tn-quick-amount" data-amount="100000">1 Lakh</button>
+                <button type="button" class="btn tn-btn--outline btn-sm tn-quick-amount" data-amount="2550000.75">25.5 Lakh</button>
+                <button type="button" class="btn tn-btn--outline btn-sm tn-quick-amount" data-amount="10000000">1 Crore</button>
+              </div>
+              <div class="d-flex gap-2 align-items-center">
+                <div class="form-check form-switch me-2">
+                  <input class="form-check-input" type="checkbox" role="switch" id="tn-amount-only" checked>
+                  <label class="form-check-label small fw-semibold" for="tn-amount-only">Append "Only / মাত্র"</label>
+                </div>
+                <button type="button" id="tn-amount-sample" class="btn tn-btn--outline btn-sm">Sample</button>
+                <button type="button" id="tn-amount-reset" class="btn tn-btn--outline btn-sm text-danger">Reset</button>
+              </div>
+            </div>
+
+            <!-- Formatted Comma Preview -->
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6">
+                <div class="tn-stat-card">
+                  <div id="tn-formatted-en" class="tn-stat-card__value">৳ 1,25,500.50</div>
+                  <div class="tn-stat-card__label">South Asian Comma Format (EN)</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="tn-stat-card">
+                  <div id="tn-formatted-bn" class="tn-stat-card__value tn-bangla-text">৳ ১,২৫,৫০০.৫০</div>
+                  <div class="tn-stat-card__label">বাংলা অংকে ফরম্যাট (BN)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Output 1: English South Asian (Lakh / Crore) -->
+            <div class="tn-result-box mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-bold text-primary text-uppercase">English Words (Bangladesh Lakh &amp; Crore System)</span>
+                <button type="button" class="btn tn-btn--outline btn-sm" data-copy-target="tn-out-en-lakh">
+                  <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                </button>
+              </div>
+              <p id="tn-out-en-lakh" class="fs-5 fw-bold mb-0">One Lakh Twenty-Five Thousand Five Hundred Taka and Fifty Paisa Only</p>
+            </div>
+
+            <!-- Output 2: Bangla Words -->
+            <div class="tn-result-box mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-bold text-success text-uppercase tn-bangla-text">বাংলা কথায় (লক্ষ ও কোটি পদ্ধতি)</span>
+                <button type="button" class="btn tn-btn--success btn-sm" data-copy-target="tn-out-bn">
+                  <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy বাংলা
+                </button>
+              </div>
+              <p id="tn-out-bn" class="fs-4 fw-bold mb-0 tn-bangla-text">এক লক্ষ পঁচিশ হাজার পাঁচ শত টাকা এবং পঞ্চাশ পয়সা মাত্র</p>
+            </div>
+
+            <!-- Output 3: International Million / Billion -->
+            <div class="tn-result-box">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-bold text-secondary text-uppercase">English Words (International Million / Billion System)</span>
+                <button type="button" class="btn tn-btn--outline btn-sm" data-copy-target="tn-out-en-intl">
+                  <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                </button>
+              </div>
+              <p id="tn-out-en-intl" class="fs-5 fw-semibold mb-0">One Hundred Twenty-Five Thousand Five Hundred Taka and Fifty Paisa Only</p>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Convert Numbers &amp; Taka to Words</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Type Your Amount:</strong> Enter any whole or decimal number into the input field using either English numerals (<code>125500.50</code>) or Bangla numerals (<code>১২৫৫০০.৫০</code>). Commas are ignored automatically.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Select Currency &amp; Cheque Suffix:</strong> Choose <strong>BDT (Taka &amp; Paisa)</strong>, USD, INR, GBP, EUR, or Plain Number. Toggle the <em>Append "Only / মাত্র"</em> switch depending on whether you are filling out a bank cheque or an academic document.
+              </li>
+              <li>
+                <strong>Step 3 — Copy Your Wording:</strong> Click the <strong>Copy</strong> button next to the Bangladesh Lakh/Crore box, the Bangla কথায় box, or the International Million/Billion box.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Why Accurate Lakh, Crore &amp; Bangla Wording Matters</h2>
+            <p class="text-muted">
+              When writing a commercial bank cheque, preparing a VAT invoice, or registering property deeds in Bangladesh, even a tiny discrepancy between numeric digits and spelled-out words causes banks to dishonor the cheque. Many international number-to-word calculators only output <em>Hundreds of Thousands</em> and <em>Millions</em>, which are rejected by local bank tellers who require <strong>Lakh (লক্ষ)</strong> and <strong>Crore (কোটি)</strong> notation.
+            </p>
+            <p class="text-muted">
+              Furthermore, spelling compound Bangla numbers between 1 and 99—such as <em>পঁয়তাল্লিশ</em> (45), <em>ঊনপঞ্চাশ</em> (49), <em>তিপ্পান্ন</em> (53), or <em>পঁয়ষট্টি</em> (65)—is notoriously tricky even for native speakers. ToolNest solves both problems simultaneously in a single screen.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-bank text-primary me-1" aria-hidden="true"></i> Bank Cheque Ready (Lakh &amp; Crore)</h3>
+                  <p class="small text-muted mb-0">Follows Bangladesh Bank cheque-writing conventions with automatic comma placement (<code>1,00,00,000</code>) and "Taka Only" suffix.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-translate text-primary me-1" aria-hidden="true"></i> Authentic Bangla Spelling</h3>
+                  <p class="small text-muted mb-0">Includes all 100 standard Bangla Academy number spellings from শূন্য (0) to নিরানব্বই (99) plus শত, হাজার, লক্ষ, and কোটি.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="amountFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="aFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#aFaqCol1" aria-expanded="true" aria-controls="aFaqCol1">
+                    1. How many zeroes are in 1 Lakh and 1 Crore?
+                  </button>
+                </h3>
+                <div id="aFaqCol1" class="accordion-collapse collapse show" aria-labelledby="aFaq1" data-bs-parent="#amountFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    In the South Asian numbering system used across Bangladesh and India, <strong>1 Lakh (১ লক্ষ)</strong> is written as <code>1,00,000</code> (5 zeroes, equal to 100 Thousand), and <strong>1 Crore (১ কোটি)</strong> is written as <code>1,00,00,000</code> (7 zeroes, equal to 100 Lakh or 10 Million).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="aFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aFaqCol2" aria-expanded="false" aria-controls="aFaqCol2">
+                    2. Can I type Bangla digits (০-৯) directly into the input box?
+                  </button>
+                </h3>
+                <div id="aFaqCol2" class="accordion-collapse collapse" aria-labelledby="aFaq2" data-bs-parent="#amountFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Whether you type <code>25000</code> or <code>২৫০০০</code>, our converter recognizes both English and Bangla numerals automatically and displays the results in both languages.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="aFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aFaqCol3" aria-expanded="false" aria-controls="aFaqCol3">
+                    3. Does this tool handle decimal Paisa and Cents for bank cheques?
+                  </button>
+                </h3>
+                <div id="aFaqCol3" class="accordion-collapse collapse" aria-labelledby="aFaq3" data-bs-parent="#amountFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Any two digits after the decimal point (for example <code>.50</code>) are converted into Paisa (পয়সা), Cents, or Paise and joined properly before the closing "Only" or "মাত্র".
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="aFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aFaqCol4" aria-expanded="false" aria-controls="aFaqCol4">
+                    4. Are my financial numbers sent to any server?
+                  </button>
+                </h3>
+                <div id="aFaqCol4" class="accordion-collapse collapse" aria-labelledby="aFaq4" data-bs-parent="#amountFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All number-to-word conversions run 100% locally in your browser. Your invoice totals and cheque amounts remain completely private.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="aFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aFaqCol5" aria-expanded="false" aria-controls="aFaqCol5">
+                    5. Can I switch between BDT Taka, US Dollars, and plain numbers?
+                  </button>
+                </h3>
+                <div id="aFaqCol5" class="accordion-collapse collapse" aria-labelledby="aFaq5" data-bs-parent="#amountFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Use the Currency dropdown to switch between BDT, USD, INR, GBP, EUR, or select "Plain Number (No Currency)" when you only want the pure mathematical wording.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/currency-converter/index.html" class="stretched-link text-reset">Currency Converter</a></h3>
+                  <p class="small text-muted mb-0">Convert USD, SAR, AED, GBP, and EUR to BDT Taka.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/invoice-generator/index.html" class="stretched-link text-reset">Invoice &amp; Courier Slip</a></h3>
+                  <p class="small text-muted mb-0">Generate printable client invoices and COD slips.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/bijoy-to-unicode/index.html" class="stretched-link text-reset">Bijoy to Unicode</a></h3>
+                  <p class="small text-muted mb-0">Convert Bangla text between Bijoy ANSI and Unicode.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+                <li class="mb-2"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; Courier Slip Generator</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Age Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">QR Code Generator</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+                <li class="mb-0"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport Photo Maker</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/amount-to-words.js" defer></script>
+</body>
+</html>

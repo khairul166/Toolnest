@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolNest — Free Online Tools That Just Work (100% Private)</title>
+  <meta name="description"
+    content="Use 10+ fast, free browser-based tools for Bangladesh and global users: Bijoy to Unicode, Amount to Words, Image Resizer, PDF Merge, QR & Invoice Generator.">
+  <link rel="canonical" href="https://[DOMAIN]/">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="ToolNest — Free Online Tools That Just Work (100% Private)">
+  <meta property="og:description"
+    content="Use 10+ fast, free browser-based tools for Bangladesh and global users: Bijoy to Unicode, Amount to Words, Image Resizer, PDF Merge, QR & Invoice Generator.">
+  <meta property="og:url" content="https://[DOMAIN]/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ToolNest — Free Online Tools That Just Work (100% Private)">
+  <meta name="twitter:description"
+    content="Use 10+ fast, free browser-based tools for Bangladesh and global users: Bijoy to Unicode, Amount to Words, Image Resizer, PDF Merge, QR & Invoice Generator.">
+
+  <!-- Google Fonts: Inter & Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 (Pinned CDN Versions) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+
+  <!-- JSON-LD Structured Data: WebSite & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://[DOMAIN]/#website",
+        "url": "https://[DOMAIN]/",
+        "name": "ToolNest",
+        "description": "Free online tools that just work. 100% client-side utilities for global users and Bangladesh professionals.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://[DOMAIN]/tools/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://[DOMAIN]/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are all tools on ToolNest completely free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every tool on ToolNest is 100% free with no account registration, no daily usage caps, and no watermarks on downloaded files."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do my uploaded photos, PDFs, or invoices leave my device?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All tools run 100% inside your web browser using client-side JavaScript and HTML5 Canvas. Your personal files, passport photos, and financial documents never get uploaded to any remote server."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ToolNest support Bengali (Bangla) fonts and Bangladesh formats?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ToolNest is built for global English users with specialized support for Bangladesh, including Bijoy ANSI to Unicode conversion, BDT Taka/Paisa Lakh-Crore amount to words, BD passport sizes, and COD courier slips."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do the generated QR codes expire?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. ToolNest generates static, direct-encoded QR codes for URLs, plain text, and WiFi networks. They never expire and do not rely on third-party redirect links."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use ToolNest on my mobile phone or tablet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Every tool on ToolNest is designed mobile-first with touch-friendly controls, responsive layouts down to 360px screens, and instant client-side processing."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="./index.html" aria-label="ToolNest Home">
+          <img src="./assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180"
+            height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false"
+          aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="./tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="./index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="./index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="./pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input"
+              placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions">
+            </div>
+          </div>
+          <button type="button" class="tn-theme-toggle ms-lg-2 mt-2 mt-lg-0" data-tn-theme-toggle
+            aria-label="Switch to dark mode" title="Switch to dark mode"><i class="bi bi-moon-stars"
+              aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero & SEO Intro Section -->
+    <section class="py-4 py-lg-5">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-9">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+              100% Browser-Based &bull; Files Never Leave Your Device
+            </span>
+            <h1 class="tn-page-title">Free Online Tools That Just Work</h1>
+            <p class="lead text-secondary mb-3">
+              Welcome to <strong>ToolNest</strong>, your all-in-one collection of fast, privacy-first web utilities
+              built for everyday productivity. Whether you are converting <strong>Bijoy ANSI to Unicode Bangla</strong>,
+              spelling out <strong>BDT Taka &amp; Lakh/Crore amounts in words</strong> for bank cheques, preparing
+              official <strong>passport and visa photos</strong>, merging multi-page PDF documents, resizing social
+              media graphics, or printing cash-on-delivery courier slips, every tool runs directly inside your browser.
+            </p>
+            <p class="text-muted mb-4">
+              Unlike traditional cloud converters that queue your files on remote servers, ToolNest processes your
+              images, PDFs, and text locally on your phone or computer. That means zero upload wait times, zero
+              watermarks, no sign-up walls, and complete privacy for freelancers, students, government job applicants,
+              and small business owners in Bangladesh and around the world.
+            </p>
+
+            <!-- Quick Filter Search Box -->
+            <div class="mx-auto mb-3" style="max-width: 580px;">
+              <label for="tn-grid-search" class="visually-hidden">Filter tools on this page</label>
+              <div class="input-group input-group-lg shadow-sm">
+                <span class="input-group-text bg-white border-end-0 text-primary ps-3">
+                  <i class="bi bi-search" aria-hidden="true"></i>
+                </span>
+                <input type="search" id="tn-grid-search" class="form-control border-start-0"
+                  placeholder="Find a tool instantly (e.g. Bijoy, Taka in words, Passport, PDF, QR)...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Categories Section -->
+    <section id="categories" class="pb-4" aria-labelledby="categories-heading">
+      <div class="container">
+        <div class="tn-category-toolbar d-flex flex-nowrap align-items-center gap-3 mb-3">
+          <h2 id="categories-heading" class="h4 fw-bold mb-0">Browse by Category</h2>
+          <div class="tn-category-filters d-flex flex-nowrap gap-2" role="group" aria-label="Filter tools by category">
+            <button type="button" class="btn btn-primary active" data-tn-filter="all" aria-pressed="true">All (<span data-tn-filter-count>0</span>)</button>
+            <button type="button" class="btn tn-btn--outline" data-tn-filter="converters"
+              aria-pressed="false">Converters (<span data-tn-filter-count>0</span>)</button>
+            <button type="button" class="btn tn-btn--outline" data-tn-filter="developers"
+              aria-pressed="false">Developers (<span data-tn-filter-count>0</span>)</button>
+            <button type="button" class="btn tn-btn--outline" data-tn-filter="image" aria-pressed="false">Image Tools (<span data-tn-filter-count>0</span>)</button>
+            <button type="button" class="btn tn-btn--outline" data-tn-filter="pdf" aria-pressed="false">PDF Tools (<span data-tn-filter-count>0</span>)</button>
+            <button type="button" class="btn tn-btn--outline" data-tn-filter="text" aria-pressed="false">Text Tools (<span data-tn-filter-count>0</span>)</button>
+            <button type="button" class="btn tn-btn--outline" data-tn-filter="business" aria-pressed="false">Business (<span data-tn-filter-count>0</span>)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="pb-5" aria-labelledby="popular-tools-heading">
+      <div class="container">
+        <h2 id="popular-tools-heading" class="visually-hidden">Popular Online Tools</h2>
+        <div class="row g-4">
+          <!-- 1. Bijoy to Unicode -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="converters"
+            data-tn-keywords="bijoy unicode bangla sutonnymj converter বিজয় ইউনিকোড">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-translate" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Converters</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/bijoy-to-unicode/index.html" class="stretched-link text-reset">Bijoy to Unicode
+                  Converter</a>
+              </h3>
+              <p class="tn-tool-card__desc">Convert Bangla text between Bijoy ANSI (SutonnyMJ) and Unicode in both
+                directions with real-time typing support.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 2. Amount to Words -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="converters"
+            data-tn-keywords="amount to words bangla taka paisa lakh crore cheque কথায় টাকা">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-cash-coin" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Converters</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/amount-to-words/index.html" class="stretched-link text-reset">Amount to Words (BDT
+                  &amp; Global)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Spell out currency figures in English and Bangla words using Lakh/Crore
+                (Taka &amp; Paisa) or International Millions.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- JSON Formatter -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="developers"
+            data-tn-keywords="json formatter minifier json beautify json validator">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-braces" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Developers</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/json-formatter/index.html" class="stretched-link text-reset">JSON Formatter &amp; Minifier</a>
+              </h3>
+              <p class="tn-tool-card__desc">Format and minify JSON data with beautified or compact output, entirely in your browser.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- Password Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="developers"
+            data-tn-keywords="password generator strong random password maker secure">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-key" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Developers</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/password-generator/index.html" class="stretched-link text-reset">Password Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate strong random passwords with length, character options, strength meter, and copy — all in your browser.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- Meta Tag Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="developers"
+            data-tn-keywords="meta tag generator og open graph twitter card seo canonical">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-code" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Developers</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/meta-tag-generator/index.html" class="stretched-link text-reset">Meta Tag Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate SEO, Open Graph, and Twitter card meta tags for better search and social sharing.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- Robots.txt Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="developers"
+            data-tn-keywords="robots txt generator search engine crawlers disallow allow user agent seo">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-text" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Developers</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/robots-txt-generator/index.html" class="stretched-link text-reset">Robots.txt Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate customized robots.txt files to control search engine crawlers access to your website.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 3. Age Calculator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="converters"
+            data-tn-keywords="age calculator birthday years months days bcs job age">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-calendar2-check" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Converters</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/age-calculator/index.html" class="stretched-link text-reset">Age Calculator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Calculate exact chronological age in years, months, and days, plus next
+                birthday countdown and job eligibility age.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 4. Image Compressor -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="image compressor reduce photo kb jpg png webp batch">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-zip" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a>
+              </h3>
+              <p class="tn-tool-card__desc">Shrink multiple JPG, PNG, and WebP photos simultaneously with a quality
+                slider and instant before/after file size stats.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- AI Background Remover -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="background remover remove image background photo transparent png ai portrait cutout">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-person-bounding-box" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/background-remover/index.html" class="stretched-link text-reset">AI Background Remover</a>
+              </h3>
+              <p class="tn-tool-card__desc">Remove portrait photo backgrounds in your browser and download a transparent PNG. Your photo stays on your device.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- AI Image Upscaler -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="ai image upscaler photo upscaler image super resolution enlarge image 2x low resolution photo">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-zoom-in" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/image-upscaler/index.html" class="stretched-link text-reset">AI Image Upscaler (2x)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Enlarge small photos 2x with browser-based AI and download a larger PNG. Your image stays on your device.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- AI Image Alt-Text & Caption Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="ai image alt text generator caption seo wcag accessibility describe photo">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-eye" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/image-alt-text-generator/index.html" class="stretched-link text-reset">AI Image Alt-Text &amp; Caption Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate WCAG screen-reader alt-text, SEO image descriptions, HTML img snippets, and captions with browser-based AI.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- AI Document Scanner & Auto-Enhancer -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="ai document scanner auto enhancer perspective crop deskew shadow remover magic color bw scan pdf">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-bounding-box" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/document-scanner/index.html" class="stretched-link text-reset">AI Document Scanner &amp; Auto-Enhancer</a>
+              </h3>
+              <p class="tn-tool-card__desc">Flatten angled document photos with 4-corner perspective crop, erase shadows with Magic Color or B&amp;W, and export to PDF or PNG.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 5. Image Resizer -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="image resizer facebook post cover story ad instagram youtube dimensions">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-aspect-ratio" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/image-resizer/index.html" class="stretched-link text-reset">Image Resizer (Social
+                  Presets)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Resize photos to exact pixel dimensions or one-click presets for Facebook
+                Posts, Covers, Stories, Ads, and YouTube.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 5B. Bulk Image Resizer (RedKetchup Style) -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="bulk image resizer redketchup batch resize zip percentage longest side crop anchor rename file size">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-images" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/bulk-image-resizer/index.html" class="stretched-link text-reset">Bulk Image Resizer
+                  (Batch &amp; ZIP)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Batch resize multiple images at once by dimensions, file size, percentage,
+                or longest side with 9-point crop anchor, renaming, and ZIP download.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 5C. Color Picker & Image Eyedropper -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="color picker image eyedropper hex rgb hsl hsv cmyk palette contrast checker">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-eyedropper" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/color-picker/index.html" class="stretched-link text-reset">Color Picker &amp; Image
+                  Eyedropper</a>
+              </h3>
+              <p class="tn-tool-card__desc">Pick exact pixel colors from any image, extract dominant palettes, convert
+                HEX, RGB, HSL, HSV, CMYK, and check WCAG contrast.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 6. Passport Photo Maker -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="passport photo maker visa size 45x35mm 2x2 inch printable sheet background">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-person-bounding-box" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/passport-photo-maker/index.html" class="stretched-link text-reset">Passport &amp; Visa
+                  Photo Maker</a>
+              </h3>
+              <p class="tn-tool-card__desc">Crop photos to Bangladesh, US, UK, or Schengen passport sizes, adjust
+                background color, and export printable 4R/A4 sheets.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- Create PDF & Organize Pages -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="create pdf organize pages combine images and pdf adobe acrobat reorder rotate extract">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-files" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/create-pdf/index.html" class="stretched-link text-reset">Create PDF &amp; Organize Pages</a>
+              </h3>
+              <p class="tn-tool-card__desc">Create a PDF from multiple images and PDF files with an Adobe Acrobat-style visual page organizer to reorder, rotate, and extract pages.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- Protect PDF -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="protect pdf encrypt pdf password lock pdf permissions restrict printing copying">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-lock2" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/protect-pdf/index.html" class="stretched-link text-reset">Protect PDF (Password &amp; Permissions)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Encrypt PDF documents with a 128-bit open password, owner password, and restrictions on printing, copying, and editing.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 7. PDF Merge & Split -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="pdf merge split combine reorder pages extract range">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/pdf-merge-split/index.html" class="stretched-link text-reset">PDF Merge &amp; Split</a>
+              </h3>
+              <p class="tn-tool-card__desc">Combine multiple PDF documents, reorder files or pages, and extract custom
+                page ranges without uploading to any server.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 8. QR Code Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="qr code generator wifi url text logo svg png no expiry">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-qr-code-scan" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/qr-code-generator/index.html" class="stretched-link text-reset">QR Code Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Create permanent, no-expiry QR codes for URLs, text, and WiFi with custom
+                brand colors, center logo, and PNG/SVG export.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 9. Text Tools -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="text"
+            data-tn-keywords="text tools word counter case converter duplicate lines sort">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-card-text" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Text</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/text-tools/index.html" class="stretched-link text-reset">Text Tools &amp; Word
+                  Counter</a>
+              </h3>
+              <p class="tn-tool-card__desc">Count words, characters, sentences, and reading time; convert case; remove
+                duplicate lines; and sort lists alphabetically.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 10. Lorem Ipsum Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="text"
+            data-tn-keywords="lorem ipsum generator placeholder text paragraphs sentences">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-textarea" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Text</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/lorem-ipsum-generator/index.html" class="stretched-link text-reset">Lorem Ipsum Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate customizable Lorem Ipsum placeholder text with paragraphs, sentences, and words. Free 100% browser-based text generator.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- Bold Text Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="text"
+            data-tn-keywords="bold text generator unicode bold font fancy letters social media instagram facebook twitter discord">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-type-bold" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Text</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/bold-text-generator/index.html" class="stretched-link text-reset">Bold Text
+                  Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate fancy bold Unicode text for social media bios, posts, and comments
+                with one-click copy for Serif, Sans, Script, and Gothic styles.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 10. Invoice & Courier Slip Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="invoice generator courier slip cod f-commerce pathao steadfast redx">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-receipt" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/invoice-generator/index.html" class="stretched-link text-reset">Invoice &amp; Courier
+                  Slip Generator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Generate clean client invoices or 3-in-1 cash-on-delivery (COD) parcel
+                labels with item rows, delivery charges, and print/PDF.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 13. Land Area Converter -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="converters"
+            data-tn-keywords="land area converter katha bigha decimal shatak শতক কাঠা বিঘা square feet acre hectare">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-rulers" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Converters</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/land-area-converter/index.html" class="stretched-link text-reset">Land Area Converter
+                  (Katha, Bigha, Decimal)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Convert between Square Feet, Katha, Bigha, Decimal (Shatak), Acre, Hectare,
+                Sq Meter, and Sq Yard with regional standards.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 14. Image Format Converter -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="image format converter heic to jpg png webp heif batch zip">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/image-format-converter/index.html" class="stretched-link text-reset">Image Format
+                  Converter (HEIC, WebP, PNG, JPG)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Batch convert JPG, PNG, WebP, and iPhone HEIC/HEIF photos locally with
+                quality control, transparency fill, and ZIP download.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 15. Image to PDF -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="image to pdf jpg to pdf png webp combine photos reorder rotate a4">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-richtext" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/image-to-pdf/index.html" class="stretched-link text-reset">Image to PDF Converter</a>
+              </h3>
+              <p class="tn-tool-card__desc">Combine multiple JPG, PNG, and WebP images into a clean PDF with
+                drag-and-drop page reordering, rotation, and A4/Letter margins.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 16. PDF to JPG -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="pdf to jpg pdf to png extract pages high resolution zip">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-filetype-jpg" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/pdf-to-jpg/index.html" class="stretched-link text-reset">PDF to JPG &amp; PNG
+                  Converter</a>
+              </h3>
+              <p class="tn-tool-card__desc">Render PDF pages into crisp 1x, 2x, or 3x resolution JPG or PNG images with
+                page-range filtering and instant ZIP download.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 17. Bangla Typing Test -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="text"
+            data-tn-keywords="bangla typing test bengali wpm speed accuracy avro unicode বাংলা টাইপিং">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-keyboard" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Text</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/bangla-typing-test/index.html" class="stretched-link text-reset">Bangla Typing Speed
+                  Test</a>
+              </h3>
+              <p class="tn-tool-card__desc">Practice 1, 2, or 5-minute Bangla Unicode typing tests across Easy, Medium,
+                and Hard conjunct passages with live WPM and accuracy.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 18. Discount, VAT & Profit Calculator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="discount calculator vat calculator nbr bdt profit margin markup f-commerce">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-calculator" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/discount-vat-profit-calculator/index.html" class="stretched-link text-reset">Discount,
+                  VAT &amp; Profit Calculator</a>
+              </h3>
+              <p class="tn-tool-card__desc">Calculate stacked sale discounts, add or extract VAT, and analyze gross
+                profit margin, markup %, and F-commerce net profit per order.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 19. UTM Link Builder -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="utm link builder campaign url generator ga4 google analytics facebook ads utm_source utm_medium utm_campaign">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-link-45deg" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/utm-link-builder/index.html" class="stretched-link text-reset">UTM Link Builder (GA4
+                  &amp; Ads)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Create trackable campaign URLs with utm_source, utm_medium, and utm_campaign
+                for Google Analytics 4, Facebook Ads, and SMS blasts.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 20. Currency Converter -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="converters"
+            data-tn-keywords="currency converter usd to bdt sar aed gbp eur myr inr remittance bonus 2.5% টাকার রেট">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-currency-exchange" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">Converters</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/currency-converter/index.html" class="stretched-link text-reset">Currency &amp;
+                  Remittance Converter</a>
+              </h3>
+              <p class="tn-tool-card__desc">Convert 25+ currencies (USD, SAR, AED, GBP, EUR, MYR, BDT) with custom bank
+                rate override and +2.5% remittance bonus calculator.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 21. PDF to MS Word -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="pdf to word converter docx doc editable text extract">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-word" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/pdf-to-word/index.html" class="stretched-link text-reset">PDF to MS Word (.DOCX)
+                  Converter</a>
+              </h3>
+              <p class="tn-tool-card__desc">Convert PDF documents into editable Microsoft Word (.docx, .doc) and plain
+                text files with smart paragraph reconstruction.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 22. PDF to MS Excel -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="pdf to excel converter xlsx csv table extractor bank statement">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-excel" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/pdf-to-excel/index.html" class="stretched-link text-reset">PDF to MS Excel (.XLSX &amp;
+                  .CSV)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Extract tables, bank statements, and price lists from PDF files into
+                Microsoft Excel (.xlsx) workbooks and CSV spreadsheets.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 23. MS Word to PDF -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="word to pdf converter docx doc rtf txt to pdf a4">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/word-to-pdf/index.html" class="stretched-link text-reset">MS Word to PDF (.DOCX &amp;
+                  .DOC)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Convert Microsoft Word (.docx, .doc), RTF, and TXT documents into formatted,
+                printable A4 or Letter PDF files in your browser.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+
+
+          <!-- 25. CV Maker & Resume Builder -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="cv maker resume builder curriculum vitae resume pdf job application">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-person" aria-hidden="true"></i></div><span
+                  class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title"><a href="./tools/cv-maker/index.html" class="stretched-link text-reset">CV
+                  Maker &amp; Resume Builder</a></h3>
+              <p class="tn-tool-card__desc">Create a professional CV with live preview, experience, education, skills,
+                and print or PDF export.</p><span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right"
+                  aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 26. Signature Maker -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="image"
+            data-tn-keywords="signature maker digital signature handwritten signature draw signature png">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-pen" aria-hidden="true"></i></div><span
+                  class="tn-tool-card__badge">Image</span>
+              </div>
+              <h3 class="tn-tool-card__title"><a href="./tools/signature-maker/index.html"
+                  class="stretched-link text-reset">Signature Maker</a></h3>
+              <p class="tn-tool-card__desc">Draw a handwritten signature with mouse, touch, or stylus and download it as
+                a transparent PNG.</p><span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right"
+                  aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 26. WhatsApp Link Generator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="whatsapp link generator wa.me click to chat whatsapp message button">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></div><span
+                  class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title"><a href="./tools/whatsapp-link-generator/index.html"
+                  class="stretched-link text-reset">WhatsApp Link Generator</a></h3>
+              <p class="tn-tool-card__desc">Create click-to-chat WhatsApp links with a prefilled message for websites,
+                social profiles, and customer support.</p><span class="tn-tool-card__cta">Open Tool <i
+                  class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 26. Loan EMI, FDR & DPS Calculator -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="business"
+            data-tn-keywords="loan emi calculator fdr fixed deposit dps savings bank interest amortization">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-bank" aria-hidden="true"></i></div><span
+                  class="tn-tool-card__badge">Business</span>
+              </div>
+              <h3 class="tn-tool-card__title"><a href="./tools/loan-emi-fdr-dps-calculator/index.html"
+                  class="stretched-link text-reset">Loan EMI, FDR &amp; DPS Calculator</a></h3>
+              <p class="tn-tool-card__desc">Calculate monthly loan EMI, reducing-balance amortization, fixed-deposit
+                maturity, and monthly DPS savings returns.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+
+          <!-- 24. MS Excel to PDF -->
+          <div class="col-12 col-md-6 col-lg-4" data-tn-tool-card data-tn-category="pdf"
+            data-tn-keywords="excel to pdf converter xlsx csv spreadsheet to pdf table landscape">
+            <article class="tn-tool-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="tn-tool-card__icon"><i class="bi bi-file-earmark-spreadsheet" aria-hidden="true"></i></div>
+                <span class="tn-tool-card__badge">PDF</span>
+              </div>
+              <h3 class="tn-tool-card__title">
+                <a href="./tools/excel-to-pdf/index.html" class="stretched-link text-reset">MS Excel to PDF (.XLSX &amp;
+                  .CSV)</a>
+              </h3>
+              <p class="tn-tool-card__desc">Convert Excel (.xlsx) workbooks and CSV spreadsheets into multi-page
+                Landscape or Portrait vector PDF tables with repeating headers.</p>
+              <span class="tn-tool-card__cta">Open Tool <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </article>
+          </div>
+        </div>
+
+        <div id="tn-grid-empty" class="tn-card text-center py-5 d-none mt-4">
+          <i class="bi bi-search fs-1 text-muted mb-2 d-block" aria-hidden="true"></i>
+          <h3 class="h5">No matching tools found</h3>
+          <p class="text-muted mb-0">Try searching with a broader keyword such as "PDF", "Image", "Bangla", or
+            "Invoice".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- In-Content Ad Slot -->
+    <div class="container">
+      <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+        <span class="tn-ad-slot__label">Advertisement</span>
+        <div class="tn-ad-slot__placeholder">In-Content Banner Ad Slot (Responsive)</div>
+      </aside>
+    </div>
+
+    <!-- Category Overview Cards -->
+    <section class="py-4" aria-labelledby="cat-cards-heading">
+      <div class="container">
+        <h2 id="cat-cards-heading" class="tn-section-title text-center mb-4">Explore Tool Categories</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg">
+            <a href="./tools/index.html?category=converters"
+              class="tn-card d-block text-center h-100 text-decoration-none">
+              <i class="bi bi-arrow-left-right fs-2 text-primary d-block mb-2" aria-hidden="true"></i>
+              <h3 class="h6 fw-bold mb-1">Converters</h3>
+              <span class="small text-muted">Bijoy, Taka Words, Age</span>
+            </a>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <a href="./tools/index.html?category=image" class="tn-card d-block text-center h-100 text-decoration-none">
+              <i class="bi bi-images fs-2 text-primary d-block mb-2" aria-hidden="true"></i>
+              <h3 class="h6 fw-bold mb-1">Image Tools</h3>
+              <span class="small text-muted">Compress, Resize, Passport</span>
+            </a>
+          </div>
+          <div class="col-6 col-md-4 col-lg">
+            <a href="./tools/index.html?category=pdf" class="tn-card d-block text-center h-100 text-decoration-none">
+              <i class="bi bi-file-earmark-pdf fs-2 text-primary d-block mb-2" aria-hidden="true"></i>
+              <h3 class="h6 fw-bold mb-1">PDF Tools</h3>
+              <span class="small text-muted">Merge, Split &amp; Extract</span>
+            </a>
+          </div>
+          <div class="col-6 col-md-6 col-lg">
+            <a href="./tools/index.html?category=text" class="tn-card d-block text-center h-100 text-decoration-none">
+              <i class="bi bi-fonts fs-2 text-primary d-block mb-2" aria-hidden="true"></i>
+              <h3 class="h6 fw-bold mb-1">Text Tools</h3>
+              <span class="small text-muted">Word Count, Case, Sort</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg">
+            <a href="./tools/index.html?category=business"
+              class="tn-card d-block text-center h-100 text-decoration-none">
+              <i class="bi bi-briefcase fs-2 text-primary d-block mb-2" aria-hidden="true"></i>
+              <h3 class="h6 fw-bold mb-1">Business</h3>
+              <span class="small text-muted">QR Codes &amp; Invoices</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why ToolNest Section -->
+    <section class="py-5" aria-labelledby="why-toolnest-heading">
+      <div class="container">
+        <div class="tn-card p-4 p-lg-5">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+              <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill mb-2">Built for Speed
+                &amp; Trust</span>
+              <h2 id="why-toolnest-heading" class="tn-section-title">Why Thousands Choose ToolNest</h2>
+              <p class="text-muted mb-0">
+                We engineered ToolNest around a simple promise: every tool works in 3 effortless steps—input, action,
+                and result—without forcing you to create an account or risk your confidential files on unknown cloud
+                servers.
+              </p>
+            </div>
+            <div class="col-lg-7">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="p-3 rounded-3 bg-light h-100 border">
+                    <i class="bi bi-shield-check fs-3 text-success mb-2 d-block" aria-hidden="true"></i>
+                    <h3 class="h6 fw-bold">100% Local Browser Privacy</h3>
+                    <p class="small text-muted mb-0">Your PDFs, passport photos, and invoices are processed inside your
+                      browser memory and never uploaded anywhere.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-3 rounded-3 bg-light h-100 border">
+                    <i class="bi bi-lightning-charge fs-3 text-warning mb-2 d-block" aria-hidden="true"></i>
+                    <h3 class="h6 fw-bold">Instant Zero-Queue Speed</h3>
+                    <p class="small text-muted mb-0">No waiting in server queues or downloading compressed files over
+                      slow connections. Results appear in milliseconds.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-3 rounded-3 bg-light h-100 border">
+                    <i class="bi bi-globe-central-south-asia fs-3 text-primary mb-2 d-block" aria-hidden="true"></i>
+                    <h3 class="h6 fw-bold">Tailored for Bangladesh &amp; Beyond</h3>
+                    <p class="small text-muted mb-0">Full support for Bangla Unicode, Bijoy ANSI, BDT Lakh/Crore cheque
+                      wording, BD passport sizes, and F-commerce slips.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-3 rounded-3 bg-light h-100 border">
+                    <i class="bi bi-phone fs-3 text-primary mb-2 d-block" aria-hidden="true"></i>
+                    <h3 class="h6 fw-bold">Mobile-First &amp; Forever Free</h3>
+                    <p class="small text-muted mb-0">Works smoothly on 360px smartphones, tablets, and desktops with
+                      large tap targets and zero watermarks.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="py-4" aria-labelledby="blog-heading">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 id="blog-heading" class="tn-section-title mb-0">Helpful Guides &amp; Tips</h2>
+          <span class="badge bg-secondary-subtle text-secondary">Guides &amp; Tutorials</span>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="tn-card h-100">
+              <span class="small text-primary fw-semibold">Bangla Typography</span>
+              <h3 class="h5 fw-bold mt-1">When to Use Bijoy ANSI vs. Bangla Unicode</h3>
+              <p class="small text-muted mb-3">Learn why government circulars and print houses still use SutonnyMJ while
+                websites and social media require UTF-8 Unicode.</p>
+              <a href="./tools/bijoy-to-unicode/index.html" class="small fw-bold">Try Bijoy to Unicode Converter
+                &rarr;</a>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="tn-card h-100">
+              <span class="small text-primary fw-semibold">Application Prep</span>
+              <h3 class="h5 fw-bold mt-1">Official Passport &amp; Visa Photo Dimensions Guide</h3>
+              <p class="small text-muted mb-3">Compare Bangladesh 45&times;35mm e-Passport requirements with US
+                2&times;2 inch visa photos and print 8 copies on one 4R sheet.</p>
+              <a href="./tools/passport-photo-maker/index.html" class="small fw-bold">Open Passport Photo Maker
+                &rarr;</a>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="tn-card h-100">
+              <span class="small text-primary fw-semibold">E-Commerce &amp; Finance</span>
+              <h3 class="h5 fw-bold mt-1">Writing Error-Free Bank Cheques in Lakh &amp; Crore</h3>
+              <p class="small text-muted mb-3">Avoid bounced cheques and billing mistakes by converting numerical BDT
+                figures into exact English and Bangla words.</p>
+              <a href="./tools/amount-to-words/index.html" class="small fw-bold">Convert Amount to Words &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Question FAQ Section -->
+    <section class="py-5" aria-labelledby="home-faq-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2 id="home-faq-heading" class="tn-section-title text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="homeFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeadingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                    1. Are all tools on ToolNest completely free to use?
+                  </button>
+                </h3>
+                <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne"
+                  data-bs-parent="#homeFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Every single utility on ToolNest is 100% free. There are no hidden subscriptions, no daily
+                    conversion limits, no watermarks added to your images or PDFs, and no sign-up required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeadingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                    2. Do my uploaded photos, PDFs, or invoices leave my device?
+                  </button>
+                </h3>
+                <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo"
+                  data-bs-parent="#homeFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All 10 tools run 100% client-side inside your web browser using modern JavaScript and HTML5
+                    Canvas APIs. Your personal photos, passport scans, PDF contracts, and customer invoices never leave
+                    your phone or computer.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeadingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                    3. Does ToolNest support Bengali (Bangla) fonts and Bangladesh formats?
+                  </button>
+                </h3>
+                <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree"
+                  data-bs-parent="#homeFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! While ToolNest serves global English users, we provide dedicated support for Bangladesh
+                    workflows—including two-way Bijoy ANSI to Unicode conversion, BDT Taka/Paisa Lakh and Crore wording,
+                    Bangladesh passport photo presets, and F-commerce COD courier slips.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeadingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                    4. Do the QR codes generated on ToolNest ever expire?
+                  </button>
+                </h3>
+                <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour"
+                  data-bs-parent="#homeFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. Our QR Code Generator encodes your URL, plain text, or WiFi credentials directly into the QR
+                    matrix. Because there is no third-party redirect middleman, your downloaded PNG and SVG QR codes
+                    work forever with no scan limits.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeadingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                    5. Can I use ToolNest on my smartphone or low-bandwidth connection?
+                  </button>
+                </h3>
+                <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive"
+                  data-bs-parent="#homeFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Every page is lightweight, mobile-first, and tested down to 360px screen widths. Once a tool
+                    page loads in your browser, you can even compress photos, convert text, or calculate ages without
+                    re-uploading data over mobile networks.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="./index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="./assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy"
+              style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your
+            files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="./tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="./tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="./tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="./tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="./tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="./tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="./tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="./tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a>
+            </li>
+            <li><a href="./tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp;
+                Profit</a></li>
+            <li><a href="./tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+            <li><a href="./tools/loan-emi-fdr-dps-calculator/index.html" class="tn-footer__link">Loan EMI, FDR &amp; DPS
+                Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="./tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="./tools/background-remover/index.html" class="tn-footer__link">AI Background Remover</a></li>
+            <li><a href="./tools/image-upscaler/index.html" class="tn-footer__link">AI Image Upscaler</a></li>
+            <li><a href="./tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="./tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="./tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a>
+            </li>
+            <li><a href="./tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="./tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="./tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="./tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="./tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="./tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="./tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="./tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="./tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="./tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="./tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="./pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="./pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="./pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="./pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="./pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <!-- Scripts (Deferred, Pinned CDN + Main JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Excel Converter (.XLSX &amp; .CSV) — ToolNest</title>
+  <meta name="description" content="Extract tables, bank statements, and price lists from PDF files into Microsoft Excel (.xlsx) and CSV spreadsheets 100% locally in your browser.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/pdf-to-excel/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="PDF to Excel Converter (.XLSX &amp; .CSV) — ToolNest">
+  <meta property="og:description" content="Extract tables, bank statements, and price lists from PDF files into Microsoft Excel (.xlsx) and CSV spreadsheets 100% locally in your browser.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/pdf-to-excel/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to Excel Converter (.XLSX &amp; .CSV) — ToolNest">
+  <meta name="twitter:description" content="Extract tables, bank statements, and price lists from PDF files into Microsoft Excel (.xlsx) and CSV spreadsheets 100% locally in your browser.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data: WebApplication, FAQPage, BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://[DOMAIN]/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "All Tools",
+            "item": "https://[DOMAIN]/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "PDF to Excel Converter",
+            "item": "https://[DOMAIN]/tools/pdf-to-excel/"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "PDF to MS Excel (.XLSX & .CSV) Converter",
+        "url": "https://[DOMAIN]/tools/pdf-to-excel/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Free client-side PDF to Microsoft Excel (.xlsx) and CSV table extractor with coordinate-based column alignment, live spreadsheet preview, and multi-sheet export."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this tool generate a genuine Microsoft Excel (.xlsx) workbook?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ToolNest builds a standards-compliant Office Open XML (.xlsx) workbook directly in your browser using JSZip, complete with numeric cell types so you can run SUM and AVERAGE formulas immediately in Microsoft Excel, Google Sheets, or LibreOffice Calc."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my bank statements or financial PDFs uploaded to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All table extraction and Excel (.xlsx) file creation happen 100% locally inside your web browser. Your confidential financial statements, invoices, and payroll sheets never leave your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export each PDF page as a separate Excel worksheet tab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use the Workbook Layout dropdown to choose between Combine All Pages into 1 Sheet or Separate Worksheet Tab per Page (Page_1, Page_2, etc.)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Column Detection Sensitivity setting help with wide or narrow tables?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PDF files do not store HTML table tags—they store text fragments at X/Y coordinates. If columns are merging together, select Tight Columns (8pt Gap). If words inside a single column are splitting apart, select Wide Columns (24pt Gap)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I copy the extracted table and paste it directly into Excel or Google Sheets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Click Copy Table (for Excel Paste) to copy the extracted rows in Tab-Separated Values (TSV) format, then press Ctrl+V directly inside any Excel or Google Sheets cell."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">PDF to Excel</li>
+            </ol>
+          </nav>
+
+          <span class="tn-privacy-banner">
+            <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+            100% Browser-Based &bull; Files Never Leave Your Device
+          </span>
+
+          <h1 class="tn-page-title">PDF to MS Excel (.XLSX &amp; .CSV) Converter</h1>
+          <p class="text-muted mb-4">
+            Extract tables, bank statements, invoices, and inventory price lists from PDF files into editable <strong>Microsoft Excel (<code>.xlsx</code>)</strong> workbooks or <strong><code>.csv</code></strong> spreadsheets. Everything runs 100% locally in your browser so your financial data stays completely private.
+          </p>
+
+          <!-- TOOL AREA START (No Ads Inside) -->
+          <section class="tn-tool-workspace" aria-label="PDF to Excel Converter Workspace">
+            <!-- Upload Dropzone -->
+            <div id="tn-p2e-dropzone" class="tn-dropzone mb-3" tabindex="0" role="button" aria-label="Upload a PDF file to convert to Excel">
+              <i class="bi bi-file-earmark-excel tn-dropzone__icon text-success" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drop a Tabular PDF File Here or Click to Browse</h2>
+              <p class="small text-muted mb-3">Detects rows &amp; columns by X/Y coordinates and exports to .XLSX or .CSV</p>
+              <label for="tn-p2e-file-input" class="btn tn-btn--primary">
+                <i class="bi bi-folder2-open" aria-hidden="true"></i> Choose PDF File
+              </label>
+              <input type="file" id="tn-p2e-file-input" class="d-none" accept="application/pdf,.pdf">
+            </div>
+
+            <!-- Selected File Bar -->
+            <div id="tn-p2e-file-info" class="d-none p-3 rounded-3 bg-primary-subtle border border-primary border-opacity-25 mb-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-file-earmark-pdf-fill text-danger fs-4" aria-hidden="true"></i>
+                <span id="tn-p2e-file-name" class="fw-bold text-dark">statement.pdf</span>
+              </div>
+              <span id="tn-p2e-page-badge" class="badge bg-primary px-3 py-2">0 Pages</span>
+            </div>
+
+            <!-- Extraction Settings -->
+            <div class="p-3 rounded-3 bg-light border mb-3">
+              <div class="row g-3 align-items-end">
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-p2e-sheet-mode" class="form-label fw-bold small mb-1">Workbook Layout (.XLSX)</label>
+                  <select id="tn-p2e-sheet-mode" class="form-select">
+                    <option value="single" selected>Combine All Pages into 1 Sheet</option>
+                    <option value="multi">Separate Worksheet Tab per Page</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-p2e-col-gap" class="form-label fw-bold small mb-1">Column Detection Sensitivity</label>
+                  <select id="tn-p2e-col-gap" class="form-select">
+                    <option value="8">Tight Columns (8pt Gap)</option>
+                    <option value="14" selected>Standard Table (14pt Gap)</option>
+                    <option value="24">Wide Columns (24pt Gap)</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <label for="tn-p2e-range-mode" class="form-label fw-bold small mb-1">Pages to Extract</label>
+                  <select id="tn-p2e-range-mode" class="form-select">
+                    <option value="all" selected>All Pages</option>
+                    <option value="custom">Custom Page Range</option>
+                  </select>
+                </div>
+
+                <div id="tn-p2e-range-wrap" class="col-sm-6 col-md-4 d-none">
+                  <label for="tn-p2e-range-input" class="form-label fw-bold small mb-1">Page Range</label>
+                  <input type="text" id="tn-p2e-range-input" class="form-control" placeholder="e.g. 1-3, 5">
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 mt-3 pt-3 border-top">
+                <button type="button" id="tn-p2e-extract-btn" class="btn tn-btn--primary">
+                  <i class="bi bi-table" aria-hidden="true"></i> Extract PDF to Excel
+                </button>
+                <button type="button" id="tn-p2e-sample-btn" class="btn tn-btn--outline">
+                  <i class="bi bi-magic" aria-hidden="true"></i> Load Sample Sales Table PDF
+                </button>
+                <button type="button" id="tn-p2e-reset-btn" class="btn tn-btn--outline ms-auto">
+                  <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="tn-p2e-progress-wrap" class="d-none mb-3">
+              <div class="d-flex justify-content-between small fw-semibold mb-1">
+                <span id="tn-p2e-progress-text">Extracting table rows...</span>
+              </div>
+              <div class="progress" style="height: 10px;">
+                <div id="tn-p2e-progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Error Alert -->
+            <div id="tn-p2e-error-box" class="alert alert-danger d-none py-2 small mb-3" role="alert"></div>
+
+            <!-- Live Spreadsheet Preview & Download Buttons -->
+            <div id="tn-p2e-results-wrap" class="d-none mt-3">
+              <div class="tn-result-box">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                  <div>
+                    <h3 class="h6 fw-bold mb-0">
+                      <i class="bi bi-grid-3x3-gap-fill text-success me-1" aria-hidden="true"></i> Live Spreadsheet Preview
+                    </h3>
+                  </div>
+                  <span id="tn-p2e-stats-badge" class="badge bg-success-subtle text-success px-3 py-2">0 Rows Ready</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button type="button" id="tn-p2e-dl-xlsx" class="btn tn-btn--success">
+                    <i class="bi bi-file-earmark-excel-fill" aria-hidden="true"></i> Download MS Excel (.XLSX)
+                  </button>
+                  <button type="button" id="tn-p2e-dl-csv" class="btn tn-btn--primary">
+                    <i class="bi bi-filetype-csv" aria-hidden="true"></i> Download .CSV
+                  </button>
+                  <button type="button" id="tn-p2e-copy-btn" class="btn tn-btn--outline ms-sm-auto">
+                    <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Table (for Excel Paste)
+                  </button>
+                </div>
+
+                <div class="table-responsive border rounded bg-white" style="max-height: 360px; overflow: auto;">
+                  <table class="table table-bordered table-sm align-middle mb-0 small">
+                    <thead id="tn-p2e-table-head" class="sticky-top"></thead>
+                    <tbody id="tn-p2e-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Convert a PDF Table to Microsoft Excel (.XLSX)</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Upload Your Tabular PDF:</strong> Drop your PDF statement, invoice, or report into the upload area (or click <em>Load Sample Sales Table PDF</em> to test immediately).
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Adjust Column Sensitivity &amp; Sheet Layout:</strong> Inspect the live spreadsheet preview grid. If needed, switch <em>Column Detection Sensitivity</em> between Tight (8pt), Standard (14pt), and Wide (24pt), or choose whether to combine all pages into one sheet or create a separate worksheet tab per page.
+              </li>
+              <li>
+                <strong>Step 3 — Download .XLSX, .CSV, or Copy:</strong> Click <strong>Download MS Excel (.XLSX)</strong> for a native Excel workbook with numeric cells ready for <code>=SUM()</code> formulas, or click <strong>Copy Table</strong> to paste directly into Excel or Google Sheets.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Detailed SEO Guide (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="guide-heading">
+            <h2 id="guide-heading" class="tn-section-title">Why Local Browser PDF-to-Excel Extraction Is Ideal for Financial Data</h2>
+            <p class="text-muted">
+              Accountants, business owners, auditors, and operations teams frequently receive vendor price lists, courier COD settlement reports, tax schedules, and bank statements locked inside PDF files. Re-typing hundreds of numbers by hand is slow and prone to human error, while uploading confidential financial PDFs to unknown online converters exposes sensitive business numbers.
+            </p>
+            <p class="text-muted">
+              ToolNest solves both problems by running 100% inside your browser. Using Mozilla's <code>pdf.js</code> engine, the converter reads the exact horizontal (<code>X</code>) and vertical (<code>Y</code>) coordinates of every text item on each page, clusters items on the same horizontal baseline into rows, and separates columns based on spatial gaps. Finally, it constructs a genuine <strong>Office Open XML (<code>.xlsx</code>)</strong> workbook using <code>JSZip</code> with automatic numeric cell typing.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-123 text-success me-1" aria-hidden="true"></i> Formula-Ready Numeric Cells</h3>
+                  <p class="small text-muted mb-0">Numbers are stored as true Excel numeric values (<code>t="n"</code>) rather than plain text strings so <code>SUM</code> and <code>AVERAGE</code> work immediately.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-layers text-success me-1" aria-hidden="true"></i> Single Sheet or Multi-Tab Export</h3>
+                  <p class="small text-muted mb-0">Merge a 10-page statement into one continuous table, or place each PDF page onto its own dedicated Excel worksheet tab.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="tn-card mb-4" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="p2eFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="peFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#peFaqCol1" aria-expanded="true" aria-controls="peFaqCol1">
+                    1. Does this tool generate a genuine Microsoft Excel (.xlsx) workbook?
+                  </button>
+                </h3>
+                <div id="peFaqCol1" class="accordion-collapse collapse show" aria-labelledby="peFaq1" data-bs-parent="#p2eFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. ToolNest builds a standards-compliant Office Open XML (<code>.xlsx</code>) workbook directly in your browser using JSZip, complete with numeric cell types so you can run <code>SUM</code> and <code>AVERAGE</code> formulas immediately in Microsoft Excel, Google Sheets, or LibreOffice Calc.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="peFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peFaqCol2" aria-expanded="false" aria-controls="peFaqCol2">
+                    2. Are my bank statements or financial PDFs uploaded to any server?
+                  </button>
+                </h3>
+                <div id="peFaqCol2" class="accordion-collapse collapse" aria-labelledby="peFaq2" data-bs-parent="#p2eFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All table extraction and Excel (<code>.xlsx</code>) file creation happen 100% locally inside your web browser. Your confidential financial statements, invoices, and payroll sheets never leave your device.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="peFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peFaqCol3" aria-expanded="false" aria-controls="peFaqCol3">
+                    3. Can I export each PDF page as a separate Excel worksheet tab?
+                  </button>
+                </h3>
+                <div id="peFaqCol3" class="accordion-collapse collapse" aria-labelledby="peFaq3" data-bs-parent="#p2eFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Use the <strong>Workbook Layout (.XLSX)</strong> dropdown to choose between <em>Combine All Pages into 1 Sheet</em> or <em>Separate Worksheet Tab per Page</em> (<code>Page_1</code>, <code>Page_2</code>, etc.).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="peFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peFaqCol4" aria-expanded="false" aria-controls="peFaqCol4">
+                    4. How does the Column Detection Sensitivity setting help with wide or narrow tables?
+                  </button>
+                </h3>
+                <div id="peFaqCol4" class="accordion-collapse collapse" aria-labelledby="peFaq4" data-bs-parent="#p2eFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    PDF files do not store HTML table tags—they store text fragments at X/Y coordinates. If adjacent columns are merging together, select <strong>Tight Columns (8pt Gap)</strong>. If words inside a single column are splitting apart, select <strong>Wide Columns (24pt Gap)</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="peFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peFaqCol5" aria-expanded="false" aria-controls="peFaqCol5">
+                    5. Can I copy the extracted table and paste it directly into Excel or Google Sheets?
+                  </button>
+                </h3>
+                <div id="peFaqCol5" class="accordion-collapse collapse" aria-labelledby="peFaq5" data-bs-parent="#p2eFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Click <strong>Copy Table (for Excel Paste)</strong> to copy the extracted rows in Tab-Separated Values (TSV) format, then press <code>Ctrl+V</code> directly inside any Excel or Google Sheets cell.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-to-word/index.html" class="stretched-link text-reset">PDF to MS Word</a></h3>
+                  <p class="small text-muted mb-0">Convert PDF paragraphs &amp; headings into Word (.DOCX).</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/discount-vat-profit-calculator/index.html" class="stretched-link text-reset">Discount, VAT &amp; Profit</a></h3>
+                  <p class="small text-muted mb-0">Calculate product margins, markup %, and NBR VAT.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/pdf-merge-split/index.html" class="stretched-link text-reset">PDF Merge &amp; Split</a></h3>
+                  <p class="small text-muted mb-0">Extract specific statement pages before converting.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/excel-to-pdf/index.html" class="fw-medium">MS Excel (.XLSX) to PDF Converter</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-to-word/index.html" class="fw-medium">PDF to MS Word (.DOCX) Converter</a></li>
+                <li class="mb-2"><a href="../../tools/word-to-pdf/index.html" class="fw-medium">MS Word (.DOCX) to PDF Converter</a></li>
+                <li class="mb-2"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge, Reorder &amp; Split</a></li>
+                <li class="mb-2"><a href="../../tools/currency-converter/index.html" class="fw-medium">Currency &amp; Remittance Converter</a></li>
+                <li class="mb-0"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; COD Courier Slip</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/pdf-to-excel.js" defer></script>
+</body>
+</html>

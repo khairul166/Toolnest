@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Background Remover — Make Image Background Transparent | ToolNest</title>
+  <meta name="description" content="Remove the background from portrait photos with a free AI background remover. Preview and download a transparent PNG; your image is processed in your browser.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/background-remover/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Free AI Background Remover — ToolNest">
+  <meta property="og:description" content="Remove photo backgrounds and download a transparent PNG with browser-based AI processing.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/background-remover/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Background Remover — ToolNest">
+  <meta name="twitter:description" content="Remove photo backgrounds and download a transparent PNG in your browser.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    .tn-bg-remover__preview {
+      min-height: 240px;
+      background-color: #fff;
+      background-image: linear-gradient(45deg, #e9ecef 25%, transparent 25%),
+        linear-gradient(-45deg, #e9ecef 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e9ecef 75%),
+        linear-gradient(-45deg, transparent 75%, #e9ecef 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+    }
+
+    .tn-bg-remover__preview img,
+    .tn-bg-remover__preview canvas {
+      display: block;
+      max-width: 100%;
+      max-height: 560px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Background Remover", "item": "https://[DOMAIN]/tools/background-remover/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest AI Background Remover",
+        "url": "https://[DOMAIN]/tools/background-remover/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Remove photo backgrounds in the browser and export the result as a transparent PNG. Images are processed locally."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are my photos uploaded to remove the background?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The AI model files are downloaded to your browser, but your selected photo is processed locally and is not uploaded to ToolNest."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What image formats can I use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Upload one JPEG, PNG, or WebP image up to 20 MB. The result downloads as a PNG with a transparent background."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why can the first background removal take longer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The browser needs to download the AI model the first time you use the tool. Processing time afterward depends on your device and image size."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will the background remover work perfectly on every image?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Results can vary with the photo, lighting, and subject edges. The model is designed for portrait matting, and fine hair or low-contrast boundaries may need additional editing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use the transparent PNG for passport photos or e-commerce?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Once you download the transparent PNG, you can place it on a solid white or colored background in our Passport Photo Maker or any design tool."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Background Remover</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Free AI Photo Background Remover</h1>
+          <p class="text-muted mb-3">Remove the background from a portrait and download a transparent PNG. AI inference runs in your browser, so your photo stays on your device. The model downloads when you first start processing; a connection is required for that initial download.</p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Background Remover Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              Your photo stays in your browser. Only the AI model is downloaded.
+            </span>
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Choose a photo</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Remove background</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Download PNG</div>
+            </div>
+
+            <div id="tn-bg-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Choose or drop a JPEG, PNG, or WebP photo">
+              <i class="bi bi-cloud-arrow-up-fill tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drop a photo here</h2>
+              <p class="small text-muted mb-3">Portraits work best. JPEG, PNG, or WebP, up to 20 MB.</p>
+              <label for="tn-bg-file" class="btn tn-btn--primary mb-0">
+                <i class="bi bi-folder2-open" aria-hidden="true"></i> Choose Photo
+              </label>
+              <input type="file" id="tn-bg-file" class="d-none" accept="image/jpeg,image/png,image/webp">
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button type="button" id="tn-bg-remove" class="btn tn-btn--primary" disabled>
+                <i class="bi bi-magic" aria-hidden="true"></i> Remove Background
+              </button>
+              <button type="button" id="tn-bg-download" class="btn tn-btn--success" disabled>
+                <i class="bi bi-download" aria-hidden="true"></i> Download Transparent PNG
+              </button>
+              <button type="button" id="tn-bg-clear" class="btn tn-btn--outline" disabled>
+                <i class="bi bi-trash3" aria-hidden="true"></i> Clear
+              </button>
+            </div>
+
+            <div id="tn-bg-progress-wrap" class="mb-3 d-none">
+              <div id="tn-bg-progress-label" class="small fw-semibold mb-1">Preparing background removal...</div>
+              <div class="progress" style="height: 18px;">
+                <div id="tn-bg-progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Background removal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 0%;"></div>
+              </div>
+            </div>
+            <p id="tn-bg-status" class="small text-muted mb-3" role="status" aria-live="polite">Choose a photo to get started.</p>
+
+            <div id="tn-bg-results" class="row g-3 d-none">
+              <div class="col-md-6">
+                <h2 class="h6 fw-bold">Original photo</h2>
+                <div class="tn-bg-remover__preview border rounded-3 d-flex align-items-center justify-content-center overflow-hidden p-2">
+                  <img id="tn-bg-original-preview" alt="Original photo before background removal">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h2 class="h6 fw-bold">Transparent result</h2>
+                <div class="tn-bg-remover__preview border rounded-3 d-flex align-items-center justify-content-center overflow-hidden p-2">
+                  <canvas id="tn-bg-result-canvas" aria-label="Photo with background removed"></canvas>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="bg-howto-heading">
+            <h2 id="bg-howto-heading" class="tn-section-title">How to Remove a Photo Background</h2>
+            <ol class="text-muted ps-3 mb-0">
+              <li class="mb-2">Choose or drop one JPEG, PNG, or WebP portrait (up to 20 MB).</li>
+              <li class="mb-2">Select <strong>Remove Background</strong>. On first use, the browser downloads the AI model before processing your photo.</li>
+              <li>Preview the transparent cutout and download it as a PNG when it is ready.</li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="bg-privacy-heading">
+            <h2 id="bg-privacy-heading" class="tn-section-title">Private, Browser-Based Background Removal</h2>
+            <p class="text-muted mb-0">The segmentation model runs locally in a browser worker. Your chosen image is not uploaded to ToolNest; an internet connection is used to fetch the AI model files on first use. This tool uses <a href="https://huggingface.co/Xenova/modnet" target="_blank" rel="noopener noreferrer">MODNet</a> through <a href="https://huggingface.co/docs/transformers.js" target="_blank" rel="noopener noreferrer">Transformers.js</a>. Portrait matting works best with a clear subject and distinct background. Fine hair, motion blur, and low-contrast edges can affect the cutout.</p>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="bg-faq-heading">
+            <h2 id="bg-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="tnBgFaq">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="tnBgFaqHeadingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tnBgFaqOne" aria-expanded="true" aria-controls="tnBgFaqOne">1. Are my photos uploaded to remove the background?</button>
+                </h3>
+                <div id="tnBgFaqOne" class="accordion-collapse collapse show" aria-labelledby="tnBgFaqHeadingOne" data-bs-parent="#tnBgFaq">
+                  <div class="accordion-body text-muted">No. The AI model files are downloaded to your browser, but your selected photo is processed locally and is not uploaded to ToolNest.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="tnBgFaqHeadingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tnBgFaqTwo" aria-expanded="false" aria-controls="tnBgFaqTwo">2. What image formats can I use?</button>
+                </h3>
+                <div id="tnBgFaqTwo" class="accordion-collapse collapse" aria-labelledby="tnBgFaqHeadingTwo" data-bs-parent="#tnBgFaq">
+                  <div class="accordion-body text-muted">Upload one JPEG, PNG, or WebP image up to 20 MB. The result downloads as a transparent PNG.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="tnBgFaqHeadingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tnBgFaqThree" aria-expanded="false" aria-controls="tnBgFaqThree">3. Why can the first background removal take longer?</button>
+                </h3>
+                <div id="tnBgFaqThree" class="accordion-collapse collapse" aria-labelledby="tnBgFaqHeadingThree" data-bs-parent="#tnBgFaq">
+                  <div class="accordion-body text-muted">The browser needs to download the AI model the first time you use the tool. Processing time afterward depends on your device and image size.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="tnBgFaqHeadingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tnBgFaqFour" aria-expanded="false" aria-controls="tnBgFaqFour">4. Will the background remover work perfectly on every image?</button>
+                </h3>
+                <div id="tnBgFaqFour" class="accordion-collapse collapse" aria-labelledby="tnBgFaqHeadingFour" data-bs-parent="#tnBgFaq">
+                  <div class="accordion-body text-muted">No. Results vary with the photo, lighting, and subject edges. This model is designed for portrait matting; fine hair or low-contrast boundaries may need additional editing.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="tnBgFaqHeadingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tnBgFaqFive" aria-expanded="false" aria-controls="tnBgFaqFive">5. Can I use the transparent PNG for passport photos or e-commerce?</button>
+                </h3>
+                <div id="tnBgFaqFive" class="accordion-collapse collapse" aria-labelledby="tnBgFaqHeadingFive" data-bs-parent="#tnBgFaq">
+                  <div class="accordion-body text-muted">Yes. Once you download the transparent PNG, you can place it on a solid white or colored background in our Passport Photo Maker or any image editor.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/passport-photo-maker/index.html" class="stretched-link text-reset">Passport Photo Maker</a></h3>
+                  <p class="small text-muted mb-0">Crop and arrange passport or visa photos on printable sheets.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-upscaler/index.html" class="stretched-link text-reset">AI Image Upscaler</a></h3>
+                  <p class="small text-muted mb-0">Enlarge small or low-resolution photos 2x in your browser.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-compressor/index.html" class="stretched-link text-reset">Image Compressor</a></h3>
+                  <p class="small text-muted mb-0">Reduce JPG, PNG, and WebP file sizes without losing quality.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/image-upscaler/index.html" class="fw-medium">AI Image Upscaler (2x)</a></li>
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport Photo Maker</a></li>
+                <li class="mb-2"><a href="../../tools/image-compressor/index.html" class="fw-medium">Image Compressor</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Image Resizer</a></li>
+                <li class="mb-2"><a href="../../tools/image-format-converter/index.html" class="fw-medium">Image Format Converter</a></li>
+                <li class="mb-0"><a href="../../tools/color-picker/index.html" class="fw-medium">Color Picker &amp; Eyedropper</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script type="module" src="../../assets/js/tools/background-remover.js"></script>
+</body>
+</html>

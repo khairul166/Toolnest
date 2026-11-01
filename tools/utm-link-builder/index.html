@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTM Link Builder for GA4 &amp; Facebook Ads — ToolNest</title>
+  <meta name="description" content="Create trackable campaign URLs with utm_source, utm_medium, and utm_campaign for Google Analytics 4, Facebook Ads, and SMS marketing. 100% browser-based.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/utm-link-builder/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="UTM Link Builder for GA4 &amp; Facebook Ads — ToolNest">
+  <meta property="og:description" content="Create trackable campaign URLs with utm_source, utm_medium, and utm_campaign for Google Analytics 4, Facebook Ads, and SMS marketing. 100% browser-based.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/utm-link-builder/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UTM Link Builder for GA4 &amp; Facebook Ads — ToolNest">
+  <meta name="twitter:description" content="Create trackable campaign URLs with utm_source, utm_medium, and utm_campaign for Google Analytics 4, Facebook Ads, and SMS marketing. 100% browser-based.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data: WebApplication, FAQPage, BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://[DOMAIN]/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "All Tools",
+            "item": "https://[DOMAIN]/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UTM Link Builder",
+            "item": "https://[DOMAIN]/tools/utm-link-builder/"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "UTM Link Builder & Campaign URL Generator",
+        "url": "https://[DOMAIN]/tools/utm-link-builder/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Free client-side UTM parameter builder for Google Analytics 4 (GA4), Facebook Ads, Instagram Reels, and SMS marketing with presets and CSV export."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are UTM parameters and why do I need them?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UTM (Urchin Tracking Module) parameters are short query tags added to the end of a URL (such as utm_source, utm_medium, and utm_campaign). They tell Google Analytics 4 (GA4) and e-commerce dashboards exactly which Facebook ad, email newsletter, or SMS blast brought a visitor to your website."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which UTM parameters are required vs. optional?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The three core required parameters are utm_source (who sent the traffic, e.g. facebook), utm_medium (the marketing channel, e.g. paid_social or cpc), and utm_campaign (the promotion name, e.g. eid_sale_2026). Optional parameters include utm_id, utm_term (target keyword or audience), and utm_content (specific ad creative or button)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should UTM parameters always be lowercase?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Google Analytics is strictly case-sensitive. It treats utm_source=Facebook and utm_source=facebook as two separate traffic sources. ToolNest includes an automatic Force Lowercase toggle enabled by default so your analytics reports stay clean and unified."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if my destination URL already has query parameters or a #hash?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ToolNest parses your URL using the native browser URL API. If your link already has parameters like ?product=12 or a section anchor like #pricing, the builder preserves them and appends the UTM parameters in the correct order before the hash."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my campaign URLs stored on any external server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. This UTM Link Builder runs 100% in your browser. Your unreleased landing page URLs and marketing campaign structures never leave your device."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">UTM Link Builder</li>
+            </ol>
+          </nav>
+
+          <span class="tn-privacy-banner">
+            <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+            100% Browser-Based &bull; Files &amp; Campaign Links Never Leave Your Device
+          </span>
+
+          <h1 class="tn-page-title">UTM Link Builder &amp; Campaign URL Generator</h1>
+          <p class="text-muted mb-4">
+            Build clean, error-free campaign tracking URLs for <strong>Google Analytics 4 (GA4)</strong>, Facebook &amp; Instagram Ads, Google CPC, email newsletters, and bulk SMS blasts. Everything runs 100% inside your browser so your unpublished landing pages and marketing data never leave your device.
+          </p>
+
+          <!-- TOOL AREA START (No Ads Inside) -->
+          <section class="tn-tool-workspace" aria-label="UTM Link Builder Workspace">
+            <!-- Quick Channel Presets -->
+            <div class="mb-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <span class="small fw-bold text-uppercase text-muted">
+                  <i class="bi bi-lightning-charge-fill text-warning me-1" aria-hidden="true"></i> One-Click Marketing Channel Presets
+                </span>
+                <div class="d-flex gap-2">
+                  <button type="button" id="tn-utm-sample-btn" class="btn tn-btn--outline btn-sm py-1 px-2">
+                    <i class="bi bi-magic" aria-hidden="true"></i> Load Sample
+                  </button>
+                  <button type="button" id="tn-utm-reset-btn" class="btn tn-btn--outline btn-sm py-1 px-2">
+                    <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="fb_ads">
+                  <i class="bi bi-facebook text-primary" aria-hidden="true"></i> Facebook Ads
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="fb_organic">
+                  Facebook Post
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="ig_ads">
+                  <i class="bi bi-instagram text-danger" aria-hidden="true"></i> Instagram Reel Ad
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="google_cpc">
+                  <i class="bi bi-google text-success" aria-hidden="true"></i> Google CPC
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="youtube">
+                  <i class="bi bi-youtube text-danger" aria-hidden="true"></i> YouTube
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="newsletter">
+                  <i class="bi bi-envelope-fill text-primary" aria-hidden="true"></i> Email Newsletter
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="sms">
+                  <i class="bi bi-chat-dots-fill text-warning" aria-hidden="true"></i> Bulk SMS
+                </button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-utm-preset="whatsapp">
+                  <i class="bi bi-whatsapp text-success" aria-hidden="true"></i> WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <!-- Destination Website URL -->
+            <div class="mb-3">
+              <label for="tn-utm-url" class="form-label fw-bold mb-1">
+                Destination Website URL <span class="text-danger">*</span>
+              </label>
+              <input type="url" id="tn-utm-url" class="form-control" value="https://dhakafashion.com/eid-collection" placeholder="https://yourwebsite.com/landing-page">
+              <div class="form-text small">Full landing page URL where visitors will arrive after clicking your link.</div>
+            </div>
+
+            <!-- Core UTM Parameters -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-4">
+                <label for="tn-utm-source" class="form-label fw-bold small mb-1">
+                  Campaign Source (<code>utm_source</code>) <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="tn-utm-source" class="form-control" value="facebook" placeholder="e.g. facebook, google, newsletter">
+                <div class="form-text small">Platform sending traffic.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="tn-utm-medium" class="form-label fw-bold small mb-1">
+                  Campaign Medium (<code>utm_medium</code>) <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="tn-utm-medium" class="form-control" value="paid_social" placeholder="e.g. paid_social, cpc, email, sms">
+                <div class="form-text small">Marketing channel type.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="tn-utm-campaign" class="form-label fw-bold small mb-1">
+                  Campaign Name (<code>utm_campaign</code>) <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="tn-utm-campaign" class="form-control" value="eid_sale_2026" placeholder="e.g. eid_sale_2026, winter_launch">
+                <div class="form-text small">Promo or product campaign.</div>
+              </div>
+            </div>
+
+            <!-- Optional UTM Parameters -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-4">
+                <label for="tn-utm-id" class="form-label fw-bold small mb-1">
+                  Campaign ID (<code>utm_id</code>) <span class="text-muted fw-normal">(Optional)</span>
+                </label>
+                <input type="text" id="tn-utm-id" class="form-control" placeholder="e.g. cmp_104">
+                <div class="form-text small">GA4 ad campaign identifier.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="tn-utm-term" class="form-label fw-bold small mb-1">
+                  Campaign Term (<code>utm_term</code>) <span class="text-muted fw-normal">(Optional)</span>
+                </label>
+                <input type="text" id="tn-utm-term" class="form-control" value="dhaka_shoppers" placeholder="e.g. buy_shoes, lookalike_1pct">
+                <div class="form-text small">Paid keyword or ad set name.</div>
+              </div>
+              <div class="col-md-4">
+                <label for="tn-utm-content" class="form-label fw-bold small mb-1">
+                  Campaign Content (<code>utm_content</code>) <span class="text-muted fw-normal">(Optional)</span>
+                </label>
+                <input type="text" id="tn-utm-content" class="form-control" value="video_reel_a" placeholder="e.g. video_reel_a, banner_top">
+                <div class="form-text small">Differentiates ad creatives/CTAs.</div>
+              </div>
+            </div>
+
+            <!-- Formatting Preferences Bar -->
+            <div class="p-3 rounded-3 bg-light border mb-4">
+              <div class="row g-3 align-items-center">
+                <div class="col-md-6">
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="tn-utm-lowercase" checked>
+                    <label class="form-check-label fw-semibold small" for="tn-utm-lowercase">
+                      Force lowercase parameters (Recommended for GA4)
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center justify-content-md-end gap-2">
+                    <label for="tn-utm-space-rule" class="small fw-semibold text-nowrap mb-0">Spaces in tags:</label>
+                    <select id="tn-utm-space-rule" class="form-select form-select-sm" style="max-width: 220px;">
+                      <option value="underscore" selected>Replace with underscore (_)</option>
+                      <option value="hyphen">Replace with hyphen (-)</option>
+                      <option value="encode">URL encode (%20 / +)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Generated Output Box -->
+            <div class="tn-result-box mb-3">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <label for="tn-utm-output" class="fw-bold mb-0">
+                  <i class="bi bi-link-45deg text-primary fs-5 me-1" aria-hidden="true"></i> Generated Campaign Tracking URL
+                </label>
+                <span id="tn-utm-status-badge" class="badge bg-success-subtle text-success px-3 py-2">
+                  <i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i> Valid GA4 &amp; Meta Ads Tracking Link Ready
+                </span>
+              </div>
+
+              <textarea id="tn-utm-output" class="form-control font-monospace small mb-2" rows="3" readonly aria-label="Generated UTM URL"></textarea>
+
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                <div id="tn-utm-breakdown" class="d-flex flex-wrap gap-1"></div>
+                <span id="tn-utm-char-count" class="small text-muted">0 characters</span>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" id="tn-utm-copy-btn" class="btn tn-btn--primary">
+                  <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy UTM URL
+                </button>
+                <button type="button" id="tn-utm-save-btn" class="btn tn-btn--accent">
+                  <i class="bi bi-plus-circle-fill" aria-hidden="true"></i> Add to Campaign Batch List
+                </button>
+                <a href="#" id="tn-utm-test-btn" target="_blank" rel="noopener noreferrer" class="btn tn-btn--outline">
+                  <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Test Link in New Tab
+                </a>
+              </div>
+            </div>
+
+            <!-- Saved Batch Campaign List (with CSV Export) -->
+            <div id="tn-utm-history-wrap" class="d-none mt-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <h2 class="h6 fw-bold mb-0">
+                  <i class="bi bi-table text-primary me-1" aria-hidden="true"></i> Saved Campaign Batch List
+                </h2>
+                <div class="d-flex gap-2">
+                  <button type="button" id="tn-utm-export-csv" class="btn tn-btn--success btn-sm">
+                    <i class="bi bi-file-earmark-spreadsheet" aria-hidden="true"></i> Export CSV
+                  </button>
+                  <button type="button" id="tn-utm-clear-history" class="btn tn-btn--outline btn-sm text-danger">
+                    Clear List
+                  </button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle mb-0 bg-white">
+                  <thead class="table-light small">
+                    <tr>
+                      <th>Campaign / Source</th>
+                      <th>Generated UTM Link</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tn-utm-history-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Build a UTM Tracking Link in 3 Steps</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Enter Your Landing Page URL:</strong> Paste the destination website or product page URL (for example, <code>https://yourstore.com/eid-sale</code>) into the top box, or click a <em>One-Click Channel Preset</em> such as <strong>Facebook Ads</strong> or <strong>Google CPC</strong>.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Fill in Your UTM Tags:</strong> Enter your traffic source (<code>utm_source</code>), marketing medium (<code>utm_medium</code>), and campaign name (<code>utm_campaign</code>). Optionally add <code>utm_term</code> for audience targeting and <code>utm_content</code> to compare different video or banner creatives.
+              </li>
+              <li>
+                <strong>Step 3 — Copy or Export CSV:</strong> Click <strong>Copy UTM URL</strong> to paste the link directly into Meta Ads Manager, Google Ads, or your SMS panel, or click <strong>Add to Campaign Batch List</strong> to build multiple links and download them as a spreadsheet (<code>.CSV</code>).
+              </li>
+            </ol>
+          </section>
+
+          <!-- Detailed SEO Guide & Reference Table (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="guide-heading">
+            <h2 id="guide-heading" class="tn-section-title">Complete Guide to UTM Parameters for GA4 &amp; E-Commerce</h2>
+            <p class="text-muted">
+              When you run Facebook boosts, Instagram Reel ads, YouTube sponsorships, or bulk SMS campaigns in Bangladesh or globally, visitors often land on your website without clear attribution. Social apps like Facebook Messenger, WhatsApp, and Instagram frequently strip referrer headers when opening links inside in-app browsers—causing paid traffic to appear as "Direct" traffic inside <strong>Google Analytics 4 (GA4)</strong>.
+            </p>
+            <p class="text-muted">
+              By attaching standardized <strong>UTM (Urchin Tracking Module)</strong> parameters to your destination URLs, you guarantee that every click carries explicit source, medium, and campaign metadata directly into your analytics reports and Shopify, WooCommerce, or custom checkout dashboards.
+            </p>
+
+            <div class="table-responsive my-3">
+              <table class="table table-bordered table-sm small mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Status</th>
+                    <th>Purpose</th>
+                    <th>Real-World Examples</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>utm_source</code></td>
+                    <td><span class="badge bg-primary-subtle text-primary">Required</span></td>
+                    <td>Identifies the platform or referrer sending traffic.</td>
+                    <td><code>facebook</code>, <code>google</code>, <code>instagram</code>, <code>newsletter</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>utm_medium</code></td>
+                    <td><span class="badge bg-primary-subtle text-primary">Required</span></td>
+                    <td>Identifies the marketing channel category for GA4 channel grouping.</td>
+                    <td><code>paid_social</code>, <code>cpc</code>, <code>social</code>, <code>email</code>, <code>sms</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>utm_campaign</code></td>
+                    <td><span class="badge bg-primary-subtle text-primary">Required</span></td>
+                    <td>Names the specific promotion, seasonal sale, or product launch.</td>
+                    <td><code>eid_sale_2026</code>, <code>boishakh_offer</code>, <code>winter_drop</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>utm_id</code></td>
+                    <td><span class="badge bg-secondary-subtle text-secondary">Optional</span></td>
+                    <td>Links cost data imports in Google Analytics 4.</td>
+                    <td><code>cmp_bd_104</code>, <code>fb_q4_01</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>utm_term</code></td>
+                    <td><span class="badge bg-secondary-subtle text-secondary">Optional</span></td>
+                    <td>Tracks paid search keywords or Meta ad-set audience segments.</td>
+                    <td><code>buy_panjabi_bd</code>, <code>dhaka_women_22_35</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>utm_content</code></td>
+                    <td><span class="badge bg-secondary-subtle text-secondary">Optional</span></td>
+                    <td>Differentiates A/B ad creatives, hooks, or button placements.</td>
+                    <td><code>video_reel_a</code>, <code>carousel_slide_2</code>, <code>footer_link</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="h6 fw-bold mt-3">3 Golden Rules for Clean UTM Tracking</h3>
+            <ul class="text-muted small mb-0">
+              <li class="mb-1"><strong>Always use lowercase:</strong> GA4 treats <code>Facebook</code>, <code>facebook</code>, and <code>FB</code> as three separate sources. Keep the <em>Force lowercase</em> switch enabled.</li>
+              <li class="mb-1"><strong>Avoid spaces in parameter values:</strong> Use underscores (<code>eid_sale_2026</code>) or hyphens (<code>eid-sale-2026</code>) so URLs never break when pasted into SMS messages or chat apps.</li>
+              <li><strong>Never use UTM tags on internal website links:</strong> Adding UTM parameters to links between pages on your own site overwrites the original visitor source and resets their session attribution.</li>
+            </ul>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="tn-card mb-4" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="utmFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="uFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#uFaqCol1" aria-expanded="true" aria-controls="uFaqCol1">
+                    1. What are UTM parameters and why do I need them?
+                  </button>
+                </h3>
+                <div id="uFaqCol1" class="accordion-collapse collapse show" aria-labelledby="uFaq1" data-bs-parent="#utmFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    UTM (Urchin Tracking Module) parameters are short query tags added to the end of a URL (such as <code>utm_source</code>, <code>utm_medium</code>, and <code>utm_campaign</code>). They tell Google Analytics 4 (GA4) and e-commerce dashboards exactly which Facebook ad, email newsletter, or SMS blast brought a visitor to your website.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="uFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uFaqCol2" aria-expanded="false" aria-controls="uFaqCol2">
+                    2. Which UTM parameters are required vs. optional?
+                  </button>
+                </h3>
+                <div id="uFaqCol2" class="accordion-collapse collapse" aria-labelledby="uFaq2" data-bs-parent="#utmFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    The three core parameters are <code>utm_source</code> (who sent the traffic, e.g. <code>facebook</code>), <code>utm_medium</code> (the marketing channel, e.g. <code>paid_social</code> or <code>cpc</code>), and <code>utm_campaign</code> (the promotion name, e.g. <code>eid_sale_2026</code>). Optional parameters include <code>utm_id</code>, <code>utm_term</code> (target keyword or audience), and <code>utm_content</code> (specific ad creative or button).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="uFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uFaqCol3" aria-expanded="false" aria-controls="uFaqCol3">
+                    3. Why should UTM parameters always be lowercase?
+                  </button>
+                </h3>
+                <div id="uFaqCol3" class="accordion-collapse collapse" aria-labelledby="uFaq3" data-bs-parent="#utmFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Google Analytics is strictly case-sensitive. It treats <code>utm_source=Facebook</code> and <code>utm_source=facebook</code> as two separate traffic sources. ToolNest includes an automatic <em>Force lowercase</em> toggle enabled by default so your analytics reports stay clean and unified.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="uFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uFaqCol4" aria-expanded="false" aria-controls="uFaqCol4">
+                    4. What happens if my destination URL already has query parameters or a #hash?
+                  </button>
+                </h3>
+                <div id="uFaqCol4" class="accordion-collapse collapse" aria-labelledby="uFaq4" data-bs-parent="#utmFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    ToolNest parses your URL using the native browser URL API. If your link already has parameters like <code>?product=12</code> or a section anchor like <code>#pricing</code>, the builder preserves them and appends the UTM parameters in the proper position before the hash.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="uFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#uFaqCol5" aria-expanded="false" aria-controls="uFaqCol5">
+                    5. Can I turn my generated UTM link into a QR code for print flyers?
+                  </button>
+                </h3>
+                <div id="uFaqCol5" class="accordion-collapse collapse" aria-labelledby="uFaq5" data-bs-parent="#utmFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Copy your generated UTM URL and paste it into our <a href="../../tools/qr-code-generator/index.html">QR Code Generator</a>. Every time someone scans your printed flyer or product packaging QR code, Google Analytics will record the scan under your custom UTM source and campaign.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/qr-code-generator/index.html" class="stretched-link text-reset">QR Code Generator</a></h3>
+                  <p class="small text-muted mb-0">Convert your trackable UTM URL into a custom PNG/SVG QR code.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/discount-vat-profit-calculator/index.html" class="stretched-link text-reset">Discount, VAT &amp; Profit</a></h3>
+                  <p class="small text-muted mb-0">Calculate ad cost per order, margin %, and F-commerce net profit.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/image-resizer/index.html" class="stretched-link text-reset">Social Ad Image Resizer</a></h3>
+                  <p class="small text-muted mb-0">Resize graphics to Facebook Ad, Story, and YouTube dimensions.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">Permanent QR Code Generator</a></li>
+                <li class="mb-2"><a href="../../tools/discount-vat-profit-calculator/index.html" class="fw-medium">Discount, VAT &amp; Profit Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; COD Courier Slip Maker</a></li>
+                <li class="mb-2"><a href="../../tools/image-resizer/index.html" class="fw-medium">Social Media Image Resizer</a></li>
+                <li class="mb-2"><a href="../../tools/text-tools/index.html" class="fw-medium">Ad Copy Word &amp; Character Counter</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/utm-link-builder.js" defer></script>
+</body>
+</html>

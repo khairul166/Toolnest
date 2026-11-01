@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Document Scanner &amp; Auto-Enhancer (Perspective Crop &amp; Shadow Remover) — ToolNest</title>
+  <meta name="description" content="Turn phone photos of documents, receipts, certificates, and notes into crisp, flat scans. Auto-detects corners, flattens perspective, removes shadows with Magic Color or B&W, and exports to PDF or PNG 100% in your browser.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/document-scanner/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="AI Document Scanner &amp; Auto-Enhancer — ToolNest">
+  <meta property="og:description" content="Flatten angled document photos, remove uneven lighting shadows with Magic Color or B&W, and export clean PDFs or PNGs locally in your browser.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/document-scanner/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Document Scanner &amp; Auto-Enhancer — ToolNest">
+  <meta name="twitter:description" content="Flatten angled document photos, remove uneven lighting shadows, and export clean PDFs or PNGs locally in your browser.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <style>
+    .tn-dscan-stage {
+      position: relative;
+      background: #0f172a;
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .tn-dscan-canvas-wrap {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      line-height: 0;
+    }
+    .tn-dscan-canvas {
+      max-width: 100%;
+      max-height: 430px;
+      width: auto;
+      height: auto;
+      border-radius: 0.375rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      touch-action: none;
+      cursor: crosshair;
+    }
+    .tn-dscan-result-canvas {
+      max-width: 100%;
+      max-height: 430px;
+      width: auto;
+      height: auto;
+      background: #ffffff;
+      border-radius: 0.375rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .tn-dscan-mode-btn.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "AI Document Scanner & Auto-Enhancer", "item": "https://[DOMAIN]/tools/document-scanner/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest AI Document Scanner & Auto-Enhancer",
+        "url": "https://[DOMAIN]/tools/document-scanner/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Browser-based document scanner with automatic 4-corner detection, perspective deskew, adaptive shadow removal (Magic Color & B&W), and PDF/PNG export."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the AI Document Scanner remove phone shadows from paper?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It computes a fast integral-image illumination map across the document to estimate uneven room lighting and phone shadows, then normalizes paper background pixels to pure white while preserving ink, stamps, and signatures."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I straighten an angled photo of a receipt or certificate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The scanner automatically detects the 4 corners of your paper. You can also drag any of the 4 blue corner handles on the source canvas to match the exact corners of your document, and the tool performs a perspective warp to flatten it into a rectangle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Magic Color and B&W Document mode?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Magic Color removes shadows and whitens the paper background while preserving colored ink, official seals, and highlighter marks. B&W Document applies adaptive local thresholding to produce a crisp black-and-white laser-printer look."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export my scanned document directly as an A4 PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Click Download PDF to save your enhanced scan onto an A4 or Fit-to-Page PDF document, or download it as a high-resolution PNG or JPG image."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my ID cards, deeds, or receipts uploaded to any server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. Corner detection, perspective warping, shadow removal, and PDF generation run 100% locally in your browser."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link active" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap">
+            <label for="tn-header-search" class="visually-hidden">Search all tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, Taka)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <!-- Main 2-Column Layout -->
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Primary Tool Column -->
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">AI Document Scanner &amp; Auto-Enhancer</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">AI Document Scanner &amp; Auto-Enhancer (Perspective &amp; Shadow Remover)</h1>
+          <p class="text-muted mb-3">
+            Transform angled, shadowed smartphone photos of paper documents, NID cards, receipts, and handwritten notes into crisp, flat scans. Features <strong>auto 4-corner detection</strong>, interactive perspective straightening, <strong>Magic Color &amp; B&amp;W shadow removal</strong>, and instant <strong>PDF / PNG export</strong>—running <strong>100% in your browser</strong>.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="AI Document Scanner and Auto-Enhancer Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side Document Scanner &bull; Your Confidential Documents Never Leave Your Device
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Upload Document Photo</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Adjust 4 Corners &amp; Filter</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> Download Clean PDF / PNG</div>
+            </div>
+
+            <!-- 1. Drag and Drop Upload Zone -->
+            <div id="tn-dscan-dropzone" class="tn-dropzone mb-3" role="button" tabindex="0" aria-label="Upload or drag and drop a document photo">
+              <i class="bi bi-bounding-box tn-dropzone__icon d-block" aria-hidden="true"></i>
+              <h2 class="h5 fw-bold mb-1">Drag &amp; Drop a Photo of Any Document, Receipt, or ID</h2>
+              <p class="small text-muted mb-3">Supports JPEG, PNG, and WebP. Even angled or shadowed desk photos work great.</p>
+              <div class="d-flex flex-wrap justify-content-center gap-2">
+                <label for="tn-dscan-file" class="btn tn-btn--primary mb-0">
+                  <i class="bi bi-camera" aria-hidden="true"></i> Choose Document Photo
+                </label>
+                <button type="button" id="tn-dscan-sample-btn" class="btn tn-btn--outline">
+                  <i class="bi bi-magic" aria-hidden="true"></i> Load Sample Shadowed Document
+                </button>
+              </div>
+              <input id="tn-dscan-file" class="d-none" type="file" accept="image/jpeg,image/png,image/webp">
+            </div>
+
+            <p id="tn-dscan-status" class="small text-muted mb-3" role="status" aria-live="polite">
+              Upload a document photo or click "Load Sample Shadowed Document" to start scanning.
+            </p>
+
+            <!-- 2. Interactive Scanner Workspace (Hidden until image loaded) -->
+            <div id="tn-dscan-workspace" class="d-none">
+              <!-- Enhancement Mode & Corner Controls Bar -->
+              <div class="p-3 rounded-3 border bg-light mb-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                  <div>
+                    <span class="fw-bold small text-primary d-block">
+                      <i class="bi bi-Sliders me-1" aria-hidden="true"></i> Scan Enhancement Filter
+                    </span>
+                  </div>
+                  <div class="btn-group btn-group-sm flex-wrap" role="group" aria-label="Enhancement filter mode">
+                    <button type="button" class="btn tn-btn--outline tn-dscan-mode-btn active" data-mode="magic">
+                      <i class="bi bi-stars" aria-hidden="true"></i> Magic Color (Remove Shadows)
+                    </button>
+                    <button type="button" class="btn tn-btn--outline tn-dscan-mode-btn" data-mode="bw">
+                      <i class="bi bi-file-earmark-font" aria-hidden="true"></i> B&amp;W Document
+                    </button>
+                    <button type="button" class="btn tn-btn--outline tn-dscan-mode-btn" data-mode="gray">
+                      <i class="bi bi-circle-half" aria-hidden="true"></i> Clean Grayscale
+                    </button>
+                    <button type="button" class="btn tn-btn--outline tn-dscan-mode-btn" data-mode="original">
+                      <i class="bi bi-image" aria-hidden="true"></i> Original Color
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row g-3 align-items-center">
+                  <div class="col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between small mb-1">
+                      <label for="tn-dscan-whiteness" class="fw-semibold">Shadow Clean / Whiteness</label>
+                      <span id="tn-dscan-whiteness-val" class="text-primary fw-bold">75%</span>
+                    </div>
+                    <input type="range" id="tn-dscan-whiteness" class="form-range" min="10" max="100" value="75">
+                  </div>
+
+                  <div class="col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between small mb-1">
+                      <label for="tn-dscan-contrast" class="fw-semibold">Ink Contrast &amp; Sharpness</label>
+                      <span id="tn-dscan-contrast-val" class="text-primary fw-bold">60%</span>
+                    </div>
+                    <input type="range" id="tn-dscan-contrast" class="form-range" min="0" max="100" value="60">
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label for="tn-dscan-aspect" class="form-label fw-semibold small mb-1">Output Page Ratio</label>
+                    <select id="tn-dscan-aspect" class="form-select form-select-sm">
+                      <option value="auto" selected>Auto (Match Detected Paper)</option>
+                      <option value="a4">A4 Portrait (1 : 1.414)</option>
+                      <option value="letter">US Letter (1 : 1.294)</option>
+                      <option value="id">ID Card / NID (1.58 : 1)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Side-by-Side 4-Corner Crop & Live Enhanced Scan Preview -->
+              <div class="row g-3 mb-3">
+                <!-- Left: Source Photo with 4 Draggable Corner Handles -->
+                <div class="col-md-6">
+                  <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-1 mb-2">
+                      <h3 class="h6 fw-bold mb-0">1. Drag 4 Corners to Paper Edges</h3>
+                      <div class="btn-group btn-group-sm">
+                        <button type="button" id="tn-dscan-autodetect-btn" class="btn btn-outline-primary btn-sm" title="Auto-detect document edges">
+                          <i class="bi bi-bounding-box-circles" aria-hidden="true"></i> Auto-Detect
+                        </button>
+                        <button type="button" id="tn-dscan-fullcrop-btn" class="btn btn-outline-secondary btn-sm" title="Select full image">
+                          Full
+                        </button>
+                      </div>
+                    </div>
+                    <div class="tn-dscan-stage flex-grow-1">
+                      <div class="tn-dscan-canvas-wrap">
+                        <canvas id="tn-dscan-source-canvas" class="tn-dscan-canvas"></canvas>
+                      </div>
+                    </div>
+                    <div class="small text-muted mt-2 text-center">
+                      Drag the 4 blue corner handles to match the corners of your paper.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Flattened & Shadow-Cleaned Result -->
+                <div class="col-md-6">
+                  <div class="p-3 rounded-3 border bg-light h-100 d-flex flex-column">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-1 mb-2">
+                      <h3 class="h6 fw-bold mb-0">2. Flattened &amp; Enhanced Scan</h3>
+                      <div class="d-flex align-items-center gap-1">
+                        <span id="tn-dscan-out-dims" class="badge bg-primary">0 &times; 0 px</span>
+                        <button type="button" id="tn-dscan-rot-ccw" class="btn btn-outline-secondary btn-sm py-0 px-2" title="Rotate 90° Left">
+                          <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" id="tn-dscan-rot-cw" class="btn btn-outline-secondary btn-sm py-0 px-2" title="Rotate 90° Right">
+                          <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="tn-dscan-stage flex-grow-1">
+                      <canvas id="tn-dscan-result-canvas" class="tn-dscan-result-canvas"></canvas>
+                    </div>
+                    <div class="small text-muted mt-2 text-center">
+                      Live perspective-warped and shadow-cleaned output.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Export & Download Controls -->
+              <div class="p-3 rounded-3 border bg-light mb-3">
+                <div class="row g-3 align-items-end">
+                  <div class="col-sm-6 col-md-4">
+                    <label for="tn-dscan-filename" class="form-label fw-bold small mb-1">Output File Name</label>
+                    <input type="text" id="tn-dscan-filename" class="form-control form-control-sm" value="scanned-document">
+                  </div>
+                  <div class="col-sm-6 col-md-8">
+                    <div class="d-flex flex-wrap gap-2">
+                      <button type="button" id="tn-dscan-download-pdf" class="btn tn-btn--primary">
+                        <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i> Download Scanned PDF
+                      </button>
+                      <button type="button" id="tn-dscan-download-png" class="btn tn-btn--outline">
+                        <i class="bi bi-file-earmark-image" aria-hidden="true"></i> Download PNG
+                      </button>
+                      <button type="button" id="tn-dscan-download-jpg" class="btn tn-btn--outline">
+                        <i class="bi bi-filetype-jpg" aria-hidden="true"></i> Download JPG
+                      </button>
+                      <button type="button" id="tn-dscan-clear-btn" class="btn tn-btn--outline text-danger ms-auto">
+                        <i class="bi bi-trash3" aria-hidden="true"></i> Clear
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Scan &amp; Enhance Documents in Your Browser</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Upload a Document Photo:</strong> Drop a smartphone photo of any paper page, receipt, NID card, or certificate (or click <em>Load Sample Shadowed Document</em> to see it in action).
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Adjust the 4 Corners &amp; Filter:</strong> Fine-tune the 4 blue corner handles around the paper edges to flatten the angle. Choose <strong>Magic Color</strong> to erase desk shadows while keeping colored stamps, or <strong>B&amp;W Document</strong> for a laser-sharp black-and-white scan.
+              </li>
+              <li>
+                <strong>Step 3 — Export to PDF or Image:</strong> Click <strong>Download Scanned PDF</strong> to get a clean A4/printable PDF, or save as a high-resolution PNG or JPG.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">CamScanner-Style Perspective Deskew &amp; Shadow Removal Without Mobile Apps</h2>
+            <p class="text-muted">
+              Taking a photo of a paper document under indoor lighting almost always produces a trapezoid angle and a dark shadow cast by your phone or hand. Submitting raw, gray smartphone photos for bank KYC, job applications, or university portals looks unprofessional and makes text hard to read. ToolNest's <strong>AI Document Scanner &amp; Auto-Enhancer</strong> uses 4-point homography perspective warping and integral-image local illumination normalization to turn uneven photos into flatbed-quality scans.
+            </p>
+            <div class="row g-3 my-2">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-bounding-box text-primary me-1" aria-hidden="true"></i> 4-Point Perspective Straightening</h3>
+                  <p class="small text-muted mb-0">Auto-detects paper boundaries and lets you drag all 4 corners independently to flatten skewed or angled shots into a crisp rectangle.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h3 class="h6 fw-bold"><i class="bi bi-brightness-high text-primary me-1" aria-hidden="true"></i> Adaptive Shadow Elimination</h3>
+                  <p class="small text-muted mb-0">Calculates local paper background brightness across every region of the page, turning shadowed gray paper into pure, uniform white.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="dscanFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dscanFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dscanFaqCol1" aria-expanded="true" aria-controls="dscanFaqCol1">
+                    1. How does Magic Color remove shadows without turning colored stamps black?
+                  </button>
+                </h3>
+                <div id="dscanFaqCol1" class="accordion-collapse collapse show" aria-labelledby="dscanFaq1" data-bs-parent="#dscanFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Magic Color estimates the local background illumination of the paper around each pixel using a fast integral image. By dividing each RGB channel by the local paper brightness and boosting ink saturation, uneven shadows disappear while blue signatures and red seals stay vivid.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dscanFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dscanFaqCol2" aria-expanded="false" aria-controls="dscanFaqCol2">
+                    2. Can I manually adjust the corners if the paper is on a cluttered desk?
+                  </button>
+                </h3>
+                <div id="dscanFaqCol2" class="accordion-collapse collapse" aria-labelledby="dscanFaq2" data-bs-parent="#dscanFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. Simply grab any of the 4 blue corner circles on the left preview canvas with your mouse or finger and drag it to the exact corner of your page. The right preview updates automatically.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dscanFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dscanFaqCol3" aria-expanded="false" aria-controls="dscanFaqCol3">
+                    3. When should I use B&amp;W Document mode instead of Magic Color?
+                  </button>
+                </h3>
+                <div id="dscanFaqCol3" class="accordion-collapse collapse" aria-labelledby="dscanFaq3" data-bs-parent="#dscanFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Use <strong>B&amp;W Document</strong> for text-heavy pages, printed contracts, or book pages that you plan to print on a black-and-white laser printer. Use <strong>Magic Color</strong> for certificates, IDs, and signed forms with colored ink.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dscanFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dscanFaqCol4" aria-expanded="false" aria-controls="dscanFaqCol4">
+                    4. Does this add any watermark like mobile scanner apps?
+                  </button>
+                </h3>
+                <div id="dscanFaqCol4" class="accordion-collapse collapse" aria-labelledby="dscanFaq4" data-bs-parent="#dscanFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Never. All exported PDFs, PNGs, and JPGs are 100% watermark-free and full resolution.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="dscanFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dscanFaqCol5" aria-expanded="false" aria-controls="dscanFaqCol5">
+                    5. Are my scanned documents uploaded to any cloud server?
+                  </button>
+                </h3>
+                <div id="dscanFaqCol5" class="accordion-collapse collapse" aria-labelledby="dscanFaq5" data-bs-parent="#dscanFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. Everything runs 100% locally in your browser using HTML5 Canvas and <code>pdf-lib</code>. Your private documents never leave your device.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/create-pdf/index.html" class="stretched-link text-reset">Create PDF &amp; Organize Pages</a></h3>
+                  <p class="small text-muted mb-0">Combine multiple scanned pages and PDFs into one organized document.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/signature-maker/index.html" class="stretched-link text-reset">Signature Maker</a></h3>
+                  <p class="small text-muted mb-0">Draw and download a transparent digital signature PNG.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/protect-pdf/index.html" class="stretched-link text-reset">Protect PDF</a></h3>
+                  <p class="small text-muted mb-0">Encrypt your scanned PDF with a 128-bit password.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/create-pdf/index.html" class="fw-medium">Create PDF &amp; Organize Pages</a></li>
+                <li class="mb-2"><a href="../../tools/image-to-pdf/index.html" class="fw-medium">Image to PDF Converter</a></li>
+                <li class="mb-2"><a href="../../tools/protect-pdf/index.html" class="fw-medium">Protect PDF (Password)</a></li>
+                <li class="mb-2"><a href="../../tools/passport-photo-maker/index.html" class="fw-medium">Passport &amp; Visa Photo Maker</a></li>
+                <li class="mb-2"><a href="../../tools/background-remover/index.html" class="fw-medium">AI Background Remover</a></li>
+                <li class="mb-0"><a href="../../tools/image-compressor/index.html" class="fw-medium">Batch Image Compressor</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/document-scanner/index.html" class="tn-footer__link">AI Document Scanner</a></li>
+            <li><a href="../../tools/image-alt-text-generator/index.html" class="tn-footer__link">AI Image Alt-Text Generator</a></li>
+            <li><a href="../../tools/create-pdf/index.html" class="tn-footer__link">Create PDF &amp; Organize Pages</a></li>
+            <li><a href="../../tools/protect-pdf/index.html" class="tn-footer__link">Protect PDF</a></li>
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/document-scanner.js" defer></script>
+</body>
+</html>

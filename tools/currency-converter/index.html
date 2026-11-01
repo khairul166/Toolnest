@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter (BDT, USD, SAR, AED, GBP) — ToolNest</title>
+  <meta name="description" content="Convert 25+ global currencies including USD, SAR, AED, GBP, EUR, and MYR to BDT Taka with custom bank rates and +2.5% remittance bonus calculator.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/currency-converter/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Currency Converter (BDT, USD, SAR, AED, GBP) — ToolNest">
+  <meta property="og:description" content="Convert 25+ global currencies including USD, SAR, AED, GBP, EUR, and MYR to BDT Taka with custom bank rates and +2.5% remittance bonus calculator.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/currency-converter/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Currency Converter (BDT, USD, SAR, AED, GBP) — ToolNest">
+  <meta name="twitter:description" content="Convert 25+ global currencies including USD, SAR, AED, GBP, EUR, and MYR to BDT Taka with custom bank rates and +2.5% remittance bonus calculator.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data: WebApplication, FAQPage, BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://[DOMAIN]/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "All Tools",
+            "item": "https://[DOMAIN]/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Currency Converter",
+            "item": "https://[DOMAIN]/tools/currency-converter/"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Currency Converter & Bangladesh Remittance Calculator",
+        "url": "https://[DOMAIN]/tools/currency-converter/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Free client-side currency converter for 25+ currencies (BDT, USD, EUR, GBP, SAR, AED, MYR, INR) with custom rate override and 2.5% remittance incentive calculation."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this currency converter work offline or with custom bank rates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ToolNest loads live mid-market exchange rates when you are online and includes built-in reference rates that work 100% offline. You can also toggle Custom Exchange Rate to enter the exact TT or cash rate offered by your bank, bKash, or money exchange house."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the +2.5% Bangladesh Remittance Incentive calculator work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When expatriates send remittance to Bangladesh through legal banking channels or mobile financial services, the government provides a 2.5% cash incentive. Enabling the Remittance Incentive toggle calculates your base BDT amount, the 2.5% bonus in Taka, and the total payout."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is my bank or card exchange rate slightly different from the mid-market rate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mid-market rates show the midpoint between global buy and sell rates. Commercial banks, credit cards, and money transfer operators add a small spread or service margin (typically 1% to 2.5%) for retail transactions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Middle Eastern and Asian remittance currencies are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In addition to USD, EUR, GBP, CAD, and AUD, this tool supports Saudi Riyal (SAR), UAE Dirham (AED), Qatari Riyal (QAR), Omani Rial (OMR), Kuwaiti Dinar (KWD), Bahraini Dinar (BHD), Malaysian Ringgit (MYR), Singapore Dollar (SGD), and Indian Rupee (INR)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I view converted currency figures in Bangla digits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Switch on the Bangla Digits (০-৯) toggle to display all converted amounts, exchange rates, and comparison tables in Bengali numerals."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Currency Converter</li>
+            </ol>
+          </nav>
+
+          <span class="tn-privacy-banner">
+            <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+            100% Browser-Based &bull; Works Online &amp; Offline with Custom Bank Rate Support
+          </span>
+
+          <h1 class="tn-page-title">Currency Converter &amp; Remittance Calculator</h1>
+          <p class="text-muted mb-4">
+            Convert instantly between <strong>25+ global and remittance currencies</strong> including Bangladeshi Taka (BDT), US Dollar (USD), Saudi Riyal (SAR), UAE Dirham (AED), British Pound (GBP), Euro (EUR), Malaysian Ringgit (MYR), and Indian Rupee (INR). Includes custom bank rate override and an optional <strong>+2.5% Remittance Incentive</strong> calculator.
+          </p>
+
+          <!-- TOOL AREA START (No Ads Inside) -->
+          <section class="tn-tool-workspace" aria-label="Currency Converter Workspace">
+            <!-- Status & One-Click Popular Pairs -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+              <span id="tn-cc-rate-status" class="badge bg-secondary-subtle text-secondary px-3 py-2">
+                <i class="bi bi-database-check me-1" aria-hidden="true"></i> Reference Exchange Rates Ready
+              </span>
+              <div class="d-flex gap-2">
+                <button type="button" id="tn-cc-refresh-btn" class="btn tn-btn--outline btn-sm py-1 px-2">
+                  <i class="bi bi-arrow-repeat" aria-hidden="true"></i> Refresh Live Rates
+                </button>
+                <button type="button" id="tn-cc-reset-btn" class="btn tn-btn--outline btn-sm py-1 px-2">
+                  <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Pair Presets -->
+            <div class="mb-3">
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="USD" data-cc-to="BDT">USD &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="SAR" data-cc-to="BDT">SAR &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="AED" data-cc-to="BDT">AED &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="GBP" data-cc-to="BDT">GBP &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="EUR" data-cc-to="BDT">EUR &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="MYR" data-cc-to="BDT">MYR &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="INR" data-cc-to="BDT">INR &rarr; BDT</button>
+                <button type="button" class="btn tn-btn--outline btn-sm py-1 px-3" data-cc-pair data-cc-from="BDT" data-cc-to="USD">BDT &rarr; USD</button>
+              </div>
+            </div>
+
+            <!-- Main Conversion Inputs -->
+            <div class="row g-3 align-items-end mb-3">
+              <div class="col-md-4">
+                <label for="tn-cc-amount" class="form-label fw-bold mb-1">Amount to Convert</label>
+                <input type="number" id="tn-cc-amount" class="form-control form-control-lg fw-bold" value="100" min="0" step="any">
+              </div>
+              <div class="col-md-3">
+                <label for="tn-cc-from" class="form-label fw-bold mb-1">From Currency</label>
+                <select id="tn-cc-from" class="form-select"></select>
+              </div>
+              <div class="col-md-2 text-center">
+                <button type="button" id="tn-cc-swap-btn" class="btn tn-btn--outline w-100" aria-label="Swap currencies">
+                  <i class="bi bi-arrow-left-right" aria-hidden="true"></i> Swap
+                </button>
+              </div>
+              <div class="col-md-3">
+                <label for="tn-cc-to" class="form-label fw-bold mb-1">To Currency</label>
+                <select id="tn-cc-to" class="form-select"></select>
+              </div>
+            </div>
+
+            <!-- Custom Rate Override, Remittance Bonus & Bangla Digits Bar -->
+            <div class="p-3 rounded-3 bg-light border mb-4">
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <div class="form-check form-switch mb-1">
+                    <input class="form-check-input" type="checkbox" role="switch" id="tn-cc-custom-rate-check">
+                    <label class="form-check-label fw-semibold small" for="tn-cc-custom-rate-check">
+                      Custom Bank / Exchange Rate (<span id="tn-cc-rate-unit-label">1 USD in BDT</span>)
+                    </label>
+                  </div>
+                  <input type="number" id="tn-cc-custom-rate" class="form-control form-control-sm" value="120" min="0.0001" step="any" disabled aria-label="Custom exchange rate">
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-check form-switch mb-1">
+                    <input class="form-check-input" type="checkbox" role="switch" id="tn-cc-bonus-check">
+                    <label class="form-check-label fw-semibold small" for="tn-cc-bonus-check">
+                      Add Remittance Incentive (%)
+                    </label>
+                  </div>
+                  <div class="input-group input-group-sm">
+                    <input type="number" id="tn-cc-bonus-pct" class="form-control" value="2.5" min="0" max="50" step="0.1" aria-label="Remittance bonus percentage">
+                    <span class="input-group-text">% Bonus</span>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-check form-switch mb-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="tn-cc-bn-digits">
+                    <label class="form-check-label fw-semibold small" for="tn-cc-bn-digits">
+                      Bangla Digits (০-৯)
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primary Result Card -->
+            <div class="tn-result-box mb-4">
+              <div class="row align-items-center g-3">
+                <div class="col-md-8">
+                  <div class="small text-uppercase text-muted fw-bold mb-1">Converted Amount</div>
+                  <div id="tn-cc-result-primary" class="display-6 fw-bold text-primary mb-1">৳ 12,000.00 BDT</div>
+                  <div id="tn-cc-result-rate-line" class="small fw-semibold text-dark">1 USD = 120.0000 BDT</div>
+                  <div id="tn-cc-result-inverse-line" class="small text-muted">1 BDT = 0.008333 USD</div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                  <button type="button" id="tn-cc-copy-btn" class="btn tn-btn--primary w-100">
+                    <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Result
+                  </button>
+                </div>
+              </div>
+
+              <!-- Remittance Bonus Breakdown (Shown when Bonus Toggle is ON) -->
+              <div id="tn-cc-bonus-box" class="d-none mt-3 pt-3 border-top">
+                <div class="row g-2 text-center">
+                  <div class="col-sm-4">
+                    <div class="p-2 rounded bg-white border">
+                      <div class="small text-muted">Base Converted Amount</div>
+                      <div id="tn-cc-bonus-base" class="fw-bold">৳ 12,000.00 BDT</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-2 rounded bg-white border">
+                      <div class="small text-muted">Remittance Incentive Bonus</div>
+                      <div id="tn-cc-bonus-extra" class="fw-bold text-success">+ ৳ 300.00 (2.50%)</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="p-2 rounded bg-white border border-primary">
+                      <div class="small text-muted">Total Payout with Bonus</div>
+                      <div id="tn-cc-bonus-total" class="fw-bold text-primary">৳ 12,300.00 BDT</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Two-Column Tables: Quick Multiples & All Currencies Comparison -->
+            <div class="row g-4">
+              <div class="col-md-5">
+                <h2 class="h6 fw-bold mb-2">
+                  <i class="bi bi-list-ol text-primary me-1" aria-hidden="true"></i> Quick Reference Multiples
+                </h2>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-sm align-middle mb-0 bg-white small">
+                    <thead class="table-light">
+                      <tr>
+                        <th id="tn-cc-mult-from-head">USD ($)</th>
+                        <th id="tn-cc-mult-to-head" class="text-end">BDT (৳)</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tn-cc-multiples-body"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h2 class="h6 fw-bold mb-0">
+                    <i class="bi bi-globe2 text-primary me-1" aria-hidden="true"></i> All Major Currencies at Once
+                  </h2>
+                  <button type="button" id="tn-cc-copy-table-btn" class="btn tn-btn--outline btn-sm py-1 px-2">
+                    <i class="bi bi-clipboard" aria-hidden="true"></i> Copy Table
+                  </button>
+                </div>
+                <div class="table-responsive" style="max-height: 310px; overflow-y: auto;">
+                  <table class="table table-bordered table-hover table-sm align-middle mb-0 bg-white small">
+                    <thead class="table-light sticky-top">
+                      <tr>
+                        <th>Currency</th>
+                        <th class="text-end">Converted</th>
+                        <th class="text-end">Unit Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tn-cc-all-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Use the Currency &amp; Remittance Converter</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Enter Amount &amp; Select Currencies:</strong> Type the amount you want to convert and choose your <em>From</em> and <em>To</em> currencies, or click a quick pair like <strong>USD &rarr; BDT</strong>, <strong>SAR &rarr; BDT</strong>, or <strong>AED &rarr; BDT</strong>.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Optional Custom Rate or Remittance Bonus:</strong> Toggle <em>Custom Bank / Exchange Rate</em> to enter your exact bank TT or money-exchange rate, or switch on <em>Add Remittance Incentive (2.5%)</em> to calculate your government remittance bonus in Taka.
+              </li>
+              <li>
+                <strong>Step 3 — Copy or Compare All Currencies:</strong> Click <strong>Copy Result</strong> to share the conversion breakdown, or check the <em>All Major Currencies at Once</em> table to compare 16+ currencies simultaneously.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Detailed SEO Guide & Worked Examples (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="guide-heading">
+            <h2 id="guide-heading" class="tn-section-title">Understanding Exchange Rates, Bank Spreads &amp; Bangladesh Remittance Incentives</h2>
+            <p class="text-muted">
+              Whether you are a freelancer withdrawing earnings from Upwork, Fiverr, or Payoneer to a Bangladeshi bank account, an expatriate worker sending remittance from Saudi Arabia, the UAE, Qatar, Oman, Malaysia, the UK, or the US, or an importer calculating landed product costs, knowing the exact exchange rate makes a major financial difference.
+            </p>
+            <p class="text-muted">
+              Online search engines typically display the <strong>mid-market exchange rate</strong>—the midpoint between wholesale buy and sell orders on global foreign exchange markets. However, when you exchange currency through a commercial bank, credit card, or money transfer agency, the institution applies its own <em>TT Clean Rate</em>, <em>BC Selling Rate</em>, or <em>Cash Note Rate</em>. That is why ToolNest gives you both automatic live market rates and an instant <strong>Custom Exchange Rate</strong> override.
+            </p>
+
+            <h3 class="h6 fw-bold mt-3">3 Worked Currency &amp; Remittance Examples</h3>
+            <div class="row g-3 my-1">
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h4 class="h6 fw-bold text-primary">Example 1: Freelancer USD Withdrawal</h4>
+                  <p class="small text-muted mb-0">
+                    Converting <strong>$500 USD</strong> at a bank TT rate of <strong>৳ 119.50</strong>:<br>
+                    <code>500 &times; 119.50 = ৳ 59,750 BDT</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h4 class="h6 fw-bold text-primary">Example 2: Saudi Riyal + 2.5% Bonus</h4>
+                  <p class="small text-muted mb-0">
+                    Sending <strong>2,000 SAR</strong> at <strong>৳ 32.00/SAR</strong>:<br>
+                    Base: <code>৳ 64,000</code><br>
+                    2.5% Bonus: <code>+ ৳ 1,600</code><br>
+                    <strong>Total: ৳ 65,600 BDT</strong>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <h4 class="h6 fw-bold text-primary">Example 3: Tuition / Travel in GBP</h4>
+                  <p class="small text-muted mb-0">
+                    Paying <strong>£1,200 GBP</strong> at a card selling rate of <strong>৳ 156.00/GBP</strong>:<br>
+                    <code>1,200 &times; 156.00 = ৳ 187,200 BDT</code>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="tn-card mb-4" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="ccFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ccFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ccFaqCol1" aria-expanded="true" aria-controls="ccFaqCol1">
+                    1. Does this currency converter work offline or with custom bank rates?
+                  </button>
+                </h3>
+                <div id="ccFaqCol1" class="accordion-collapse collapse show" aria-labelledby="ccFaq1" data-bs-parent="#ccFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. ToolNest automatically fetches live mid-market exchange rates when you are connected to the internet and falls back to built-in reference rates when offline. You can also turn on <strong>Custom Bank / Exchange Rate</strong> at any time to type the exact rate quoted by your bank or exchange house.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ccFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ccFaqCol2" aria-expanded="false" aria-controls="ccFaqCol2">
+                    2. How does the +2.5% Bangladesh Remittance Incentive calculator work?
+                  </button>
+                </h3>
+                <div id="ccFaqCol2" class="accordion-collapse collapse" aria-labelledby="ccFaq2" data-bs-parent="#ccFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    When expatriates send remittance to Bangladesh through legal banking channels or licensed mobile financial services, the government provides a 2.5% cash incentive. Enabling the <strong>Add Remittance Incentive (%)</strong> switch calculates your base converted amount, the 2.5% bonus amount, and the final total payout.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ccFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ccFaqCol3" aria-expanded="false" aria-controls="ccFaqCol3">
+                    3. Why is my bank or card exchange rate slightly different from the mid-market rate?
+                  </button>
+                </h3>
+                <div id="ccFaqCol3" class="accordion-collapse collapse" aria-labelledby="ccFaq3" data-bs-parent="#ccFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Mid-market rates show the midpoint between global wholesale buy and sell orders. Commercial banks, dual-currency cards, and money transfer operators add a small currency conversion spread (typically 1% to 2.5%) for retail transactions.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ccFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ccFaqCol4" aria-expanded="false" aria-controls="ccFaqCol4">
+                    4. Which Middle Eastern and Asian remittance currencies are supported?
+                  </button>
+                </h3>
+                <div id="ccFaqCol4" class="accordion-collapse collapse" aria-labelledby="ccFaq4" data-bs-parent="#ccFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Alongside USD, EUR, GBP, CAD, and AUD, this tool supports Saudi Riyal (SAR), UAE Dirham (AED), Qatari Riyal (QAR), Omani Rial (OMR), Kuwaiti Dinar (KWD), Bahraini Dinar (BHD), Malaysian Ringgit (MYR), Singapore Dollar (SGD), and Indian Rupee (INR).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ccFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ccFaqCol5" aria-expanded="false" aria-controls="ccFaqCol5">
+                    5. How can I spell out the converted BDT amount in words for a bank cheque?
+                  </button>
+                </h3>
+                <div id="ccFaqCol5" class="accordion-collapse collapse" aria-labelledby="ccFaq5" data-bs-parent="#ccFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Once you convert your amount into BDT, open our <a href="../../tools/amount-to-words/index.html">Amount to Words Converter</a> to spell out the exact figure in English and Bangla using Lakh and Crore formatting.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/amount-to-words/index.html" class="stretched-link text-reset">Amount to Words</a></h3>
+                  <p class="small text-muted mb-0">Spell out BDT Taka &amp; Paisa in Lakh, Crore, and Bangla words.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/discount-vat-profit-calculator/index.html" class="stretched-link text-reset">Discount, VAT &amp; Profit</a></h3>
+                  <p class="small text-muted mb-0">Calculate sale discounts, NBR VAT, and product profit margins.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/invoice-generator/index.html" class="stretched-link text-reset">Invoice Generator</a></h3>
+                  <p class="small text-muted mb-0">Create multi-currency client invoices in BDT, USD, EUR, or GBP.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT &amp; Global)</a></li>
+                <li class="mb-2"><a href="../../tools/discount-vat-profit-calculator/index.html" class="fw-medium">Discount, VAT &amp; Profit Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/land-area-converter/index.html" class="fw-medium">Land Area Converter (Katha, Decimal)</a></li>
+                <li class="mb-2"><a href="../../tools/invoice-generator/index.html" class="fw-medium">Invoice &amp; COD Slip Generator</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Chronological Age Calculator</a></li>
+                <li class="mb-0"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/currency-converter.js" defer></script>
+</body>
+</html>

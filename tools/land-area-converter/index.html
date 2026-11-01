@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Land Area Converter (Katha, Decimal, Bigha) — ToolNest</title>
+  <meta name="description" content="Convert land area between Katha, Decimal (Shatak), Bigha, Acre, Hectare, Sq Feet, Sq Meter, and Sq Yard with Bangladesh regional standards.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/land-area-converter/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Land Area Converter (Katha, Decimal, Bigha, Sq Ft) — ToolNest">
+  <meta property="og:description" content="Convert land area between Katha, Decimal (Shatak), Bigha, Acre, Hectare, Sq Feet, Sq Meter, and Sq Yard with Bangladesh regional standards.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/land-area-converter/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Land Area Converter (Katha, Decimal, Bigha, Sq Ft) — ToolNest">
+  <meta name="twitter:description" content="Convert land area between Katha, Decimal (Shatak), Bigha, Acre, Hectare, Sq Feet, Sq Meter, and Sq Yard with Bangladesh regional standards.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Land Area Converter", "item": "https://[DOMAIN]/tools/land-area-converter/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Land Area Converter",
+        "url": "https://[DOMAIN]/tools/land-area-converter/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert land measurements between Square Feet, Square Meter, Square Yard, Katha, Bigha, Decimal (Shatak), Acre, and Hectare with customizable regional standards."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many Square Feet are in 1 Decimal (Shatak) and 1 Katha?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1 Decimal (Shatak) is legally fixed at exactly 435.6 Square Feet across Bangladesh. Under the common official standard, 1 Katha equals 720 Square Feet (approximately 1.6529 Decimal)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do Katha and Bigha sizes vary across different regions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While Decimal (435.6 sq ft) and Acre (43,560 sq ft) are statutory units, Katha and Bigha originated from historical local measurement systems. Always verify your local deed or khatian survey record and use the Custom Region option if needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many Decimals (Shatak) make 1 Acre and 1 Bigha?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1 Acre equals exactly 100 Decimals (43,560 sq ft). Under the common 14,400 sq ft Bigha standard, 1 Bigha equals 20 Katha or approximately 33.0578 Decimals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I view converted land measurements in Bangla digits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Toggle the 'Show Bangla Digits (০-৯)' switch inside the tool to display both the main result and the 8-unit comparison table in Bengali numerals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this Land Area Converter run offline in my browser?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All calculations run 100% client-side in your browser with instant updates as you type."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Land Area Converter</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Land Area Converter (Katha, Decimal, Bigha, Acre &amp; Sq Ft)</h1>
+          <p class="text-muted mb-3">
+            Convert land measurements instantly between <strong>Square Feet, Square Meter, Square Yard, Katha (কাঠা), Bigha (বিঘা), Decimal / Shatak (শতক), Acre, and Hectare</strong>. Includes regional Katha/Bigha standards, a simultaneous 8-unit conversion table, and Bangla numeral output. Runs <strong>100% in your browser</strong>—your data never leaves your device.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Land Area Converter Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Instant Land Measurement Calculations
+            </span>
+
+            <div class="tn-step-bar">
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">1</span> Enter Land Value &amp; Unit</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">2</span> Pick Regional Standard</div>
+              <div class="tn-step-bar__item"><span class="tn-step-bar__num">3</span> View &amp; Copy All 8 Units</div>
+            </div>
+
+            <!-- Regional Notice Banner -->
+            <div class="alert alert-warning d-flex align-items-center gap-2 py-2 px-3 mb-3 small" role="note">
+              <i class="bi bi-exclamation-triangle-fill text-warning fs-5" aria-hidden="true"></i>
+              <div>
+                <strong>Regional Note:</strong> Katha and bigha values vary by region. Check your local deed or survey record.
+              </div>
+            </div>
+
+            <!-- Region Standard Selector & Custom Inputs -->
+            <div class="p-3 rounded-3 border bg-light mb-3">
+              <label for="tn-land-region" class="form-label fw-bold small mb-1">Region Standard (for Katha &amp; Bigha)</label>
+              <select id="tn-land-region" class="form-select mb-2"></select>
+
+              <div id="tn-land-custom-group" class="row g-3 mt-1 d-none">
+                <div class="col-sm-6">
+                  <label for="tn-land-custom-katha" class="form-label fw-bold small">Custom Sq Ft per 1 Katha</label>
+                  <input type="number" id="tn-land-custom-katha" class="form-control" value="720" min="1" step="0.1">
+                </div>
+                <div class="col-sm-6">
+                  <label for="tn-land-custom-bigha" class="form-label fw-bold small">Custom Sq Ft per 1 Bigha</label>
+                  <input type="number" id="tn-land-custom-bigha" class="form-control" value="14400" min="1" step="0.1">
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Conversion Controls -->
+            <div class="row g-3 align-items-end mb-3">
+              <div class="col-md-4">
+                <label for="tn-land-value" class="form-label fw-bold">Area Value</label>
+                <input type="number" id="tn-land-value" class="form-control form-control-lg fw-bold" value="5" min="0" step="any" placeholder="Enter area...">
+              </div>
+              <div class="col-md-3">
+                <label for="tn-land-from" class="form-label fw-bold">From Unit</label>
+                <select id="tn-land-from" class="form-select"></select>
+              </div>
+              <div class="col-md-2 text-center">
+                <button type="button" id="tn-land-swap-btn" class="btn tn-btn--outline w-100" title="Swap From and To units">
+                  <i class="bi bi-arrow-left-right" aria-hidden="true"></i> Swap
+                </button>
+              </div>
+              <div class="col-md-3">
+                <label for="tn-land-to" class="form-label fw-bold">To Unit</label>
+                <select id="tn-land-to" class="form-select"></select>
+              </div>
+            </div>
+
+            <!-- Quick Presets & Bangla Digits Toggle -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+              <div class="d-flex flex-wrap align-items-center gap-1">
+                <span class="small text-muted me-1">Quick Examples:</span>
+                <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-land-preset data-land-val="5" data-land-from="katha" data-land-to="sqft">5 Katha &rarr; Sq Ft</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-land-preset data-land-val="10" data-land-from="decimal" data-land-to="katha">10 Decimal &rarr; Katha</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-land-preset data-land-val="1" data-land-from="bigha" data-land-to="decimal">1 Bigha &rarr; Decimal</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2" data-land-preset data-land-val="1" data-land-from="acre" data-land-to="sqft">1 Acre &rarr; Sq Ft</button>
+              </div>
+
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="tn-land-bn-digits">
+                <label class="form-check-label small fw-semibold tn-bangla-text" for="tn-land-bn-digits">
+                  Show Bangla Digits (বাংলা সংখ্যা ০-৯)
+                </label>
+              </div>
+            </div>
+
+            <!-- Primary Result Card -->
+            <div class="tn-result-box border-primary bg-primary-subtle mb-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <div>
+                  <div class="small fw-bold text-uppercase text-primary">Converted Area Result</div>
+                  <div id="tn-land-result-val" class="h3 fw-bold text-dark mb-1">3,600 Square Feet (sq ft)</div>
+                  <div id="tn-land-result-sub" class="small text-muted">5 Katha (কাঠা) = 3,600 Square Feet (sq ft)</div>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="button" id="tn-land-copy-btn" class="btn tn-btn--primary btn-sm">
+                    <i class="bi bi-clipboard-check" aria-hidden="true"></i> Copy Result
+                  </button>
+                  <button type="button" id="tn-land-reset-btn" class="btn tn-btn--outline btn-sm text-danger">
+                    <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- All Units Simultaneous Conversion Table -->
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h2 class="h6 fw-bold mb-0"><i class="bi bi-table text-primary me-1" aria-hidden="true"></i> All 8 Land Units at a Glance</h2>
+              <button type="button" id="tn-land-copy-table-btn" class="btn tn-btn--outline btn-sm py-1">
+                <i class="bi bi-files" aria-hidden="true"></i> Copy Full Table
+              </button>
+            </div>
+            <div class="table-responsive border rounded-3 bg-white">
+              <table class="table table-hover align-middle mb-0 small">
+                <thead class="table-light">
+                  <tr>
+                    <th scope="col">Unit Name (English)</th>
+                    <th scope="col">Bangla Name</th>
+                    <th scope="col">Equivalent Value</th>
+                    <th scope="col">Standard Factor</th>
+                  </tr>
+                </thead>
+                <tbody id="tn-land-table-body"></tbody>
+              </table>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Convert Land Area Units</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Select Your Regional Standard:</strong> Keep the default <em>Common Standard (1 Katha = 720 sq ft, 1 Bigha = 20 Katha)</em> or select <em>Custom Regional Standard</em> if your local land survey uses a different Katha or Bigha size.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Enter Area &amp; Choose Units:</strong> Type your land area value and select your starting unit (e.g., <em>Decimal / Shatak</em>) and target unit (e.g., <em>Katha</em> or <em>Square Feet</em>).
+              </li>
+              <li>
+                <strong>Step 3 — Review All Units &amp; Copy:</strong> Check the primary conversion box or inspect all 8 units simultaneously in the comparison table, toggle Bangla digits if preparing a Bangla document, and click <strong>Copy Result</strong>.
+              </li>
+            </ol>
+          </section>
+
+          <!-- Detailed Explanation of Units & 3 Worked Examples (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="features-heading">
+            <h2 id="features-heading" class="tn-section-title">Understanding Land Measurement Units in Bangladesh &amp; South Asia</h2>
+            <p class="text-muted">
+              Whether you are buying an apartment plot in Dhaka, verifying a family land deed (<em>Dalil</em>) or <em>Khatian</em> record (CS, SA, RS, or BS survey), or calculating construction floor area, understanding how traditional South Asian units relate to statutory imperial and metric units prevents costly mistakes.
+            </p>
+
+            <h3 class="h6 fw-bold mt-3">What Each Land Area Unit Means</h3>
+            <ul class="text-muted small">
+              <li class="mb-1"><strong>Square Feet (sq ft / বর্গফুট):</strong> The fundamental unit used by architects, real estate developers, and RAJUK/CDA building plans.</li>
+              <li class="mb-1"><strong>Square Meter (sq m / বর্গমিটার):</strong> The international metric standard where <code>1 sq m = 10.7639 sq ft</code>.</li>
+              <li class="mb-1"><strong>Square Yard (sq yd / বর্গগজ):</strong> Equal to a square measuring 3 feet by 3 feet, so <code>1 sq yd = 9 sq ft</code>.</li>
+              <li class="mb-1"><strong>Decimal / Shatak (শতক / ডেসিমেল):</strong> The primary legal land survey unit across Bangladesh. Exactly 1/100th of an acre: <code>1 Decimal = 435.6 sq ft</code>.</li>
+              <li class="mb-1"><strong>Katha (কাঠা):</strong> Widely used for residential plots. Under the standard official definition, <code>1 Katha = 720 sq ft</code> (approx. <code>1.6529 Decimal</code>).</li>
+              <li class="mb-1"><strong>Bigha (বিঘা):</strong> Traditional agricultural and estate unit equal to 20 standard Kathas: <code>1 Bigha = 14,400 sq ft</code> (approx. <code>33.0578 Decimal</code>).</li>
+              <li class="mb-1"><strong>Acre (একর):</strong> Equals exactly <code>100 Decimals</code> or <code>43,560 sq ft</code> (approx. <code>3.025 Bigha</code>).</li>
+              <li class="mb-0"><strong>Hectare (হেক্টর):</strong> Metric unit of 10,000 square meters, equal to <code>107,639 sq ft</code> or approximately <code>2.471 Acres</code>.</li>
+            </ul>
+
+            <h3 class="h6 fw-bold mt-4">3 Practical Worked Examples</h3>
+            <div class="row g-3 mt-1">
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <div class="fw-bold text-primary small mb-1">Example 1: Katha to Sq Ft &amp; Decimal</div>
+                  <p class="small text-muted mb-0">
+                    A residential plot in Uttara measures <strong>5 Katha</strong>. Using the common standard (<code>1 Katha = 720 sq ft</code>):<br>
+                    <code>5 &times; 720 = 3,600 sq ft</code>.<br>
+                    In Decimals: <code>3,600 &divide; 435.6 = 8.2645 Decimal</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <div class="fw-bold text-primary small mb-1">Example 2: Decimal (Shatak) to Katha</div>
+                  <p class="small text-muted mb-0">
+                    A rural deed lists <strong>15 Decimal (শতক)</strong> of land.<br>
+                    First convert to Square Feet: <code>15 &times; 435.6 = 6,534 sq ft</code>.<br>
+                    Divide by 720 sq ft/Katha: <code>6,534 &divide; 720 = 9.075 Katha</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-light h-100">
+                  <div class="fw-bold text-primary small mb-1">Example 3: Acre to Bigha &amp; Sq Meter</div>
+                  <p class="small text-muted mb-0">
+                    An orchard covers <strong>2 Acres</strong>.<br>
+                    In Square Feet: <code>2 &times; 43,560 = 87,120 sq ft</code>.<br>
+                    In Bighas: <code>87,120 &divide; 14,400 = 6.05 Bigha</code>.<br>
+                    In Sq Meters: <code>87,120 &divide; 10.7639 = 8,093.72 sq m</code>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="landFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ldFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ldFaqCol1" aria-expanded="true" aria-controls="ldFaqCol1">
+                    1. How many Square Feet are in 1 Decimal (Shatak) and 1 Katha?
+                  </button>
+                </h3>
+                <div id="ldFaqCol1" class="accordion-collapse collapse show" aria-labelledby="ldFaq1" data-bs-parent="#landFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    <strong>1 Decimal (Shatak)</strong> is legally standardized across Bangladesh at exactly <strong>435.6 Square Feet</strong>. Under the standard official measurement, <strong>1 Katha</strong> equals <strong>720 Square Feet</strong> (which is <code>1.6529 Decimal</code>).
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ldFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ldFaqCol2" aria-expanded="false" aria-controls="ldFaqCol2">
+                    2. Why do Katha and Bigha sizes vary across different regions?
+                  </button>
+                </h3>
+                <div id="ldFaqCol2" class="accordion-collapse collapse" aria-labelledby="ldFaq2" data-bs-parent="#landFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    While <em>Decimal</em> and <em>Acre</em> are fixed by statute in government land registries, <em>Katha</em> and <em>Bigha</em> evolved from historical regional measurements. Always check your local deed or survey record, and select <strong>Custom Regional Standard</strong> if your district uses a local Katha size.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ldFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ldFaqCol3" aria-expanded="false" aria-controls="ldFaqCol3">
+                    3. How many Decimals (Shatak) make 1 Acre and 1 Bigha?
+                  </button>
+                </h3>
+                <div id="ldFaqCol3" class="accordion-collapse collapse" aria-labelledby="ldFaq3" data-bs-parent="#landFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    <strong>1 Acre</strong> equals exactly <strong>100 Decimals</strong> (<code>43,560 sq ft</code>). A standard 20-Katha <strong>Bigha</strong> (<code>14,400 sq ft</code>) equals approximately <strong>33.0578 Decimals</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ldFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ldFaqCol4" aria-expanded="false" aria-controls="ldFaqCol4">
+                    4. Can I view converted land measurements in Bangla digits?
+                  </button>
+                </h3>
+                <div id="ldFaqCol4" class="accordion-collapse collapse" aria-labelledby="ldFaq4" data-bs-parent="#landFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes! Turn on the <strong>Show Bangla Digits (বাংলা সংখ্যা ০-৯)</strong> toggle switch to format every number in Bengali numerals for deeds, notices, or reports.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="ldFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ldFaqCol5" aria-expanded="false" aria-controls="ldFaqCol5">
+                    5. Does this Land Area Converter run offline in my browser?
+                  </button>
+                </h3>
+                <div id="ldFaqCol5" class="accordion-collapse collapse" aria-labelledby="ldFaq5" data-bs-parent="#landFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. All calculations run 100% locally in your browser with zero server calls.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/amount-to-words/index.html" class="stretched-link text-reset">Amount to Words</a></h3>
+                  <p class="small text-muted mb-0">Spell out BDT Taka, Lakh &amp; Crore in English and Bangla.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/discount-vat-profit-calculator/index.html" class="stretched-link text-reset">Discount, VAT &amp; Profit</a></h3>
+                  <p class="small text-muted mb-0">Calculate VAT, discounts, and F-commerce margins.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/bijoy-to-unicode/index.html" class="stretched-link text-reset">Bijoy to Unicode</a></h3>
+                  <p class="small text-muted mb-0">Convert Bangla deed text between Bijoy and Unicode.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/amount-to-words/index.html" class="fw-medium">Amount to Words (BDT Taka)</a></li>
+                <li class="mb-2"><a href="../../tools/currency-converter/index.html" class="fw-medium">BDT Currency Converter</a></li>
+                <li class="mb-2"><a href="../../tools/loan-emi-fdr-dps-calculator/index.html" class="fw-medium">Loan EMI, FDR &amp; DPS Calculator</a></li>
+                <li class="mb-2"><a href="../../tools/bijoy-to-unicode/index.html" class="fw-medium">Bijoy to Unicode Converter</a></li>
+                <li class="mb-2"><a href="../../tools/age-calculator/index.html" class="fw-medium">Exact Age Calculator</a></li>
+                <li class="mb-0"><a href="../../tools/pdf-merge-split/index.html" class="fw-medium">PDF Merge &amp; Split</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/land-area-converter.js" defer></script>
+</body>
+</html>

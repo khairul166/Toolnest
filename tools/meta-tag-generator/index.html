@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Tag Generator — SEO, Open Graph &amp; Twitter Cards · ToolNest</title>
+  <meta name="description" content="Generate SEO title, meta description, canonical, Open Graph, and Twitter Card tags with this free browser-based meta tag generator. Customize your page metadata and copy the HTML.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/meta-tag-generator/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Meta Tag Generator — SEO, Open Graph &amp; Twitter Cards · ToolNest">
+  <meta property="og:description" content="Generate SEO title, meta description, canonical, Open Graph, and Twitter Card tags with this free browser-based meta tag generator.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/meta-tag-generator/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meta Tag Generator — SEO, Open Graph &amp; Twitter Cards · ToolNest">
+  <meta name="twitter:description" content="Generate SEO title, meta description, canonical, Open Graph, and Twitter Card tags with this free browser-based meta tag generator.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Meta Tag Generator", "item": "https://[DOMAIN]/tools/meta-tag-generator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Meta Tag Generator — SEO, Open Graph & Twitter Cards",
+        "url": "https://[DOMAIN]/tools/meta-tag-generator/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Generate SEO title, meta description, keywords, canonical, Open Graph, and Twitter Card tags."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does this meta tag generator create?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It creates HTML for a page title, meta description, optional keywords and author, canonical URL, Open Graph tags, optional Twitter Card tags, and an optional robots directive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where do I put the generated meta tags?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Copy the generated HTML into the head section of the page you are describing, then save and publish the page."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do meta tags guarantee higher search rankings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Accurate titles and descriptions help search engines understand and present a page, but no meta tag generator can guarantee rankings or a particular search snippet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are Open Graph and Twitter Card tags for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "These tags provide title, description, image, and page information that social platforms can use when someone shares a link. The final appearance depends on each platform."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool escape special HTML characters in my title and description?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Ampersands, quotes, and angle brackets are automatically escaped so the generated meta tags remain valid HTML."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .mtg-output{font-family:Consolas,"Courier New",monospace;font-size:13px;white-space:pre-wrap}
+    .mtg-counter{font-size:11px;font-weight:600;padding:2px 7px;border-radius:20px;background:#e9ecef;color:#495057}
+    .mtg-counter.ok{background:#d1e7dd;color:#0f5132}
+    .mtg-counter.warn{background:#fff3cd;color:#664d03}
+    .mtg-preview{border:1px solid #dee2e6;border-radius:12px;overflow:hidden;background:#fff}
+    .mtg-srp-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #f1f1f1}
+    .mtg-srp-fav{width:26px;height:26px;border-radius:50%;object-fit:contain;flex:0 0 auto;background:#f5f5f5}
+    .mtg-srp-txt{min-width:0}
+    .mtg-srp-url{font-size:12px;color:#5f6368;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mtg-srp-title{font-size:16px;color:#1a0dab;line-height:1.35}
+    .mtg-srp-desc{font-size:13px;color:#4d5156;line-height:1.45}
+    .mtg-social{display:flex;flex-direction:column}
+    .mtg-social-img{width:100%;aspect-ratio:1.91/1;object-fit:cover;background:#e9ecef;display:block}
+    .mtg-social-body{padding:12px 14px}
+    .mtg-social-domain{font-size:11px;color:#65676b;text-transform:uppercase;margin-bottom:4px}
+    .mtg-social-title{font-size:18px;font-weight:500;color:#1c1e21;line-height:1.3}
+    .mtg-social-desc{font-size:14px;color:#65676b;margin-top:4px}
+    .mtg-tw{border:1px solid #e1e8ed;border-radius:14px;overflow:hidden;max-width:440px}
+    .mtg-tw-head{display:flex;align-items:center;gap:10px;padding:12px}
+    .mtg-tw-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;background:#e9ecef}
+    .mtg-tw-name{font-weight:700;font-size:14px}
+    .mtg-tw-handle{font-size:13px;color:#536471}
+    .mtg-tw-text{padding:0 12px 10px;font-size:15px;color:#0f1419}
+    .mtg-tw-media{width:100%;aspect-ratio:1.91/1;object-fit:cover;background:#e9ecef;display:block}
+    .mtg-section-head{display:flex;justify-content:space-between;align-items:center}
+    .mtg-chip{cursor:pointer}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Meta Tag Generator</li>
+            </ol>
+          </nav>
+
+          <h1 id="meta-generator-heading" class="tn-page-title">Free Meta Tag Generator for SEO and Social Sharing</h1>
+          <p class="text-muted mb-3">
+            Create copy-ready HTML meta tags for your website without writing them by hand. This free meta tag generator builds page titles, meta descriptions, canonical links, Open Graph metadata, and optional Twitter Card and robots tags from the details you provide.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Meta Tag Generator Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Website Metadata Is Generated in Your Browser
+            </span>
+
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <div class="p-3 rounded bg-light h-100">
+                  <h2 class="mb-2 h5">Generate Your Meta Tags</h2>
+                  <p class="text-muted small mb-3">Enter your page details, generate the HTML, and paste the result inside that page's <code>&lt;head&gt;</code> element.</p>
+
+                  <form id="mtg-form" class="row g-3">
+                    <div class="col-12">
+                      <label for="mtg-page-title" class="form-label small fw-bold">Page Title <span class="text-muted fw-normal">(required)</span></label>
+                      <input id="mtg-page-title" class="form-control" placeholder="Example: Loan EMI Calculator — ToolNest">
+                    </div>
+                    <div class="col-12">
+                      <label for="mtg-description" class="form-label small fw-bold">Meta Description</label>
+                      <textarea id="mtg-description" class="form-control" rows="3" placeholder="A short, compelling summary (50–160 characters)."></textarea>
+                    </div>
+                    <div class="col-12">
+                      <label for="mtg-keywords" class="form-label small fw-bold">Keywords <span class="text-muted fw-normal">(comma separated, optional)</span></label>
+                      <input id="mtg-keywords" class="form-control" placeholder="loan, emi, calculator, bank">
+                    </div>
+                    <div class="col-12">
+                      <label for="mtg-author" class="form-label small fw-bold">Author</label>
+                      <input id="mtg-author" class="form-control" placeholder="ToolNest Team">
+                    </div>
+                    <div class="col-12">
+                      <label for="mtg-website" class="form-label small fw-bold">Website Name</label>
+                      <input id="mtg-website" class="form-control" value="ToolNest">
+                    </div>
+                    <div class="col-12">
+                      <label for="mtg-url" class="form-label small fw-bold">Canonical / Page URL</label>
+                      <input id="mtg-url" class="form-control" placeholder="https://toolnest.example/tools/loan-emi/index.html">
+                    </div>
+                    <div class="col-6">
+                      <label for="mtg-image" class="form-label small fw-bold">Social Image URL</label>
+                      <input id="mtg-image" class="form-control" placeholder="https://.../preview.jpg">
+                    </div>
+                    <div class="col-6">
+                      <label for="mtg-type" class="form-label small fw-bold">OG Type</label>
+                      <select id="mtg-type" class="form-select">
+                        <option value="website" selected>website</option>
+                        <option value="article">article</option>
+                        <option value="product">product</option>
+                        <option value="video">video</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mtg-twitter" checked>
+                        <label class="form-check-label small" for="mtg-twitter">Include Twitter Card tags</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mtg-robots">
+                        <label class="form-check-label small" for="mtg-robots">Include robots meta tag (index, follow)</label>
+                      </div>
+                    </div>
+                    <div class="col-12 d-flex gap-2 mt-1">
+                      <button id="mtg-generate" class="btn btn-primary" type="submit"><i class="bi bi-lightning-charge me-1" aria-hidden="true"></i>Generate</button>
+                      <button id="mtg-reset" class="btn btn-outline-secondary" type="button">Reset</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="p-3 rounded bg-light h-100">
+                  <h2 class="h5 mb-3">Generated Meta Tags</h2>
+                  <textarea id="mtg-output" class="form-control mtg-output" rows="16" readonly placeholder="Your generated meta tags will appear here."></textarea>
+                  <div class="d-flex gap-2 mt-3">
+                    <button id="mtg-copy" class="btn btn-sm btn-outline-primary" type="button"><i class="bi bi-clipboard me-1" aria-hidden="true"></i>Copy Code</button>
+                  </div>
+                  <p id="mtg-status" class="small text-muted mt-2 mb-0">Status: Ready</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="meta-how-to-heading">
+            <h2 id="meta-how-to-heading" class="tn-section-title">How to Use the Meta Tag Generator</h2>
+            <ol class="text-muted ps-3 mb-0">
+              <li class="mb-2"><strong>Enter your page title and description.</strong> Write a specific title and a clear, accurate summary of the page.</li>
+              <li class="mb-2"><strong>Add optional page details.</strong> Provide the canonical URL, author, website name, and a publicly accessible social image URL where appropriate.</li>
+              <li class="mb-2"><strong>Choose your tag options.</strong> Select an Open Graph type and decide whether to include Twitter Card and robots tags.</li>
+              <li><strong>Generate and add the code.</strong> Copy the output into the page's <code>&lt;head&gt;</code>, then verify the published page and social sharing appearance with the relevant platform tools.</li>
+            </ol>
+          </section>
+
+          <!-- Features & Detailed SEO Content (300+ Words) -->
+          <section class="tn-card mb-4" aria-labelledby="meta-tags-guide-heading">
+            <h2 id="meta-tags-guide-heading" class="tn-section-title">What These SEO and Social Meta Tags Do</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 h-100">
+                  <h3 class="h6 fw-bold">Page title and description</h3>
+                  <p class="small text-muted mb-0">Describe the page with a useful title and summary. Search engines may use them when presenting results, but can choose different text.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 h-100">
+                  <h3 class="h6 fw-bold">Canonical URL</h3>
+                  <p class="small text-muted mb-0">Identify the preferred URL for a page when similar or duplicate versions exist. Use the full, correct URL for that page.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 h-100">
+                  <h3 class="h6 fw-bold">Open Graph and Twitter Card</h3>
+                  <p class="small text-muted mb-0">Supply page titles, descriptions, and image details that supported social platforms can use when displaying shared links.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 border rounded-3 h-100">
+                  <h3 class="h6 fw-bold">Robots directive</h3>
+                  <p class="small text-muted mb-0">The optional setting outputs an “index, follow” directive. Only add it when that instruction is appropriate for the page.</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted mt-3 mb-0">Meta tags support clear page information; they are not a substitute for helpful page content, crawlable links, or a sound technical SEO setup. The optional keywords tag is included for compatibility, but major search engines generally do not use it to determine rankings.</p>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="meta-faq-heading">
+            <h2 id="meta-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="metaFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="metaFaqHeadingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#metaFaqOne" aria-expanded="true" aria-controls="metaFaqOne">
+                    1. What does this meta tag generator create?
+                  </button>
+                </h3>
+                <div id="metaFaqOne" class="accordion-collapse collapse show" aria-labelledby="metaFaqHeadingOne" data-bs-parent="#metaFaqAccordion">
+                  <div class="accordion-body text-muted">It creates HTML for a page title, meta description, optional keywords and author, canonical URL, Open Graph tags, optional Twitter Card tags, and an optional robots directive.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="metaFaqHeadingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#metaFaqTwo" aria-expanded="false" aria-controls="metaFaqTwo">
+                    2. Where do I put the generated meta tags?
+                  </button>
+                </h3>
+                <div id="metaFaqTwo" class="accordion-collapse collapse" aria-labelledby="metaFaqHeadingTwo" data-bs-parent="#metaFaqAccordion">
+                  <div class="accordion-body text-muted">Copy the generated HTML into the <code>&lt;head&gt;</code> section of the page you are describing, then save and publish that page.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="metaFaqHeadingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#metaFaqThree" aria-expanded="false" aria-controls="metaFaqThree">
+                    3. Do meta tags guarantee higher search rankings?
+                  </button>
+                </h3>
+                <div id="metaFaqThree" class="accordion-collapse collapse" aria-labelledby="metaFaqHeadingThree" data-bs-parent="#metaFaqAccordion">
+                  <div class="accordion-body text-muted">No. Accurate titles and descriptions help search engines understand and present a page, but meta tags cannot guarantee rankings or a particular search snippet.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="metaFaqHeadingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#metaFaqFour" aria-expanded="false" aria-controls="metaFaqFour">
+                    4. What are Open Graph and Twitter Card tags for?
+                  </button>
+                </h3>
+                <div id="metaFaqFour" class="accordion-collapse collapse" aria-labelledby="metaFaqHeadingFour" data-bs-parent="#metaFaqAccordion">
+                  <div class="accordion-body text-muted">They provide titles, descriptions, image, and page information that social platforms can use when someone shares a link. The final appearance depends on each platform.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="metaFaqHeadingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#metaFaqFive" aria-expanded="false" aria-controls="metaFaqFive">
+                    5. Does this tool escape special HTML characters in my title and description?
+                  </button>
+                </h3>
+                <div id="metaFaqFive" class="accordion-collapse collapse" aria-labelledby="metaFaqHeadingFive" data-bs-parent="#metaFaqAccordion">
+                  <div class="accordion-body text-muted">Yes. Ampersands, quotes, and angle brackets are automatically escaped so the generated meta tags remain valid HTML.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/robots-txt-generator/index.html" class="stretched-link text-reset">Robots.txt Generator</a></h3>
+                  <p class="small text-muted mb-0">Generate search crawler rules and sitemap references.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/utm-link-builder/index.html" class="stretched-link text-reset">UTM Link Builder</a></h3>
+                  <p class="small text-muted mb-0">Create trackable campaign URLs for Google Analytics.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/developer-webmaster-tools/index.html" class="stretched-link text-reset">Developer Tools Suite</a></h3>
+                  <p class="small text-muted mb-0">JSON, Base64, URL encoder, UUID, and SHA hash tools.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/robots-txt-generator/index.html" class="fw-medium">Robots.txt Generator</a></li>
+                <li class="mb-2"><a href="../../tools/utm-link-builder/index.html" class="fw-medium">UTM Campaign Link Builder</a></li>
+                <li class="mb-2"><a href="../../tools/developer-webmaster-tools/index.html" class="fw-medium">Developer &amp; Webmaster Tools</a></li>
+                <li class="mb-2"><a href="../../tools/json-formatter/index.html" class="fw-medium">JSON Formatter &amp; Minifier</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">QR Code Generator</a></li>
+                <li class="mb-0"><a href="../../tools/text-tools/index.html" class="fw-medium">Text Tools &amp; Word Counter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/meta-tag-generator.js" defer></script>
+</body>
+</html>

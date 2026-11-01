@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Password Generator — Create Strong Random Passwords | ToolNest</title>
+  <meta name="description" content="Create a strong, customizable password with ToolNest's free online password generator. Choose length and character types, avoid ambiguous characters, and generate passwords in your browser.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/password-generator/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="Free Password Generator — Create Strong Random Passwords | ToolNest">
+  <meta property="og:description" content="Generate customizable passwords in your browser. Set the length, choose character types, and optionally exclude ambiguous characters.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/password-generator/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Password Generator — ToolNest">
+  <meta name="twitter:description" content="Create customizable passwords in your browser with adjustable length and character options.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "Password Generator", "item": "https://[DOMAIN]/tools/password-generator/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest Password Generator",
+        "url": "https://[DOMAIN]/tools/password-generator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "A free browser-based password generator with adjustable length and character options."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I create a strong password?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose a longer password and include a mix of uppercase letters, lowercase letters, numbers, and symbols. Use a different password for every account and store it in a trusted password manager."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I choose the password length and character types?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Set a length from 6 to 64 characters, select uppercase letters, lowercase letters, numbers, or symbols, and optionally avoid ambiguous characters such as zero and the letter O."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are passwords uploaded or saved by this generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The generator creates passwords in your browser and does not send them to a ToolNest server. Copy or save a password somewhere secure before leaving the page."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the password strength meter guarantee security?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The meter is a simple on-page estimate based on password length and character variety. It cannot assess whether a password has been reused, exposed, or compromised."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does 'Avoid ambiguous characters' do?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It excludes look-alike characters such as 0 (zero), O (uppercase o), 1 (one), l (lowercase L), and I (uppercase i) so the password is easier to read and type when needed."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Password Generator</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">Free Online Password Generator</h1>
+          <p class="text-muted mb-3">Create a strong, random password for a new account in seconds. Choose a length from 6 to 64 characters, include the character types you need, and generate it directly in your browser.</p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="Password Generator Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; Generated Passwords Never Leave Your Browser
+            </span>
+
+            <div class="mb-4">
+              <label for="pg-output" class="form-label small mb-2 fw-bold">Generated Password</label>
+              <div class="input-group">
+                <input id="pg-output" type="text" class="form-control font-monospace" readonly aria-label="Generated password">
+                <button id="pg-copy" class="btn btn-primary" type="button"><i class="bi bi-clipboard me-1" aria-hidden="true"></i>Copy</button>
+              </div>
+              <div id="pg-strength" class="mt-2">
+                <div class="row g-2 align-items-center">
+                  <div class="col-6 col-sm-8">
+                    <div class="progress" style="height: 8px;">
+                      <div id="pg-strength-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-hidden="true"></div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-sm-4">
+                    <span id="pg-strength-label" class="small text-muted">Strength: —</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-12">
+                <label for="pg-length" class="form-label small mb-2 fw-bold">
+                  Length: <span id="pg-length-value">16</span>
+                </label>
+                <input id="pg-length" type="range" class="form-range" min="6" max="64" value="16">
+              </div>
+              <div class="col-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pg-upper" checked>
+                  <label class="form-check-label small" for="pg-upper">Uppercase (A–Z)</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pg-lower" checked>
+                  <label class="form-check-label small" for="pg-lower">Lowercase (a–z)</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pg-numbers" checked>
+                  <label class="form-check-label small" for="pg-numbers">Numbers (0–9)</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pg-symbols" checked>
+                  <label class="form-check-label small" for="pg-symbols">Symbols (!@#$…)</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pg-no-ambiguous">
+                  <label class="form-check-label small" for="pg-no-ambiguous">Avoid ambiguous characters (0 O 1 l I)</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button id="pg-generate" class="btn btn-outline-secondary flex-grow-1" type="button"><i class="bi bi-arrow-repeat me-1" aria-hidden="true"></i> Regenerate</button>
+            </div>
+
+            <div class="mt-3 small text-muted">
+              <span>Status: <span id="pg-status">Ready</span></span>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="password-guide-heading">
+            <h2 id="password-guide-heading" class="tn-section-title">Create a Strong Password That Fits Your Needs</h2>
+            <p class="text-muted">Use this free password maker to create a different password for each account. Set the length with the slider, then choose uppercase and lowercase letters, numbers, and symbols. If a website or device makes similar characters difficult to read, turn on the option to avoid ambiguous characters.</p>
+            <h3 class="h5 fw-bold mt-4">How to use the password generator</h3>
+            <ol class="text-muted ps-3 mb-0">
+              <li class="mb-2">Choose a password length between 6 and 64 characters. Longer passwords are generally harder to guess.</li>
+              <li class="mb-2">Select the character groups required by the account. The generator includes at least one character from each selected group when the chosen length allows it.</li>
+              <li class="mb-2">Select <strong>Avoid ambiguous characters</strong> if you want to exclude visually similar characters such as 0, O, 1, l, and I.</li>
+              <li>Generate or adjust the password, then use <strong>Copy</strong> and save it in a trusted password manager.</li>
+            </ol>
+            <h3 class="h5 fw-bold mt-4">Privacy and password safety</h3>
+            <p class="text-muted mb-0">Password generation happens in your browser; the generated value is not sent to ToolNest. The strength indicator is a basic estimate based on length and character variety, not a security audit. For better account security, use a unique password for every service, avoid sharing it, and enable multi-factor authentication when available.</p>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="password-faq-heading">
+            <h2 id="password-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="passwordFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="passwordFaqHeadingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#passwordFaqOne" aria-expanded="true" aria-controls="passwordFaqOne">
+                    1. How do I create a strong password?
+                  </button>
+                </h3>
+                <div id="passwordFaqOne" class="accordion-collapse collapse show" aria-labelledby="passwordFaqHeadingOne" data-bs-parent="#passwordFaqAccordion">
+                  <div class="accordion-body text-muted">Choose a longer password and include a mix of character types where the service allows them. Use a unique password for each account and store it in a trusted password manager.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="passwordFaqHeadingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#passwordFaqTwo" aria-expanded="false" aria-controls="passwordFaqTwo">
+                    2. Can I choose the password length and character types?
+                  </button>
+                </h3>
+                <div id="passwordFaqTwo" class="accordion-collapse collapse" aria-labelledby="passwordFaqHeadingTwo" data-bs-parent="#passwordFaqAccordion">
+                  <div class="accordion-body text-muted">Yes. Choose a length from 6 to 64 characters and toggle uppercase letters, lowercase letters, numbers, and symbols. You can also exclude ambiguous characters.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="passwordFaqHeadingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#passwordFaqThree" aria-expanded="false" aria-controls="passwordFaqThree">
+                    3. Are generated passwords sent to a server?
+                  </button>
+                </h3>
+                <div id="passwordFaqThree" class="accordion-collapse collapse" aria-labelledby="passwordFaqHeadingThree" data-bs-parent="#passwordFaqAccordion">
+                  <div class="accordion-body text-muted">No. The password is generated in your browser and is not sent to ToolNest. Copy and save it somewhere secure before leaving the page.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="passwordFaqHeadingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#passwordFaqFour" aria-expanded="false" aria-controls="passwordFaqFour">
+                    4. Is the strength meter a guarantee that my password is secure?
+                  </button>
+                </h3>
+                <div id="passwordFaqFour" class="accordion-collapse collapse" aria-labelledby="passwordFaqHeadingFour" data-bs-parent="#passwordFaqAccordion">
+                  <div class="accordion-body text-muted">No. It is a basic estimate based on length and character variety. It cannot tell whether a password is reused or has appeared in a data breach.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="passwordFaqHeadingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#passwordFaqFive" aria-expanded="false" aria-controls="passwordFaqFive">
+                    5. What does "Avoid ambiguous characters" do?
+                  </button>
+                </h3>
+                <div id="passwordFaqFive" class="accordion-collapse collapse" aria-labelledby="passwordFaqHeadingFive" data-bs-parent="#passwordFaqAccordion">
+                  <div class="accordion-body text-muted">It excludes look-alike characters such as <code>0</code> (zero), <code>O</code> (uppercase o), <code>1</code> (one), <code>l</code> (lowercase L), and <code>I</code> (uppercase i) so the password is easier to read and type.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/developer-webmaster-tools/index.html" class="stretched-link text-reset">Developer Tools Suite</a></h3>
+                  <p class="small text-muted mb-0">UUID generator, SHA-256 hash tool, Base64, and JSON utilities.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/qr-code-generator/index.html" class="stretched-link text-reset">QR Code Generator</a></h3>
+                  <p class="small text-muted mb-0">Create Wi-Fi, URL, and vCard QR codes in your browser.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/json-formatter/index.html" class="stretched-link text-reset">JSON Formatter</a></h3>
+                  <p class="small text-muted mb-0">Pretty-print, validate, and minify JSON strings locally.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/developer-webmaster-tools/index.html" class="fw-medium">Developer &amp; Webmaster Tools</a></li>
+                <li class="mb-2"><a href="../../tools/json-formatter/index.html" class="fw-medium">JSON Formatter &amp; Minifier</a></li>
+                <li class="mb-2"><a href="../../tools/qr-code-generator/index.html" class="fw-medium">QR Code Generator</a></li>
+                <li class="mb-2"><a href="../../tools/meta-tag-generator/index.html" class="fw-medium">SEO Meta Tag Generator</a></li>
+                <li class="mb-2"><a href="../../tools/robots-txt-generator/index.html" class="fw-medium">Robots.txt Generator</a></li>
+                <li class="mb-0"><a href="../../tools/text-tools/index.html" class="fw-medium">Text Tools &amp; Word Counter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/password-generator.js" defer></script>
+</body>
+</html>

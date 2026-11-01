@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Formatter &amp; Minifier — ToolNest</title>
+  <meta name="description" content="Format, pretty-print, validate, and minify JSON strings online in your browser. Free 100% client-side JSON Formatter &amp; Minifier by ToolNest.">
+  <link rel="canonical" href="https://[DOMAIN]/tools/json-formatter/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+
+  <!-- Open Graph & Twitter Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ToolNest">
+  <meta property="og:title" content="JSON Formatter &amp; Minifier — ToolNest">
+  <meta property="og:description" content="Format, pretty-print, validate, and minify JSON strings online in your browser.">
+  <meta property="og:url" content="https://[DOMAIN]/tools/json-formatter/">
+  <meta property="og:image" content="https://[DOMAIN]/assets/img/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JSON Formatter &amp; Minifier — ToolNest">
+  <meta name="twitter:description" content="Format, pretty-print, validate, and minify JSON strings online in your browser.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 & Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://[DOMAIN]/" },
+          { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://[DOMAIN]/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "JSON Formatter & Minifier", "item": "https://[DOMAIN]/tools/json-formatter/" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "ToolNest JSON Formatter & Minifier",
+        "url": "https://[DOMAIN]/tools/json-formatter/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Format, validate, and minify JSON strings locally in your browser."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this JSON Formatter upload my API payloads to a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All JSON parsing, formatting, and minifying runs 100% locally in your browser using JavaScript's native JSON.parse and JSON.stringify methods."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Format JSON and Minify JSON?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Format JSON adds 2-space indentation and line breaks so nested objects and arrays are easy to read. Minify JSON removes all unnecessary whitespace to reduce payload size."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will the tool tell me if my JSON is invalid?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. If there is a syntax error such as a trailing comma, missing quote, or unclosed bracket, the status bar displays the parser error message."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I format JSON containing Bangla or Unicode characters?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. UTF-8 strings including Bangla text and emojis are preserved accurately when formatting or minifying."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do single quotes or trailing commas cause an error in JSON?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The official JSON specification (RFC 8259) requires double quotes around all keys and string values and does not permit trailing commas after the last item in an object or array."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="tn-skip-link">Skip to main content</a>
+
+  <!-- HEADER START -->
+  <header class="tn-header" role="banner">
+    <nav class="navbar navbar-expand-lg py-2" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand tn-header__brand" href="../../index.html" aria-label="ToolNest Home">
+          <img src="../../assets/img/logo.svg" alt="ToolNest - Free Online Tools" class="tn-header__logo" width="180" height="38">
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#tnMainNav" aria-controls="tnMainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2 text-dark" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="tnMainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../tools/index.html">All Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tn-header__nav-link" href="../../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="tn-header__search-wrap mt-2 mt-lg-0">
+            <label for="tn-header-search" class="visually-hidden">Search tools</label>
+            <i class="bi bi-search tn-header__search-icon" aria-hidden="true"></i>
+            <input type="search" id="tn-header-search" class="form-control tn-header__search-input" placeholder="Search tools (e.g. PDF, Bijoy, QR)..." autocomplete="off">
+            <div id="tn-header-search-results" class="tn-search-results" role="region" aria-label="Search suggestions"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- Top Leaderboard Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--leaderboard" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Responsive Leaderboard Ad Slot (728 &times; 90 / 320 &times; 50)</div>
+    </aside>
+  </div>
+
+  <main id="main-content" class="py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <nav aria-label="Breadcrumb" class="tn-breadcrumb">
+            <ol class="breadcrumb mb-2">
+              <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="../../tools/index.html">Tools</a></li>
+              <li class="breadcrumb-item active" aria-current="page">JSON Formatter &amp; Minifier</li>
+            </ol>
+          </nav>
+
+          <h1 class="tn-page-title">JSON Formatter &amp; Minifier</h1>
+          <p class="text-muted mb-3">
+            Format, pretty-print, validate, and minify JSON data directly in your browser. Ideal for inspecting API responses and configuration files without sending sensitive payloads to a server.
+          </p>
+
+          <!-- TOOL AREA START -->
+          <section class="tn-tool-workspace" aria-label="JSON Formatter Workspace">
+            <span class="tn-privacy-banner">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              100% Client-Side &bull; JSON Payloads Never Leave Your Browser
+            </span>
+
+            <div class="row g-3 mb-3">
+              <div class="col-12">
+                <label for="jf-input" class="form-label small mb-2 fw-bold">Input JSON</label>
+                <textarea id="jf-input" class="form-control font-monospace" rows="6" placeholder='Paste JSON here... e.g. {"name":"ToolNest","tools":["converter","generator"]}'></textarea>
+              </div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button id="jf-format" class="btn btn-primary flex-grow-1" type="button"><i class="bi bi-braces me-1" aria-hidden="true"></i> Format JSON</button>
+              <button id="jf-minify-btn" class="btn btn-outline-secondary flex-grow-1" type="button"><i class="bi bi-arrows-angle-down-up me-1" aria-hidden="true"></i> Minify JSON</button>
+            </div>
+
+            <div class="mt-3">
+              <label for="jf-output" class="form-label small mb-2 fw-bold">Output JSON</label>
+              <textarea id="jf-output" class="form-control font-monospace" rows="6" readonly></textarea>
+            </div>
+
+            <div class="mt-3 d-flex gap-2">
+              <button id="jf-copy" class="btn btn-sm btn-outline-primary" type="button">Copy Output</button>
+              <button id="jf-reset" class="btn btn-sm btn-secondary" type="button">Reset</button>
+            </div>
+
+            <div class="mt-3 small text-muted">
+              <span>Status: <span id="jf-status">Ready</span></span>
+            </div>
+          </section>
+          <!-- TOOL AREA END -->
+
+          <!-- In-Content Ad Slot -->
+          <aside class="tn-ad-slot tn-ad-slot--incontent" aria-label="Advertisement">
+            <span class="tn-ad-slot__label">Advertisement</span>
+            <div class="tn-ad-slot__placeholder">In-Content Responsive Ad Slot</div>
+          </aside>
+
+          <!-- How to Use Steps -->
+          <section class="tn-card mb-4" aria-labelledby="how-to-heading">
+            <h2 id="how-to-heading" class="tn-section-title">How to Format or Minify JSON</h2>
+            <ol class="mb-0 ps-3">
+              <li class="mb-2">
+                <strong>Step 1 — Paste Your JSON:</strong> Enter or paste any raw JSON object or array into the <em>Input JSON</em> box.
+              </li>
+              <li class="mb-2">
+                <strong>Step 2 — Choose Format or Minify:</strong> Click <strong>Format JSON</strong> for clean 2-space indentation, or click <strong>Minify JSON</strong> to compact it into a single line.
+              </li>
+              <li>
+                <strong>Step 3 — Copy the Output:</strong> Check the status line for validation feedback and click <strong>Copy Output</strong> to copy the result to your clipboard.
+              </li>
+            </ol>
+          </section>
+
+          <!-- 5-Question FAQ Section -->
+          <section class="mb-4" aria-labelledby="tool-faq-heading">
+            <h2 id="tool-faq-heading" class="tn-section-title">Frequently Asked Questions</h2>
+            <div class="accordion tn-faq" id="jfFaqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="jfFaq1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#jfFaqCol1" aria-expanded="true" aria-controls="jfFaqCol1">
+                    1. Does this JSON Formatter upload my API payloads to a server?
+                  </button>
+                </h3>
+                <div id="jfFaqCol1" class="accordion-collapse collapse show" aria-labelledby="jfFaq1" data-bs-parent="#jfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    No. All JSON parsing, formatting, and minifying runs 100% locally in your browser using JavaScript's native <code>JSON.parse</code> and <code>JSON.stringify</code> functions.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="jfFaq2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jfFaqCol2" aria-expanded="false" aria-controls="jfFaqCol2">
+                    2. What is the difference between Format JSON and Minify JSON?
+                  </button>
+                </h3>
+                <div id="jfFaqCol2" class="accordion-collapse collapse" aria-labelledby="jfFaq2" data-bs-parent="#jfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    <strong>Format JSON</strong> adds 2-space indentation and line breaks so nested objects and arrays are easy to read. <strong>Minify JSON</strong> strips all unnecessary whitespace to reduce size.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="jfFaq3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jfFaqCol3" aria-expanded="false" aria-controls="jfFaqCol3">
+                    3. Will the tool tell me if my JSON is invalid?
+                  </button>
+                </h3>
+                <div id="jfFaqCol3" class="accordion-collapse collapse" aria-labelledby="jfFaq3" data-bs-parent="#jfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. If there is a syntax error such as a trailing comma, missing quote, or unclosed bracket, the status indicator displays the exact parser error message.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="jfFaq4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jfFaqCol4" aria-expanded="false" aria-controls="jfFaqCol4">
+                    4. Can I format JSON containing Bangla or Unicode characters?
+                  </button>
+                </h3>
+                <div id="jfFaqCol4" class="accordion-collapse collapse" aria-labelledby="jfFaq4" data-bs-parent="#jfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    Yes. UTF-8 strings including Bangla text and emojis are preserved accurately when formatting or minifying.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="jfFaq5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jfFaqCol5" aria-expanded="false" aria-controls="jfFaqCol5">
+                    5. Why do single quotes or trailing commas cause an error in JSON?
+                  </button>
+                </h3>
+                <div id="jfFaqCol5" class="accordion-collapse collapse" aria-labelledby="jfFaq5" data-bs-parent="#jfFaqAccordion">
+                  <div class="accordion-body text-muted">
+                    The official JSON standard (RFC 8259) requires double quotes around all keys and string values and does not allow trailing commas after the last element in an object or array.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Related Tools -->
+          <section aria-labelledby="related-heading">
+            <h2 id="related-heading" class="tn-section-title">Related Tools You May Need</h2>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/developer-webmaster-tools/index.html" class="stretched-link text-reset">Developer Tools Suite</a></h3>
+                  <p class="small text-muted mb-0">Base64, URL encoder, UUID, SHA hash, and CSS helpers.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/meta-tag-generator/index.html" class="stretched-link text-reset">Meta Tag Generator</a></h3>
+                  <p class="small text-muted mb-0">Generate SEO, Open Graph, and Twitter Card meta tags.</p>
+                </article>
+              </div>
+              <div class="col-md-4">
+                <article class="tn-tool-card p-3">
+                  <h3 class="h6 fw-bold mb-1"><a href="../../tools/robots-txt-generator/index.html" class="stretched-link text-reset">Robots.txt Generator</a></h3>
+                  <p class="small text-muted mb-0">Create crawler rules and sitemap declarations for your site.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Desktop Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="tn-sidebar-sticky">
+            <aside class="tn-ad-slot tn-ad-slot--sidebar" aria-label="Advertisement">
+              <span class="tn-ad-slot__label">Advertisement</span>
+              <div class="tn-ad-slot__placeholder">Sticky Sidebar Ad Slot (300 &times; 250)</div>
+            </aside>
+
+            <div class="tn-card">
+              <h2 class="h6 fw-bold mb-3"><i class="bi bi-grid-fill text-primary me-1" aria-hidden="true"></i> Quick Tool Navigation</h2>
+              <ul class="list-unstyled mb-0 small">
+                <li class="mb-2"><a href="../../tools/developer-webmaster-tools/index.html" class="fw-medium">Developer &amp; Webmaster Tools</a></li>
+                <li class="mb-2"><a href="../../tools/password-generator/index.html" class="fw-medium">Strong Password Generator</a></li>
+                <li class="mb-2"><a href="../../tools/meta-tag-generator/index.html" class="fw-medium">SEO Meta Tag Generator</a></li>
+                <li class="mb-2"><a href="../../tools/robots-txt-generator/index.html" class="fw-medium">Robots.txt Generator</a></li>
+                <li class="mb-2"><a href="../../tools/text-tools/index.html" class="fw-medium">Text Tools &amp; Word Counter</a></li>
+                <li class="mb-0"><a href="../../tools/utm-link-builder/index.html" class="fw-medium">UTM Campaign Link Builder</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Above Footer Ad Slot -->
+  <div class="container">
+    <aside class="tn-ad-slot tn-ad-slot--footer" aria-label="Advertisement">
+      <span class="tn-ad-slot__label">Advertisement</span>
+      <div class="tn-ad-slot__placeholder">Above-Footer Banner Ad Slot (728 &times; 90 / Responsive)</div>
+    </aside>
+  </div>
+
+  <!-- FOOTER START -->
+  <footer class="tn-footer" role="contentinfo">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-3">
+          <a href="../../index.html" class="d-inline-block mb-3" aria-label="ToolNest Home">
+            <img src="../../assets/img/logo.svg" alt="ToolNest Logo" width="170" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+          </a>
+          <p class="small mb-3">
+            <strong>ToolNest</strong> — Free online tools that just work. All utilities run 100% in your browser so your files and data never leave your device.
+          </p>
+          <span class="badge bg-success bg-opacity-25 text-white border border-success border-opacity-50 px-3 py-2">
+            <i class="bi bi-lock-fill me-1" aria-hidden="true"></i> 100% Client-Side Privacy
+          </span>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h2 class="tn-footer__title">Popular Tools</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/bijoy-to-unicode/index.html" class="tn-footer__link">Bijoy to Unicode</a></li>
+            <li><a href="../../tools/amount-to-words/index.html" class="tn-footer__link">Amount to Words</a></li>
+            <li><a href="../../tools/currency-converter/index.html" class="tn-footer__link">Currency Converter</a></li>
+            <li><a href="../../tools/land-area-converter/index.html" class="tn-footer__link">Land Area Converter</a></li>
+            <li><a href="../../tools/age-calculator/index.html" class="tn-footer__link">Age Calculator</a></li>
+            <li><a href="../../tools/bangla-typing-test/index.html" class="tn-footer__link">Bangla Typing Test</a></li>
+            <li><a href="../../tools/passport-photo-maker/index.html" class="tn-footer__link">Passport Photo Maker</a></li>
+            <li><a href="../../tools/invoice-generator/index.html" class="tn-footer__link">Invoice &amp; Courier Slip</a></li>
+            <li><a href="../../tools/discount-vat-profit-calculator/index.html" class="tn-footer__link">Discount, VAT &amp; Profit</a></li>
+            <li><a href="../../tools/utm-link-builder/index.html" class="tn-footer__link">UTM Link Builder</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-4">
+          <h2 class="tn-footer__title">Image, PDF &amp; Text Utilities</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/image-compressor/index.html" class="tn-footer__link">Image Compressor</a></li>
+            <li><a href="../../tools/image-resizer/index.html" class="tn-footer__link">Image Resizer</a></li>
+            <li><a href="../../tools/bulk-image-resizer/index.html" class="tn-footer__link">Bulk Image Resizer</a></li>
+            <li><a href="../../tools/image-format-converter/index.html" class="tn-footer__link">Image Format Converter</a></li>
+            <li><a href="../../tools/color-picker/index.html" class="tn-footer__link">Color Picker &amp; Eyedropper</a></li>
+            <li><a href="../../tools/pdf-merge-split/index.html" class="tn-footer__link">PDF Merge &amp; Split</a></li>
+            <li><a href="../../tools/pdf-to-word/index.html" class="tn-footer__link">PDF to MS Word</a></li>
+            <li><a href="../../tools/pdf-to-excel/index.html" class="tn-footer__link">PDF to MS Excel</a></li>
+            <li><a href="../../tools/word-to-pdf/index.html" class="tn-footer__link">MS Word to PDF</a></li>
+            <li><a href="../../tools/excel-to-pdf/index.html" class="tn-footer__link">MS Excel to PDF</a></li>
+            <li><a href="../../tools/image-to-pdf/index.html" class="tn-footer__link">Image to PDF</a></li>
+            <li><a href="../../tools/pdf-to-jpg/index.html" class="tn-footer__link">PDF to JPG &amp; PNG</a></li>
+            <li><a href="../../tools/qr-code-generator/index.html" class="tn-footer__link">QR Code Generator</a></li>
+            <li><a href="../../tools/text-tools/index.html" class="tn-footer__link">Text Tools &amp; Counter</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2">
+          <h2 class="tn-footer__title">Company &amp; Legal</h2>
+          <ul class="tn-footer__list">
+            <li><a href="../../tools/index.html" class="tn-footer__link">All Tools (36)</a></li>
+            <li><a href="../../pages/about.html" class="tn-footer__link">About Us</a></li>
+            <li><a href="../../pages/contact.html" class="tn-footer__link">Contact Us</a></li>
+            <li><a href="../../pages/privacy-policy.html" class="tn-footer__link">Privacy Policy</a></li>
+            <li><a href="../../pages/terms.html" class="tn-footer__link">Terms of Service</a></li>
+            <li><a href="../../pages/disclaimer.html" class="tn-footer__link">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row justify-content-between align-items-center small text-secondary gap-2">
+        <p class="mb-0">&copy; 2026 ToolNest. All rights reserved. Built for Global &amp; Bangladesh users.</p>
+        <p class="mb-0">Fast, accessible, zero-upload browser tools.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/tools/json-formatter.js" defer></script>
+</body>
+</html>

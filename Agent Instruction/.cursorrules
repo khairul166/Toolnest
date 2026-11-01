@@ -1,0 +1,51 @@
+# .cursorrules — ToolNest WordPress Theme
+
+You are converting the static ToolNest HTML template into a WordPress classic theme (`wp-content/themes/toolnest`) and companion plugin (`wp-content/plugins/toolnest-core`). The owner prefers to be addressed as "boss" and wants a short "why" for non-obvious decisions.
+
+## BEFORE ANY TASK (every session, no exceptions)
+1. Read ALL of: docs/01_PRD.md, docs/02_AppFlow.md, docs/03_UI_Spec.md, docs/04_TRD.md, docs/05_Schema.md, docs/06_Plan.md (in that order). Do not rely on earlier memory of them.
+2. In docs/06_Plan.md find "Current step" and the first unticked step whose `needs:` IDs are all ticked. That is your task unless the owner says otherwise.
+3. Say in one sentence which step you are doing and which doc sections apply.
+4. If a request conflicts with a doc, STOP and quote the conflicting section. Never silently choose.
+
+## HARD RULES
+- Locked stack only (docs/04_TRD.md). No new plugins, libraries, frameworks, build tools, Composer/npm packages. Unsure → ask.
+- Respect Non-Goals (docs/01_PRD.md §6): no user accounts, no server-side file processing, no block theme/FSE, no page builders/ACF, no new tools, no redesign, no rewriting tool logic.
+- Design tokens are law (docs/03_UI_Spec.md): use var(--tn-*); no new hex colours/fonts/radii/shadows.
+- source-html/ is READ-ONLY. Never modify it.
+- Do not invent schema, meta keys, option names, REST routes, class names. Use docs/05_Schema.md and docs/02_AppFlow.md exactly. Need a new one → propose, get approval, update the doc FIRST.
+- Theme must not fatal if the plugin is inactive (hooks + function_exists/has_action).
+- Tool JS is WordPress-agnostic: no wp.*, no ajaxurl; config via data-tn-config JSON.
+- Never edit WordPress core, never put secrets in the repo.
+
+## SECURITY (every change)
+- Sanitize on input, escape late on output (esc_html/esc_attr/esc_url/wp_kses_post, wp_json_encode for JSON).
+- Nonce + capability check on every admin action; permission_callback on every REST route.
+- $wpdb->prepare() for any SQL; use WP APIs first (WP_Query, Settings API, dbDelta).
+- No cookies, no tracking, no external requests beyond docs/04_TRD.md §3.
+
+## CODE STYLE
+- WordPress Coding Standards (PHPCS must report 0 errors: `vendor/bin/phpcs`).
+- Every PHP file starts with `defined( 'ABSPATH' ) || exit;`.
+- Prefixes: functions `tn_`, hooks `toolnest_*`, namespaces ToolNest\Core\ / ToolNest\Theme\, meta `_tn_*`, options `tn_*`, CSS `tn-*`, JS global `window.TN`, text domain `toolnest`.
+- Enqueue via wp_enqueue_* only. Inline script/style only for: head theme-bootstrap one-liner, tn-custom-vars style block, JSON config via wp_json_encode.
+- Vanilla JS, no jQuery, no bundler. Load vendor libs only on the tool pages that declare them.
+- Use Windows-friendly commands (PowerShell/Node); no bash-only syntax.
+
+## WORKFLOW
+- One plan step at a time, small focused diffs, no unrelated refactors.
+- Check UI changes in light + dark and at 375px + 1280px against the matching static page.
+- Verify: PHPCS clean, no PHP notices (WP_DEBUG on), no JS console errors.
+
+## AFTER EVERY COMPLETED STEP — UPDATE docs/06_Plan.md (REQUIRED)
+1. Tick ONLY that step: `- [ ]` → `- [x]`.
+2. Append to Change Log: `YYYY-MM-DD · STEP-ID · what changed · files touched`.
+3. Update Progress Board counts and set "Current step" to the next eligible ID; update "Last updated".
+4. Blocker or owner decision needed → add a row to Decisions Log and stop that thread.
+Never tick partly-done steps. If a step is too big, split it (e.g. P2-08a) and log why.
+
+## IF DOCS MUST CHANGE
+Describe the problem and proposed change → wait for approval → update the doc first → log it → then code. Code and docs must never disagree.
+
+## COMMUNICATION
+Concise: what you did → what to check → next step. Offer 2 options + a recommendation when trade-offs exist. Ask one precise question instead of guessing.
